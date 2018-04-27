@@ -1,13 +1,14 @@
 public class Scoring
 {  
+    //Main method
     public static void main(String args[])
     {
-        int[] a = {100, 90, 90, 90, 90, 90, 90, 10, 10};
-        DanceComp d = new DanceComp(10, 10);
-        d.printA(d.getA());
-        System.out.print("" + d.first());
+        DanceComp d = new DanceComp(10, 10); //Create a new DanceComp with 10 events and 10 couples
+        d.printA(d.getA()); //Print out the array
+        System.out.print("" + d.first()); //Print out the highest score and how many couples got the highest score 
     }
     
+    //Counts the amount of times that target appears in array scores
     public static int countOccurences(int[] scores, int target) {
         int times = 0;
         for(int i : scores) {
@@ -16,6 +17,7 @@ public class Scoring
         return times;
     }
     
+    //Prints out an array in which array[0] is the maximum score in array scores and array[1] is the minimum score in array scores
     public static int[] findMaxAndMin(int[] scores) {
         int[] a = new int[2];
         int low = 100;
@@ -29,6 +31,9 @@ public class Scoring
         return a;
     }
     
+    /* Prints out the average score for array scores
+        - If array scores is >= 6, and the maximum value appears once, then exclude the value, same thing with the minimum value
+    */
     public static double averageScore(int[] scores) {
         int tot = 0;
         int div = 0;

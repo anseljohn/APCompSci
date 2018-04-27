@@ -1,6 +1,13 @@
+/*
+    DanceComp class represents Couples who participate in events in which 8 judges give their scores from 90-99.
+*/
+
 public class DanceComp{
+    // a var for holding all couples in all events and all their scores from the 8 judges
     private int[][][] a;
-    public DanceComp(int events, int couples) {
+
+    //Constructor fills array with random scores from 90-99
+    public DanceComp(int events, int couples) { //takes in input for amount of events and couples
         a = new int[couples][events][8];
         for(int y = 0; y < a.length; y++) {
             for(int x = 0; x < a[y].length; x++) {
@@ -11,6 +18,7 @@ public class DanceComp{
         }
     }
     
+    //Returns a now 2d array holding each couple's average score per event
     public double[][] averages() {
         double[][] scores = new double[a.length][a[0].length];
         for(int y = 0; y < scores.length; y++) {
@@ -21,6 +29,7 @@ public class DanceComp{
         return scores;
     }
     
+    //Final scores are the total scores of each couple's events
     public int[] finalScores() {
         double[][] toSum = averages();
         int[] finalScores = new int[toSum.length];
@@ -34,14 +43,17 @@ public class DanceComp{
         return finalScores;
     }
     
+    //Prints out the highest score, and how many couples got the highest score
     public String first() {
         return ("Highest score: " + Scoring.findMaxAndMin(finalScores())[0] + "\n" + Scoring.countOccurences(finalScores(), Scoring.findMaxAndMin(finalScores())[0]) + " tied for first!");
     }
 
+    //Getter for the a array
     public int[][][] getA() {
         return a;
     }
 
+    //Prints out all the values of the a array
     public void printA(int[][][] mat) {
         for(int[][] x: mat) {
             System.out.print(" { ");
