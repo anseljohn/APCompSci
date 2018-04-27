@@ -3,7 +3,7 @@ public class Scoring
     public static void main(String args[])
     {
         int[] a = {100, 90, 90, 90, 90, 90, 90, 10, 10};
-        DanceComp d = new DanceComp(700, 700);
+        DanceComp d = new DanceComp(10, 10);
         d.printA(d.getA());
         System.out.print("" + d.first());
     }
