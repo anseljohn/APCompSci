@@ -7,6 +7,9 @@ public class Password {
     private ArrayList<Character> specialChars;
     private static String specialCharsStr = "~`!@#$%^&*()+=_-{}[]\\|:;”’?/<>,.";
 
+    public Password() {
+        pass = "";
+    }
     public Password(String password) {
         pass = password;
         for(int i = 0; i < specialCharsStr.length(); i++) specialChars.add(specialCharsStr.charAt(i));
