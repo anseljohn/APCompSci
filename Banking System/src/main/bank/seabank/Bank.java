@@ -1,3 +1,5 @@
+package main.bank.seabank;
+
 import java.util.ArrayList;
 
 public class Bank {

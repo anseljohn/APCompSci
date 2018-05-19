@@ -1,3 +1,5 @@
+package main.bank.seabank;
+
 public abstract class Account {
     private double balance;
     private int accNumber;

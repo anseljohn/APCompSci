@@ -1,9 +1,11 @@
+package main.bank.seabank;
+
 import java.util.ArrayList;
 
 public class Password {
     private String pass;
     private ArrayList<Character> specialChars;
-    private String specialCharsStr = "~`!@#$%^&*()+=_-{}[]\\|:;”’?/<>,.";
+    private static String specialCharsStr = "~`!@#$%^&*()+=_-{}[]\\|:;”’?/<>,.";
 
     public Password(String password) {
         pass = password;
@@ -18,8 +20,8 @@ public class Password {
         boolean hasDigit = false;
 
         for(int i = 0; i < pass.length(); i++) {
-            if((pass.charAt(i) + "").equals((pass.charAt(i) + "").toUpperCase())) hasUpperCase = true;
-            if((pass.charAt(i) + "").equals((pass.charAt(i) + "").toLowerCase())) hasLowerCase = true;
+            if(Character.isLetter(pass.charAt(i)) && (pass.charAt(i) + "").equals((pass.charAt(i) + "").toUpperCase())) hasUpperCase = true;
+            if(Character.isLetter(pass.charAt(i)) && (pass.charAt(i) + "").equals((pass.charAt(i) + "").toLowerCase())) hasLowerCase = true;
             if((pass.charAt(i) + "").equals(i + "")) hasDigit = true;
             for(Character s : specialChars) {
                 if(pass.charAt(i) == s) {
@@ -33,6 +35,9 @@ public class Password {
         if(!hasLowerCase) System.out.println("Password must have at least 1 uppercase letter.");
         if(!hasUpperCase) System.out.println("Password must have at least 1 lowercase letter.");
         if(!hasDigit) System.out.println("Password must have at least one digit.");
+    }
 
+    public static String getSpecialChars() {
+        return specialCharsStr;
     }
 }
