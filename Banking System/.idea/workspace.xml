@@ -47,9 +47,11 @@
           <file leaf-file-name="Password.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Password.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+                <state relative-caret-position="465">
+                  <caret line="31" column="17" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
                   <folding>
+                    <element signature="e#257#258#0" expanded="true" />
+                    <element signature="e#281#282#0" expanded="true" />
                     <element signature="e#1762#1763#0" expanded="true" />
                     <element signature="e#1778#1779#0" expanded="true" />
                   </folding>
@@ -64,8 +66,8 @@
           <file leaf-file-name="PasswordTest.groovy" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/tests/bank/seabank/PasswordTest.groovy">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="19" column="102" selection-start-line="19" selection-start-column="102" selection-end-line="19" selection-end-column="102" />
+                <state relative-caret-position="225">
+                  <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
                   <folding>
                     <element signature="e#28#61#0" expanded="true" />
                   </folding>
@@ -133,35 +135,6 @@
             <path>
               <item name="Banking System" type="b2602c69:ProjectViewProjectNode" />
               <item name="Banking System" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="junit-4.12.jar" type="ab9368bb:PsiFileNode" />
-            </path>
-            <path>
-              <item name="Banking System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Banking System" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="junit-4.12.jar" type="ab9368bb:PsiFileNode" />
-              <item name="junit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Banking System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Banking System" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="junit-4.12.jar" type="ab9368bb:PsiFileNode" />
-              <item name="junit" type="462c0819:PsiDirectoryNode" />
-              <item name="matchers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Banking System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Banking System" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="junit-4.12.jar" type="ab9368bb:PsiFileNode" />
-              <item name="junit" type="462c0819:PsiDirectoryNode" />
-              <item name="validator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Banking System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Banking System" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -186,11 +159,14 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Groovy JUnit" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit" value="groovy.util.GroovyTestCase" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/java-json.jar" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -504,9 +480,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Password.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+        <state relative-caret-position="465">
+          <caret line="31" column="17" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
           <folding>
+            <element signature="e#257#258#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
             <element signature="e#1762#1763#0" expanded="true" />
             <element signature="e#1778#1779#0" expanded="true" />
           </folding>
@@ -515,8 +493,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/bank/seabank/PasswordTest.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="102" selection-start-line="19" selection-start-column="102" selection-end-line="19" selection-end-column="102" />
+        <state relative-caret-position="225">
+          <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
           <folding>
             <element signature="e#28#61#0" expanded="true" />
           </folding>
@@ -540,7 +518,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -575,7 +553,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>Banking System</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -588,7 +566,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>java-json</last-edited>
+          <last-edited>junit-4.12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
