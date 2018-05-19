@@ -1,8 +1,10 @@
 public abstract class Account {
     private double balance;
+    private int accNumber;
 
-    public Account(double startingBalance) {
+    public Account(double startingBalance, int accountNumber, Password p) {
         balance = startingBalance;
+        accNumber = accountNumber;
     }
 
     public void deposit(double amount) {
