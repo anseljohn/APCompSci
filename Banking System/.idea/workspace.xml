@@ -47,13 +47,14 @@
           <file leaf-file-name="Password.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Password.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="465">
-                  <caret line="31" column="17" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+                <state relative-caret-position="402">
+                  <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
                   <folding>
+                    <element signature="e#167#178#0" expanded="true" />
                     <element signature="e#257#258#0" expanded="true" />
                     <element signature="e#281#282#0" expanded="true" />
-                    <element signature="e#1762#1763#0" expanded="true" />
-                    <element signature="e#1778#1779#0" expanded="true" />
+                    <element signature="e#1790#1791#0" expanded="true" />
+                    <element signature="e#1828#1829#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -67,7 +68,7 @@
             <entry file="file://$PROJECT_DIR$/src/tests/bank/seabank/PasswordTest.groovy">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="225">
-                  <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
+                  <caret line="15" column="64" lean-forward="true" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
                   <folding>
                     <element signature="e#28#61#0" expanded="true" />
                   </folding>
@@ -104,16 +105,16 @@
         <option value="$PROJECT_DIR$/src/main/bank/seabank/Account.java" />
         <option value="$PROJECT_DIR$/src/main/bank/seabank/Bank.java" />
         <option value="$PROJECT_DIR$/src/main/bank/seabank/CheckingAccount.java" />
-        <option value="$PROJECT_DIR$/src/main/bank/seabank/Password.java" />
         <option value="$PROJECT_DIR$/src/tests/bank/seabank/PasswordTest.groovy" />
+        <option value="$PROJECT_DIR$/src/main/bank/seabank/Password.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="788" />
-    <option name="y" value="-4" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="36" />
     <option name="width" value="1853" />
-    <option name="height" value="1048" />
+    <option name="height" value="1020" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -159,7 +160,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Groovy JUnit" />
@@ -274,23 +275,38 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="PasswordTest - 2018.05.19 at 16h 51m 16s.xml">
+      <configuration name="PasswordTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PasswordTest - 2018.05.19 at 16h 52m 39s.xml">
+      <configuration name="PasswordTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PasswordTest - 2018.05.19 at 16h 53m 14s.xml">
+      <configuration name="PasswordTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PasswordTest - 2018.05.19 at 16h 54m 24s.xml">
+      <configuration name="PasswordTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="36" width="1853" height="1020" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" visible="true" weight="0.32991803" />
+      <window_info anchor="bottom" id="Messages" weight="0.32991803" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32991803" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35307017" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" x="283" y="93" width="280" height="976" id="Project" order="0" side_tool="true" visible="true" weight="0.1509434" />
+      <window_info content_ui="combo" x="283" y="93" width="280" height="976" id="Project" order="0" side_tool="true" visible="true" weight="0.15110631" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -478,25 +494,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Password.java">
+    <entry file="file://$PROJECT_DIR$/src/tests/bank/seabank/PasswordTest.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="17" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+        <state relative-caret-position="225">
+          <caret line="15" column="64" lean-forward="true" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
           <folding>
-            <element signature="e#257#258#0" expanded="true" />
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#1762#1763#0" expanded="true" />
-            <element signature="e#1778#1779#0" expanded="true" />
+            <element signature="e#28#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/bank/seabank/PasswordTest.groovy">
+    <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Password.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
+        <state relative-caret-position="402">
+          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
           <folding>
-            <element signature="e#28#61#0" expanded="true" />
+            <element signature="e#167#178#0" expanded="true" />
+            <element signature="e#257#258#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#1790#1791#0" expanded="true" />
+            <element signature="e#1828#1829#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -566,7 +583,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>junit-4.12</last-edited>
+          <last-edited>org.hamcrest:hamcrest-library:1.2.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -8,7 +8,7 @@ class PasswordTest extends Password {
     Password tooShort = new Password("Ab1!");
     Password tooLong = new Password("Abcd1234567890!");
     Password noSpecials = new Password("Abcd123");
-    Password noUpperCase = new Password("abcd123");
+    Password noUpperCase = new Password("abcd12!");
     Password noLowerCase = new Password("ABCD123");
 
     @Test
