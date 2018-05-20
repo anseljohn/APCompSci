@@ -27,5 +27,8 @@ public class Main {
         System.out.println("--Create Account--");
         System.out.print(">> ");
 
+        Account a = new CheckingAccount(123.0, 1234, new Password("Abc123!"));
+        a.deposit(200.0);
+
     }
 }

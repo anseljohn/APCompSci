@@ -43,4 +43,5 @@ public class Password {
     public static String getSpecialChars() {
         return specialCharsStr;
     }
+    public String getPass() { return pass; }
 }

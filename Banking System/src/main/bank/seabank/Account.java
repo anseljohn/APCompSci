@@ -14,27 +14,32 @@ public abstract class Account {
         balance = startingBalance;
         accNumber = accountNumber;
         accPass = p;
-        new File("/home/xephy/Desktop/Dev/APCompSci/Banking System/UserAccs/" + accNumber + ".txt");
+        writeToFile();
     }
 
     public void deposit(double amount) {
         balance += amount;
+        writeToFile();
     }
 
     public void withdraw(double amount) {
         balance -= amount;
+        writeToFile();
     }
 
     public abstract void transaction(double amount, String typeOfCard);
 
     public void writeToFile() {
         try {
-            PrintWriter write = new PrintWriter(accNumber + ".txt", "UTF-8");
+            PrintWriter writer = new PrintWriter("/home/xephy/Desktop/Dev/APCompSci/Banking System/UserAccs/" + accNumber + ".txt", "UTF-8");
+            writer.println("\"accNumber\":" + accNumber);
+            writer.println("\"pass\":\"" + accPass.getPass() + "\"");
+            writer.println("\"balance\":" + balance);
+            writer.close();
         } catch(FileNotFoundException e) {
             System.out.println("U bad where's ur file");
         } catch(UnsupportedEncodingException e) {
             System.out.println("haha u bad encoding bad ha");
         }
-
     }
 }
