@@ -15,6 +15,6 @@ public class CheckingAccount extends Account{
     }
 
     public void transaction(double amount, Payment typeOfPayment) {
-        
+
     }
 }

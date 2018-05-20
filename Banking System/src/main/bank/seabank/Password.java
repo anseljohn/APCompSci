@@ -1,6 +1,7 @@
 package main.bank.seabank;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Password {
     private String pass;
@@ -13,9 +14,17 @@ public class Password {
     public Password(String password) {
         pass = password;
         for(int i = 0; i < specialCharsStr.length(); i++) specialChars.add(specialCharsStr.charAt(i));
+        verifyPassword();
     }
 
-    public void verifyPassword() {
+    public void setPassword() {
+        Scanner s = new Scanner(System.in);
+        pass = s.nextLine();
+        System.out.print("\n>> ");
+        verifyPassword();
+    }
+
+    public boolean verifyPassword() {
         boolean hasSpecialChar = false;
         boolean hasUpperCase = false;
         boolean hasLowerCase = false;
@@ -32,12 +41,31 @@ public class Password {
             }
         }
 
-        if(pass.length() < 5 || pass.length() > 13) System.out.println("Password must be between 5-13 characters.");
-        if(!hasSpecialChar) System.out.println("Password must contain at least one special character. (" + specialCharsStr + ")");
-        if(!hasUpperCase) System.out.println("Password must have at least 1 uppercase letter.");
-        if(!hasLowerCase) System.out.println("Password must have at least 1 lowercase letter.");
-        if(!hasDigit) System.out.println("Password must have at least one digit.");
-        else System.out.println( "Password set");
+        if(pass.length() < 5 || pass.length() > 13) {
+            System.out.println("Password must be between 5-13 characters.");
+            setPassword();
+        }
+        if(!hasSpecialChar) {
+            System.out.println("Password must contain at least one special character. (" + specialCharsStr + ")");
+            setPassword();
+        }
+        if(!hasUpperCase) {
+            System.out.println("Password must have at least 1 uppercase letter.");
+            setPassword();
+        }
+        if(!hasLowerCase) {
+            System.out.println("Password must have at least 1 lowercase letter.");
+            setPassword();
+        }
+        if(!hasDigit) {
+            System.out.println("Password must have at least one digit.");
+            setPassword();
+        }
+        else {
+            System.out.println( "Password set");
+            return true;
+        }
+        return false;
     }
 
     public static String getSpecialChars() {
