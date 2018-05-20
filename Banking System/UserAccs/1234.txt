@@ -1,3 +1,0 @@
-"accNumber":1234
-"pass":"Abc123!"
-"balance":323.0

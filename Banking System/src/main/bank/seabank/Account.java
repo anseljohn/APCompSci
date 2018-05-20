@@ -17,6 +17,10 @@ public abstract class Account {
         writeToFile();
     }
 
+    enum Payment {
+        DEBIT, CREDIT, CHECK;
+    }
+
     public void deposit(double amount) {
         balance += amount;
         writeToFile();
@@ -27,7 +31,7 @@ public abstract class Account {
         writeToFile();
     }
 
-    public abstract void transaction(double amount, String typeOfCard);
+    public abstract void transaction(double amount, Payment typeOfPayment);
 
     public void writeToFile() {
         try {

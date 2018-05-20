@@ -14,7 +14,7 @@ public class CheckingAccount extends Account{
         startDate = new Date();
     }
 
-    public void transaction(double amount, String typeOfCard) {
-
+    public void transaction(double amount, Payment typeOfPayment) {
+        
     }
 }
