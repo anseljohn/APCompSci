@@ -4,6 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 
 public abstract class Account {
     private double balance;
@@ -35,15 +40,26 @@ public abstract class Account {
 
     public void writeToFile() {
         try {
-            PrintWriter writer = new PrintWriter(System.getProperty("user.dir") + "/UserAccs/" + accNumber + ".txt", "UTF-8");
-            writer.println("\"accNumber\":" + accNumber);
-            writer.println("\"pass\":\"" + accPass.getPass() + "\"");
-            writer.println("\"balance\":" + balance);
-            writer.close();
+            PrintWriter accInfo = new PrintWriter(System.getProperty("user.dir") + "/UserAccs/" + accNumber + ".txt", "UTF-8");
+            accInfo.println(accNumber + ":" + balance);
+            accInfo.close();
+
+            PrintWriter passWriter = new PrintWriter(System.getProperty("user.dir") + "/UserPass/" + accNumber + "pass.txt", "UTF-8");
+
         } catch(FileNotFoundException e) {
             System.out.println("U bad where's ur file");
         } catch(UnsupportedEncodingException e) {
             System.out.println("haha u bad encoding bad ha");
         }
     }
+
+//    public String encryptPass() {
+//        try {
+//            KeyGenerator keyGen = KeyGenerator.getInstance("DES");
+//            SecretKey key = keyGen.generateKey();
+//
+//            Cipher cipher = Cipher.getInstance("DES");
+//            byte[] decPass = accPass.getBytes("UTF-8");
+//        }
+//    }
 }

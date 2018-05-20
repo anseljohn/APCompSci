@@ -36,9 +36,11 @@ public class Main {
         }
     }
 
-//    public static void login() {
-//        System.out.print("Account number: ");
-//        int login_accNum = s.nextInt();
-//        if(new File(System.getProperty("user.dir").exists()));
-//    }
+    public static void login() {
+        System.out.print("Account number: ");
+        int login_accNum = s.nextInt();
+        if(new File(System.getProperty("user.dir") + "/" + login_accNum + ".txt").exists()) {
+            System.out.println("");
+        }
+    }
 }
