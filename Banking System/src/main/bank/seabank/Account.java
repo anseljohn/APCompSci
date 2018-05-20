@@ -35,7 +35,7 @@ public abstract class Account {
 
     public void writeToFile() {
         try {
-            PrintWriter writer = new PrintWriter("/home/xephy/Desktop/Dev/APCompSci/Banking System/UserAccs/" + accNumber + ".txt", "UTF-8");
+            PrintWriter writer = new PrintWriter(System.getProperty("user.dir") + "/UserAccs/" + accNumber + ".txt", "UTF-8");
             writer.println("\"accNumber\":" + accNumber);
             writer.println("\"pass\":\"" + accPass.getPass() + "\"");
             writer.println("\"balance\":" + balance);
