@@ -1,5 +1,7 @@
 package main.bank.seabank;
 
+import java.io.File;
+
 public abstract class Account {
     private double balance;
     private int accNumber;
@@ -9,6 +11,7 @@ public abstract class Account {
         balance = startingBalance;
         accNumber = accountNumber;
         accPass = p;
+        new File("/home/xephy/Desktop/Dev/APCompSci/Banking System/UserAccs/" + accNumber + ".txt");
     }
 
     public void deposit(double amount) {
