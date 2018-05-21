@@ -1,10 +1,10 @@
 package main.bank.seabank;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.text.NumberFormat;
-import java.util.InputMismatchException;
+//import java.nio.file.Files;
+//import java.nio.file.Paths;
+//import java.text.NumberFormat;
+//import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -21,7 +21,6 @@ import static java.lang.Integer.parseInt;
 public class Main {
     private static Scanner s = new Scanner(System.in);
     public static void main(String[] args) {
-        Account acc = new CheckingAccount(100.0, 1, new Password("Abcd123!"));
         System.out.println("Welcome to Sea Bank!\n");
         try {
             TimeUnit.SECONDS.sleep(2);
@@ -129,7 +128,7 @@ public class Main {
         }
         else {
 //            cls();
-            System.out.println("\nIncorrect password");
+            System.out.println("\nIncorrect password!");
             promptForPass(accToAccess);
         }
     }
@@ -140,7 +139,8 @@ public class Main {
         System.out.println("\n\t(0) Withdraw Money");
         System.out.println("\t(1) Deposit Money");
         System.out.println("\t(2) Log a Transaction");
-        System.out.println("\t(3) Main Menu");
+        System.out.println("\t(3) Log out");
+        System.out.print("\n>> ");
 
         try {
             int accountOption = parseInt(s.next());
@@ -164,15 +164,38 @@ public class Main {
 
     public static void withdrawMon(int accToWithdrawFrom){
         System.out.println("\nBalance: " + Account.getBalance(accToWithdrawFrom));
-        System.out.print("Amount to withdraw: $");
+        System.out.print("Amount to withdraw (or enter 0 to go back): $");
         try {
             double amountToWithdraw = parseDouble(s.next());
-            Account.withdraw(amountToWithdraw, accToWithdrawFrom);
+            if(amountToWithdraw == 0.0) display(accToWithdrawFrom);
+            else if(amountToWithdraw < 0) {
+                System.out.println("\n\n\n\n\nCannot withdraw a negative amount!");
+                withdrawMon(accToWithdrawFrom);
+            }
+            else {
+                Account.withdraw(amountToWithdraw, accToWithdrawFrom);
+            }
         } catch(NumberFormatException e) {
-            System.out.println("Please enter a decimal");
+            System.out.println("\n\n\n\n\nPlease enter a decimal");
             withdrawMon(accToWithdrawFrom);
         }
     }
+
+//    public static void depositMon(int accToDepositTo) {
+//        System.out.println("\nBalance: " + Account.getBalance(accToDepositTo));
+//        System.out.println("Amount to deposit (or 0 to go bacl): $");
+//        try {
+//            double amountToDeposit = parseDouble(s.next());
+//            if(amountToDeposit == 0.0) display(accToDepositTo);
+//            else if(amountToDeposit < 0) {
+//                System.out.println("\n\n\n\n\nCannot deposit a negative amount!");
+//                depositMon(accToDepositTo);
+//            }
+//            else {
+//                Account.deposit(amountToDeposit, accToDepositTo);
+//            }
+//        }
+//    }
     /*
         END OF TREE FOR login OPTION
      */

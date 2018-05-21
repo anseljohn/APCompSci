@@ -43,8 +43,10 @@ public abstract class Account {
         try {
             double prevBalance = getBalance(acc_withdrawFrom);
             PrintWriter rewrite = new PrintWriter(dir + "/data/accounts/" + acc_withdrawFrom + ".txt", "UTF-8");
-            rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount));
-            rewrite.close();
+            if(amount > 0) {
+                rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount));
+                rewrite.close();
+            }
         } catch(FileNotFoundException e) {
             System.err.println("Unable to locate file");
         } catch(UnsupportedEncodingException e) {
