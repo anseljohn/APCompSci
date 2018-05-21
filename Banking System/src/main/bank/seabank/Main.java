@@ -174,6 +174,8 @@ public class Main {
             }
             else {
                 Account.withdraw(amountToWithdraw, accToWithdrawFrom);
+                System.out.println("Successfully withdrawn $" + amountToWithdraw + " from account #" + accToWithdrawFrom + "!");
+                display(accToWithdrawFrom);
             }
         } catch(NumberFormatException e) {
             System.out.println("\n\n\n\n\nPlease enter a decimal");
