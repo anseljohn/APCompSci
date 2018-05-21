@@ -30,7 +30,7 @@ public class Main {
     }
 
     public static void mainMenu() {
-        System.out.println("Please select an item below:");
+        System.out.println("\nPlease select an item below:");
         System.out.println("(0) Login");
         System.out.println("(1) Create Account");
         System.out.print(">> ");
@@ -40,6 +40,10 @@ public class Main {
                 login();
             } else if (mainMenu == 1) {
                 System.out.println("coo create acc"); //add in account creation
+            }
+            else {
+                System.out.println("\nPlease select a number from the list below");
+                mainMenu();
             }
         } catch(NumberFormatException e) {
             System.out.println("\nPlease enter an integer\n");
@@ -52,7 +56,7 @@ public class Main {
         START OF TREE FOR login OPTION
      */
     public static void login() {
-        System.out.print("Account number: ");
+        System.out.print("\nAccount number: ");
         try {
             int login_accNum = parseInt(s.next());
             if (new File(System.getProperty("user.dir") + "/data/accounts/" + login_accNum + ".txt").exists()) {
@@ -60,23 +64,47 @@ public class Main {
                 promptForPass(login_accNum);
             }
             else {
-                System.out.println("\nAccount #" + login_accNum + " does not seem to exist.\n"  +
-                                    "Would you like to create an account?");
-                System.out.print("(yY/nN)>> ");
-                String createAcc_failedLogin = s.next();
-                if(createAcc_failedLogin.toLowerCase().equals("y")) {
-                    System.out.println("go to create account"); //fill in later with method call
-                }
-                else if(createAcc_failedLogin.toLowerCase().equals("n")) {
-                    System.out.println("re enter account number");
-                }
-
+                accNonexistant(login_accNum);
             }
         } catch(NumberFormatException e) {
             System.out.println("\nPlease enter an integer\n");
             login();
         }
 
+    }
+
+    public static void accNonexistant(int nonExistentAcc) {
+        System.out.println("\nAccount #" + nonExistentAcc + " does not seem to exist.\n"  +
+                "Would you like to create an account?\n");
+        System.out.print("(yY/nN)>> ");
+        String createAcc_failedLogin = s.next();
+        if(createAcc_failedLogin.toLowerCase().equals("y")) {
+            System.out.println("go to create account"); //fill in later with method call
+        }
+        else if(createAcc_failedLogin.toLowerCase().equals("n")) {
+            retryLogin();
+        }
+        else {
+            System.out.println("\nPlease enter (yY/nN)");
+            accNonexistant(nonExistentAcc);
+        }
+    }
+
+    public static void retryLogin() {
+        System.out.println("\nRetry login?");
+        System.out.print("(yY/nN)>> ");
+
+        String retry = s.next();
+        if(retry.toLowerCase().equals("y")) {
+            login();
+        }
+        else if(retry.toLowerCase().equals("n")) {
+            mainMenu();
+        }
+        else {
+            System.out.println("\nPlease enter (yY/nN)");
+            retryLogin();
+        }
     }
 
     public static void promptForPass(int accToAccess) {
