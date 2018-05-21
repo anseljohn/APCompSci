@@ -16,6 +16,8 @@ import static java.lang.Integer.parseInt;
     1) Ability to transfer $$ to acc in display()
     2) Logged in account transactions
     3) Branch 2: Create Account
+    4) Change stupid error messages
+    5) Update readme
  */
 
 
