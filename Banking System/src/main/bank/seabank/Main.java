@@ -8,6 +8,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 /*
@@ -34,13 +35,18 @@ public class Main {
         System.out.println("\nPlease select an item below:");
         System.out.println("(0) Login");
         System.out.println("(1) Create Account");
+        System.out.println("(2) Exit");
         System.out.print(">> ");
         try {
             int mainMenu = parseInt(s.next());
             if (mainMenu == 0) {
                 login();
-            } else if (mainMenu == 1) {
+            }
+            else if(mainMenu == 1) {
                 System.out.println("coo create acc"); //add in account creation
+            }
+            else if(mainMenu == 2) {
+                System.exit(0);
             }
             else {
                 System.out.println("\nPlease select a number from the list below");
@@ -57,11 +63,14 @@ public class Main {
         START OF TREE FOR login OPTION
      */
     public static void login() {
-        System.out.print("\nAccount number: ");
+        System.out.print("\nAccount number (or enter 0 to go back): ");
         try {
             int login_accNum = parseInt(s.next());
+            if(login_accNum == 0) {
+                mainMenu();
+            }
             if (new File(System.getProperty("user.dir") + "/data/accounts/" + login_accNum + ".txt").exists()) {
-                System.out.println("\nAccount #" + login_accNum + " found!\n");
+                System.out.println("\nAccount #" + login_accNum + " found!");
                 promptForPass(login_accNum);
             }
             else {
@@ -109,9 +118,12 @@ public class Main {
     }
 
     public static void promptForPass(int accToAccess) {
-        System.out.print("Account password: ");
+        System.out.print("Account password (or enter 0 to go back): ");
         String login_pass = s.next();
 
+        if (login_pass.equals("0")) {
+            login();
+        }
         if(login_pass.equals(Account.decryptPass(accToAccess))) {
             display(accToAccess);
         }
@@ -128,20 +140,37 @@ public class Main {
         System.out.println("\n\t(0) Withdraw Money");
         System.out.println("\t(1) Deposit Money");
         System.out.println("\t(2) Log a Transaction");
+        System.out.println("\t(3) Main Menu");
 
         try {
             int accountOption = parseInt(s.next());
             if (accountOption == 0) {
 
-            } else if (accountOption == 1) {
+            }
+            else if(accountOption == 1) {
 
-            } else if (accountOption == 2) {
+            }
+            else if(accountOption == 2) {
 
+            }
+            else if(accountOption == 3) {
+                mainMenu();
             }
         } catch(NumberFormatException e) {
             System.out.println("\nPlease enter an integer\n");
         }
 
+    }
+
+    public static void withdrawMon(int accToWithdrawFrom){
+        System.out.println("\nBalance: " + Account.getBalance(accToWithdrawFrom));
+        System.out.print("Amount to withdraw: ");
+        try {
+            double amountToWithdraw = parseDouble(s.next());
+        } catch(NumberFormatException e) {
+            System.out.println("Please enter a decimal");
+            withdrawMon(accToWithdrawFrom);
+        }
     }
     /*
         END OF TREE FOR login OPTION
