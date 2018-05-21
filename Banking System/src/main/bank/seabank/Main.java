@@ -39,12 +39,21 @@ public class Main {
         int login_accNum = s.nextInt();
         if(new File(System.getProperty("user.dir") + "/data/accounts/" + login_accNum + ".txt").exists()) {
             System.out.println("Account #" + login_accNum + " found!\n");
-            System.out.print("Account password: ");
-            String login_pass = s.next();
+            promptForPass(login_accNum);
+        }
+    }
 
-            if(login_pass.equals(Account.decryptPass(login_accNum))) {
-                display(login_accNum);
-            }
+    public static void promptForPass(int accToAccess) {
+        System.out.print("Account password: ");
+        String login_pass = s.next();
+
+        if(login_pass.equals(Account.decryptPass(accToAccess))) {
+            display(accToAccess);
+        }
+        else {
+//            cls();
+            System.out.println("Incorrect password");
+            promptForPass(accToAccess);
         }
     }
 
@@ -67,4 +76,21 @@ public class Main {
         }
 
     }
+
+//    public static void cls() {
+//        if(System.getProperty("os.name").toLowerCase().indexOf("win") > -1) {
+//            try {
+//                Runtime.getRuntime().exec("cls");
+//            } catch(Exception e) {
+//                System.out.println("Command not found: cls");
+//            }
+//        }
+//        else if(System.getProperty("os.name").toLowerCase().indexOf("ux") > -1) {
+//            try {
+//                Runtime.getRuntime().exec("clear");
+//            } catch(Exception e) {
+//                System.out.println("Command not found: clear");
+//            }
+//        }
+//    }
 }
