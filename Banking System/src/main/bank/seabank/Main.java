@@ -13,9 +13,8 @@ import static java.lang.Integer.parseInt;
 
 /*
     TODO
-    1) Add in b for back
-    2) Logged in account transactions
-    3) Branch 2: Create Account
+    1) Logged in account transactions
+    2) Branch 2: Create Account
  */
 
 
@@ -145,7 +144,7 @@ public class Main {
         try {
             int accountOption = parseInt(s.next());
             if (accountOption == 0) {
-
+                withdrawMon(accountToDisplay);
             }
             else if(accountOption == 1) {
 
@@ -167,6 +166,7 @@ public class Main {
         System.out.print("Amount to withdraw: ");
         try {
             double amountToWithdraw = parseDouble(s.next());
+            Account.withdraw(amountToWithdraw, accToWithdrawFrom);
         } catch(NumberFormatException e) {
             System.out.println("Please enter a decimal");
             withdrawMon(accToWithdrawFrom);

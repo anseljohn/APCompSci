@@ -39,9 +39,15 @@ public abstract class Account {
         writeToFile();
     }
 
-    public void withdraw(double amount) {
-        balance -= amount;
-        writeToFile();
+    public static void withdraw(double amount, int acc_withdrawFrom) {
+        try {
+            PrintWriter rewrite = new PrintWriter(dir + "/data/accounts/" + acc_withdrawFrom + ".txt", "UTF-8");
+            rewrite.println(acc_withdrawFrom + ":" + (getBalance(acc_withdrawFrom) - amount));
+        } catch(FileNotFoundException e) {
+            System.err.println("Unable to located file");
+        } catch(UnsupportedEncodingException e) {
+            System.err.println("Encoding not supported");
+        }
     }
 
     public abstract void transaction(double amount, Payment typeOfPayment);
