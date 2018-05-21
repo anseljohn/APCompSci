@@ -6,6 +6,12 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+/*
+    TODO
+    1) Try catches for inputmismatchexceptions
+ */
+
+
 public class Main {
     private static Scanner s = new Scanner(System.in);
     public static void main(String[] args) {
@@ -57,7 +63,7 @@ public class Main {
 
         }
         else if(accountOption == 2) {
-            
+
         }
 
     }
