@@ -87,11 +87,10 @@ public abstract class Account {
                 encryptedMessage += ch;
             }
         }
-
         return encryptedMessage;
     }
 
-    public void decryptPass() {
+    public String decryptPass() {
         String message = encryptPass().toString();
         String decryptedMessage = "";
         int key;
@@ -118,6 +117,6 @@ public abstract class Account {
                 decryptedMessage += ch;
             }
         }
-        System.out.println("Decrypted Message = " + decryptedMessage);
+        return decryptedMessage;
     }
 }

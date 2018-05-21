@@ -7,44 +7,42 @@ import java.util.concurrent.TimeUnit;
 public class Main {
     private static Scanner s = new Scanner(System.in);
     public static void main(String[] args) {
-//        System.out.println("Welcome to Sea Bank!\n");
-//        try {
-//            TimeUnit.SECONDS.sleep(3);
-//        } catch(InterruptedException e) {
-//            Thread.currentThread().interrupt();
-//        }
-//        System.out.println("Please select an item below:");
-//        try {
-//            TimeUnit.MILLISECONDS.sleep(150);
-//        } catch(InterruptedException e) {
-//            Thread.currentThread().interrupt();
-//        }
-//        System.out.println("(1) Login");
-//        try {
-//            TimeUnit.MILLISECONDS.sleep(150);
-//        } catch(InterruptedException e) {
-//            Thread.currentThread().interrupt();
-//        }
-//        System.out.println("(2) Create Account");
-//        System.out.print(">> ");
-//        int mainMenu = s.nextInt();
-//        if(mainMenu == 2) {
-//            System.out.println("cool create acc");
-//        }
-//        else if(mainMenu == 1) {
-//           login();
-//        }
-
-        Account acc = new CheckingAccount(100.0, 1, new Password("Abcd123!"));
-        System.out.println(acc.encryptPass());
-        acc.decryptPass();
+        System.out.println("Welcome to Sea Bank!\n");
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch(InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        System.out.println("Please select an item below:");
+        try {
+            TimeUnit.MILLISECONDS.sleep(150);
+        } catch(InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        System.out.println("(1) Login");
+        try {
+            TimeUnit.MILLISECONDS.sleep(150);
+        } catch(InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        System.out.println("(2) Create Account");
+        System.out.print(">> ");
+        int mainMenu = s.nextInt();
+        if(mainMenu == 2) {
+            System.out.println("cool create acc");
+        }
+        else if(mainMenu == 1) {
+           login();
+        }
     }
 
-//    public static void login() {
-//        System.out.print("Account number: ");
-//        int login_accNum = s.nextInt();
-//        if(new File(System.getProperty("user.dir") + "/" + login_accNum + ".txt").exists()) {
-//            System.out.println("");
-//        }
-//    }
+    public static void login() {
+        System.out.print("Account number: ");
+        int login_accNum = s.nextInt();
+        if(new File(System.getProperty("user.dir") + "/data/accounts/" + login_accNum + ".txt").exists()) {
+            System.out.println("Account #" + login_accNum + " found!\n");
+            System.out.println("Account password: ");
+            String login_pass = s.next();
+        }
+    }
 }
