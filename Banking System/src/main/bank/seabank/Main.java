@@ -148,7 +148,7 @@ public class Main {
                 withdrawMon(accountToDisplay);
             }
             else if(accountOption == 1) {
-
+                depositMon(accountToDisplay);
             }
             else if(accountOption == 2) {
 
@@ -181,21 +181,24 @@ public class Main {
         }
     }
 
-//    public static void depositMon(int accToDepositTo) {
-//        System.out.println("\nBalance: " + Account.getBalance(accToDepositTo));
-//        System.out.println("Amount to deposit (or 0 to go bacl): $");
-//        try {
-//            double amountToDeposit = parseDouble(s.next());
-//            if(amountToDeposit == 0.0) display(accToDepositTo);
-//            else if(amountToDeposit < 0) {
-//                System.out.println("\n\n\n\n\nCannot deposit a negative amount!");
-//                depositMon(accToDepositTo);
-//            }
-//            else {
-//                Account.deposit(amountToDeposit, accToDepositTo);
-//            }
-//        }
-//    }
+    public static void depositMon(int accToDepositTo) {
+        System.out.println("\nBalance: " + Account.getBalance(accToDepositTo));
+        System.out.print("Amount to deposit (or 0 to go bacl): $");
+        try {
+            double amountToDeposit = parseDouble(s.next());
+            if(amountToDeposit == 0.0) display(accToDepositTo);
+            else if(amountToDeposit < 0) {
+                System.out.println("\n\n\n\n\nCannot deposit a negative amount!");
+                depositMon(accToDepositTo);
+            }
+            else {
+                Account.deposit(amountToDeposit, accToDepositTo);
+            }
+        } catch(NumberFormatException e) {
+            System.out.println("\n\n\n\n\nPlease enter a decimal");
+            depositMon(accToDepositTo);
+        }
+    }
     /*
         END OF TREE FOR login OPTION
      */

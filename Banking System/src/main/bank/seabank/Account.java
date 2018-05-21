@@ -34,9 +34,19 @@ public abstract class Account {
         DEBIT, CREDIT, CHECK;
     }
 
-    public void deposit(double amount) {
-        balance += amount;
-        writeToFile();
+    public static void deposit(double amount, int acc_depositTo) {
+        try {
+            double prevBalance = getBalance(acc_depositTo);
+            PrintWriter rewrite = new PrintWriter(dir + "/data/accounts/" + acc_depositTo + ".txt", "UTF-8");
+            if(amount > 0) {
+                rewrite.print(acc_depositTo + ":" + (prevBalance + amount));
+                rewrite.close();
+            }
+        } catch(FileNotFoundException e) {
+            System.err.println("Unable to locate file");
+        } catch(UnsupportedEncodingException e) {
+            System.err.println("Encoding not supported");
+        }
     }
 
     public static void withdraw(double amount, int acc_withdrawFrom) {
