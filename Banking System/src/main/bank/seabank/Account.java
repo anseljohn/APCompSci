@@ -41,10 +41,12 @@ public abstract class Account {
 
     public static void withdraw(double amount, int acc_withdrawFrom) {
         try {
+            double prevBalance = getBalance(acc_withdrawFrom);
             PrintWriter rewrite = new PrintWriter(dir + "/data/accounts/" + acc_withdrawFrom + ".txt", "UTF-8");
-            rewrite.println(acc_withdrawFrom + ":" + (getBalance(acc_withdrawFrom) - amount));
+            rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount));
+            rewrite.close();
         } catch(FileNotFoundException e) {
-            System.err.println("Unable to located file");
+            System.err.println("Unable to locate file");
         } catch(UnsupportedEncodingException e) {
             System.err.println("Encoding not supported");
         }
@@ -63,9 +65,9 @@ public abstract class Account {
             passWriter.close();
 
         } catch(FileNotFoundException e) {
-            System.out.println("U bad where's ur file");
+            System.err.println("U bad where's ur file");
         } catch(UnsupportedEncodingException e) {
-            System.out.println("haha u bad encoding bad ha");
+            System.err.println("haha u bad encoding bad ha");
         }
     }
 
@@ -110,7 +112,7 @@ public abstract class Account {
             Scanner encryptedPass_File = new Scanner(new File(dir + "/data/pass/" + decrypt_AccNum + "pass.txt"));
             message = encryptedPass_File.nextLine();
         } catch(Exception e) {
-            System.out.println("U R SOOOOO BAD, ERROR HAS OCCURRED");
+            System.err.println("U R SOOOOO BAD, ERROR HAS OCCURRED");
         }
         int key = message.length();
         char ch;
@@ -147,7 +149,7 @@ public abstract class Account {
             String[] splittedFile = fullFile.split(":");
             balance = parseDouble(splittedFile[1]);
         } catch(Exception e) {
-            System.out.println("File cannot be opened");
+            System.err.println(e);
         }
         return balance;
     }

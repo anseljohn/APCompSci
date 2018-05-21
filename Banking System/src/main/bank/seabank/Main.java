@@ -21,6 +21,7 @@ import static java.lang.Integer.parseInt;
 public class Main {
     private static Scanner s = new Scanner(System.in);
     public static void main(String[] args) {
+        Account acc = new CheckingAccount(100.0, 1, new Password("Abcd123!"));
         System.out.println("Welcome to Sea Bank!\n");
         try {
             TimeUnit.SECONDS.sleep(2);
@@ -163,7 +164,7 @@ public class Main {
 
     public static void withdrawMon(int accToWithdrawFrom){
         System.out.println("\nBalance: " + Account.getBalance(accToWithdrawFrom));
-        System.out.print("Amount to withdraw: ");
+        System.out.print("Amount to withdraw: $");
         try {
             double amountToWithdraw = parseDouble(s.next());
             Account.withdraw(amountToWithdraw, accToWithdrawFrom);
