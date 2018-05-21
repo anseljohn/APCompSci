@@ -3,7 +3,7 @@ public class Scoring
     //Main method
     public static void main(String args[])
     {
-        DanceComp d = new DanceComp(10, 10); //Create a new DanceComp with 10 events and 10 couples
+        DanceComp d = new DanceComp(700, 700); //Create a new DanceComp with 10 events and 10 couples
         d.printA(d.getA()); //Print out the array
         System.out.print("" + d.first()); //Print out the highest score and how many couples got the highest score 
     }

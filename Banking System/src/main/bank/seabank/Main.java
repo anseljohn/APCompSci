@@ -36,11 +36,15 @@ public class Main {
 //        }
 
         Account acc = new CheckingAccount(100.0, 1, new Password("Abcd123!"));
+        System.out.println(acc.encryptPass());
+        acc.decryptPass();
     }
 
 //    public static void login() {
 //        System.out.print("Account number: ");
 //        int login_accNum = s.nextInt();
-//        if(new File(System.getProperty("user.dir").exists()));
+//        if(new File(System.getProperty("user.dir") + "/" + login_accNum + ".txt").exists()) {
+//            System.out.println("");
+//        }
 //    }
 }
