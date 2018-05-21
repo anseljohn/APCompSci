@@ -123,7 +123,7 @@ public class Main {
     }
 
     public static void display(int accountToDisplay) {
-        System.out.println("Account #" + accountToDisplay);
+        System.out.println("\nAccount #" + accountToDisplay);
         System.out.println("\n\tBalance: $" + Account.getBalance(accountToDisplay));
         System.out.println("\n\t(0) Withdraw Money");
         System.out.println("\t(1) Deposit Money");
@@ -146,6 +146,7 @@ public class Main {
     /*
         END OF TREE FOR login OPTION
      */
+
 
 
     /*
