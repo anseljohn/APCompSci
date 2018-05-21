@@ -181,6 +181,11 @@ public class Main {
             else {
                 Account.withdraw(amountToWithdraw, accToWithdrawFrom);
                 System.out.println("\n\n\nSuccessfully withdrawn $" + amountToWithdraw + " from account #" + accToWithdrawFrom + "!");
+                try {
+                    TimeUnit.SECONDS.sleep(2);
+                } catch(InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
                 display(accToWithdrawFrom);
             }
         } catch(NumberFormatException e) {
@@ -202,6 +207,11 @@ public class Main {
             else {
                 Account.deposit(amountToDeposit, accToDepositTo);
                 System.out.println("\n\n\nSuccessfully deposited $" + amountToDeposit + " to account #" + accToDepositTo + "!");
+                try {
+                    TimeUnit.SECONDS.sleep(2);
+                } catch(InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
                 display(accToDepositTo);
             }
         } catch(NumberFormatException e) {
