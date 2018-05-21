@@ -53,8 +53,12 @@ public abstract class Account {
         try {
             double prevBalance = getBalance(acc_withdrawFrom);
             PrintWriter rewrite = new PrintWriter(dir + "/data/accounts/" + acc_withdrawFrom + ".txt", "UTF-8");
-            if(amount > 0) {
+            if(amount > 0 && amount <= prevBalance) {
                 rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount));
+                rewrite.close();
+            }
+            if(amount > prevBalance) {
+                rewrite.println(acc_withdrawFrom + ":" + (prevBalance - (amount + amount * .5)));
                 rewrite.close();
             }
         } catch(FileNotFoundException e) {
