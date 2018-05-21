@@ -12,8 +12,7 @@ import static java.lang.Integer.parseInt;
 
 /*
     TODO
-    1) Try catches for inputmismatchexceptions
-    2) Add in b for back
+    1) Add in b for back
  */
 
 
