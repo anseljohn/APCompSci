@@ -7,6 +7,8 @@ import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
+
+import static java.lang.Double.parseDouble;
 //import java.nio.file.Files;
 //import java.nio.file.Paths;
 //import javax.crypto.Cipher;
@@ -18,6 +20,8 @@ public abstract class Account {
     private double balance;
     private int accNumber;
     private Password accPass;
+
+    private static String dir = System.getProperty("user.dir");
 
     public Account(double startingBalance, int accountNumber, Password p) {
         balance = startingBalance;
@@ -44,11 +48,11 @@ public abstract class Account {
 
     public void writeToFile() {
         try {
-            PrintWriter writer = new PrintWriter(System.getProperty("user.dir") + "/data/accounts/" + accNumber + ".txt", "UTF-8");
+            PrintWriter writer = new PrintWriter(dir + "/data/accounts/" + accNumber + ".txt", "UTF-8");
             writer.println(accNumber + ":" + balance);
             writer.close();
 
-            PrintWriter passWriter = new PrintWriter(System.getProperty("user.dir") + "/data/pass/" + accNumber + "pass.txt", "UTF-8");
+            PrintWriter passWriter = new PrintWriter(dir + "/data/pass/" + accNumber + "pass.txt", "UTF-8");
             passWriter.println(encryptPass());
             passWriter.close();
 
@@ -97,7 +101,7 @@ public abstract class Account {
         String message = "";
         String decryptedMessage = "";
         try {
-            Scanner encryptedPass_File = new Scanner(new File(System.getProperty("user.dir") + "/data/pass/" + decrypt_AccNum + "pass.txt"));
+            Scanner encryptedPass_File = new Scanner(new File(dir + "/data/pass/" + decrypt_AccNum + "pass.txt"));
             message = encryptedPass_File.nextLine();
         } catch(Exception e) {
             System.out.println("U R SOOOOO BAD, ERROR HAS OCCURRED");
@@ -127,5 +131,18 @@ public abstract class Account {
             }
         }
         return decryptedMessage;
+    }
+
+    public static double getBalance(int accBalance_toGet) {
+        double balance = 0.0;
+        try {
+            Scanner accFileReader = new Scanner(new File(dir + "/data/accounts/" + accBalance_toGet + ".txt"));
+            String fullFile = accFileReader.nextLine();
+            String[] splittedFile = fullFile.split(":");
+            balance = parseDouble(splittedFile[1]);
+        } catch(Exception e) {
+            System.out.println("File cannot be opened");
+        }
+        return balance;
     }
 }
