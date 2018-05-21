@@ -3,12 +3,14 @@ package main.bank.seabank;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 /*
     TODO
     1) Try catches for inputmismatchexceptions
+    2) Fix print statement as input for user input
  */
 
 
@@ -24,13 +26,21 @@ public class Main {
         System.out.println("Please select an item below:");
         System.out.println("(0) Login");
         System.out.println("(1) Create Account");
+        mainMenu();
+    }
+
+    public static void mainMenu() {
         System.out.print(">> ");
-        int mainMenu = s.nextInt();
-        if(mainMenu == 0) {
-            login();
-        }
-        else if(mainMenu == 1) {
-           System.out.println("coo create acc");
+        try {
+            int mainMenu = s.nextInt();
+            if (mainMenu == 0) {
+                login();
+            } else if (mainMenu == 1) {
+                System.out.println("coo create acc"); //add in account creation
+            }
+        } catch(InputMismatchException e) {
+            System.out.println("\nPlease enter an integer");
+            mainMenu();
         }
     }
 
