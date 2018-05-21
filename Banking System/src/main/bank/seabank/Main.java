@@ -65,10 +65,10 @@ public class Main {
                 System.out.print("(yY/nN)>> ");
                 String createAcc_failedLogin = s.next();
                 if(createAcc_failedLogin.toLowerCase().equals("y")) {
-
+                    System.out.println("go to create account"); //fill in later with method call
                 }
-                else if(createAcc_failedLogin.toLowerCase().equals("y")) {
-                    
+                else if(createAcc_failedLogin.toLowerCase().equals("n")) {
+                    System.out.println("re enter account number");
                 }
 
             }
@@ -122,7 +122,12 @@ public class Main {
     /*
         START OF TREE FOR create account OPTION
      */
+    public static void createAccount() {
 
+    }
+    public static void promptForNewUser() {
+
+    }
 
 
 //    public static void cls() {
