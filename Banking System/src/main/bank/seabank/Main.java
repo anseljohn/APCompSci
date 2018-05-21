@@ -13,14 +13,16 @@ import static java.lang.Integer.parseInt;
 
 /*
     TODO
-    1) Logged in account transactions
-    2) Branch 2: Create Account
+    1) Ability to transfer $$ to acc in display()
+    2) Logged in account transactions
+    3) Branch 2: Create Account
  */
 
 
 public class Main {
     private static Scanner s = new Scanner(System.in);
     public static void main(String[] args) {
+        Account acc = new CheckingAccount(200000.0, 2, new Password("Antonio703!"));
         System.out.println("Welcome to Sea Bank!\n");
         try {
             TimeUnit.SECONDS.sleep(2);
@@ -48,11 +50,11 @@ public class Main {
                 System.exit(0);
             }
             else {
-                System.out.println("\nPlease select a number from the list below");
+                System.out.println("\n\n\n\n\nPlease select a number from the list below");
                 mainMenu();
             }
         } catch(NumberFormatException e) {
-            System.out.println("\nPlease enter an integer\n");
+            System.out.println("\n\n\n\n\nPlease enter an integer");
             mainMenu();
         }
     }
@@ -138,8 +140,9 @@ public class Main {
         System.out.println("\n\tBalance: $" + Account.getBalance(accountToDisplay));
         System.out.println("\n\t(0) Withdraw Money");
         System.out.println("\t(1) Deposit Money");
-        System.out.println("\t(2) Log a Transaction");
-        System.out.println("\t(3) Log out");
+        System.out.println("\t(2) Transfer money");
+        System.out.println("\t(3) Log a Transaction");
+        System.out.println("\t(4) Log out");
         System.out.print("\n>> ");
 
         try {
@@ -154,6 +157,9 @@ public class Main {
 
             }
             else if(accountOption == 3) {
+
+            }
+            else if(accountOption == 4) {
                 mainMenu();
             }
         } catch(NumberFormatException e) {
@@ -174,7 +180,7 @@ public class Main {
             }
             else {
                 Account.withdraw(amountToWithdraw, accToWithdrawFrom);
-                System.out.println("Successfully withdrawn $" + amountToWithdraw + " from account #" + accToWithdrawFrom + "!");
+                System.out.println("\n\n\nSuccessfully withdrawn $" + amountToWithdraw + " from account #" + accToWithdrawFrom + "!");
                 display(accToWithdrawFrom);
             }
         } catch(NumberFormatException e) {
@@ -195,6 +201,8 @@ public class Main {
             }
             else {
                 Account.deposit(amountToDeposit, accToDepositTo);
+                System.out.println("\n\n\nSuccessfully deposited $" + amountToDeposit + " to account #" + accToDepositTo + "!");
+                display(accToDepositTo);
             }
         } catch(NumberFormatException e) {
             System.out.println("\n\n\n\n\nPlease enter a decimal");
