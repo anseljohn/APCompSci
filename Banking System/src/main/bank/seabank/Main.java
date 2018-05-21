@@ -45,5 +45,20 @@ public class Main {
     public static void display(int accountToDisplay) {
         System.out.println("Account #" + accountToDisplay);
         System.out.println("\tBalance: $" + Account.getBalance(accountToDisplay));
+        System.out.println("\n\t(0) Withdraw Money");
+        System.out.println("\t(1) Deposit Money");
+        System.out.println("\t(2) Log a Transaction");
+
+        int accountOption = s.nextInt();
+        if(accountOption == 0) {
+
+        }
+        else if(accountOption == 1) {
+
+        }
+        else if(accountOption == 2) {
+            
+        }
+
     }
 }
