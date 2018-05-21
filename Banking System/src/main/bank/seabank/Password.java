@@ -14,7 +14,7 @@ public class Password {
     public Password(String password) {
         pass = password;
         for(int i = 0; i < specialCharsStr.length(); i++) specialChars.add(specialCharsStr.charAt(i));
-        verifyPassword();
+        //verifyPassword();
     }
 
     public void verifyPassword() {
