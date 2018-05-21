@@ -6,10 +6,13 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
+import java.util.Scanner;
+//import java.nio.file.Files;
+//import java.nio.file.Paths;
+//import javax.crypto.Cipher;
+//import javax.crypto.KeyGenerator;
+//import javax.crypto.SecretKey;
+//import javax.crypto.spec.SecretKeySpec;
 
 public abstract class Account {
     private double balance;
@@ -90,12 +93,18 @@ public abstract class Account {
         return encryptedMessage;
     }
 
-    public String decryptPass() {
-        String message = encryptPass().toString();
+    public static String decryptPass(int decrypt_AccNum) {
+        String message = "";
         String decryptedMessage = "";
-        int key;
+        try {
+            Scanner encryptedPass_File = new Scanner(new File(System.getProperty("user.dir") + "/data/pass/" + decrypt_AccNum + "pass.txt"));
+            message = encryptedPass_File.nextLine();
+        } catch(Exception e) {
+            System.out.println("U R SOOOOO BAD, ERROR HAS OCCURRED");
+        }
+        int key = message.length();
         char ch;
-        key = accPass.getPass().length();
+
 
         for(int i = 0; i < message.length(); ++i){
             ch = message.charAt(i);
