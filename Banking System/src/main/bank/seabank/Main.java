@@ -61,7 +61,7 @@ public class Main {
         try {
             int login_accNum = parseInt(s.next());
             if (new File(System.getProperty("user.dir") + "/data/accounts/" + login_accNum + ".txt").exists()) {
-                System.out.println("Account #" + login_accNum + " found!\n");
+                System.out.println("\nAccount #" + login_accNum + " found!\n");
                 promptForPass(login_accNum);
             }
             else {
