@@ -72,7 +72,7 @@ public class Main {
             if(login_accNum == 0) {
                 mainMenu();
             }
-            if (new File(System.getProperty("user.dir") + "/data/accounts/" + login_accNum + ".txt").exists()) {
+            if (accExists(login_accNum)) {
                 System.out.println("\nAccount #" + login_accNum + " found!");
                 promptForPass(login_accNum);
             }
@@ -221,6 +221,12 @@ public class Main {
             depositMon(accToDepositTo);
         }
     }
+
+    public static void transferMon(int from, int to) {
+        System.out.println("\nBalance: " + Account.getBalance(from));
+        System.out.println("Transfer money to: #");
+
+    }
     /*
         END OF TREE FOR login OPTION
      */
@@ -237,6 +243,11 @@ public class Main {
 
     }
 
+
+    //For finding if acc exists or not
+    public static boolean accExists(int accToCheck) {
+        return new File(System.getProperty("user.dir") + "/data/accounts/" + accToCheck + ".txt").exists();
+    }
 
 //    public static void cls() {
 //        if(System.getProperty("os.name").toLowerCase().indexOf("win") > -1) {
