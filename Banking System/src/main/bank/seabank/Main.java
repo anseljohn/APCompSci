@@ -16,8 +16,9 @@ import static java.lang.Integer.parseInt;
     1) Ability to transfer $$ to acc in display()
     2) Logged in account transactions
     3) Branch 2: Create Account
-    4) Change stupid error messages
-    5) Update readme
+    4) Change : to >> on next line
+    5) Change stupid error messages
+    6) Update readme
  */
 
 
@@ -156,7 +157,7 @@ public class Main {
                 depositMon(accountToDisplay);
             }
             else if(accountOption == 2) {
-
+                transferMon(accountToDisplay);
             }
             else if(accountOption == 3) {
 
@@ -191,14 +192,14 @@ public class Main {
                 display(accToWithdrawFrom);
             }
         } catch(NumberFormatException e) {
-            System.out.println("\n\n\n\n\nPlease enter a decimal");
+            System.out.println("\n\n\n\n\nPlease enter a number");
             withdrawMon(accToWithdrawFrom);
         }
     }
 
     public static void depositMon(int accToDepositTo) {
         System.out.println("\nBalance: " + Account.getBalance(accToDepositTo));
-        System.out.print("Amount to deposit (or 0 to go bacl): $");
+        System.out.print("Amount to deposit (or 0 to go back): $");
         try {
             double amountToDeposit = parseDouble(s.next());
             if(amountToDeposit == 0.0) display(accToDepositTo);
@@ -217,15 +218,49 @@ public class Main {
                 display(accToDepositTo);
             }
         } catch(NumberFormatException e) {
-            System.out.println("\n\n\n\n\nPlease enter a decimal");
+            System.out.println("\n\n\n\n\nPlease enter a number");
             depositMon(accToDepositTo);
         }
     }
 
-    public static void transferMon(int from, int to) {
+    public static void transferMon(int from) {
         System.out.println("\nBalance: " + Account.getBalance(from));
-        System.out.println("Transfer money to: #");
-
+        System.out.println("Transfer money to (or 0 to go back): #");
+        try {
+            int transferTo = parseInt(s.next());
+            if(transferTo == 0) {
+                display(from);
+            }
+            else if(accExists(transferTo)) {
+                transferAmount(from, transferTo);
+            }
+            else {
+                System.out.println("That account doesn't seem to exist.");
+            }
+        } catch(NumberFormatException e) {
+            System.out.println("\n\n\n\n\nPlease enter an integer");
+            transferMon(from);
+        }
+    }
+    public static void transferAmount(int fromAcc, int toAcc) {
+        System.out.println("Amount to transfer (or 0 to go back): $");
+        double amountToTransfer = parseDouble(s.next());
+        if(amountToTransfer == 0.0) display(fromAcc);
+        else if(amountToTransfer < 0) {
+            System.out.println("\n\n\n\n\nCannot transfer a negative amount!");
+            transferAmount(fromAcc, toAcc);
+        }
+        else {
+            Account.withdraw(amountToTransfer, fromAcc);
+            Account.deposit(amountToTransfer, toAcc);
+            System.out.println("\n\n\n\n\n$" + amountToTransfer  + " successfully transferred to account #" + toAcc + "!");
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch(InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            display(fromAcc);
+        }
     }
     /*
         END OF TREE FOR login OPTION
