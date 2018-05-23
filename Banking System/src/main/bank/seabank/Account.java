@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 import static java.lang.Double.parseDouble;
+import static java.lang.Integer.parseInt;
 //import java.nio.file.Files;
 //import java.nio.file.Paths;
 //import javax.crypto.Cipher;
@@ -22,13 +23,17 @@ public abstract class Account {
     private Password accPass;
 
     private static String dir = System.getProperty("user.dir");
-    private static int amountAccounts = 2;
 
     public Account(double startingBalance, Password p) {
-        balance = startingBalance;
-        accNumber = amountAccounts;
+        try {
+            Scanner s = new Scanner(new File(dir + "/data/AccountTrack.txt"));
+            balance = startingBalance;
+            accNumber = parseInt(s.nextLine());
+        } catch(FileNotFoundException e) {
+            System.err.println("File could not be opened");
+        }
         accPass = p;
-        amountAccounts++;
+        accountTrack();
         writeToFile();
     }
 
@@ -170,5 +175,19 @@ public abstract class Account {
             System.err.println(e);
         }
         return balance;
+    }
+
+    public static void accountTrack() {
+        try {
+            Scanner getAccts = new Scanner(new File(dir + "/data/AccountTrack.txt"));
+            int prevAccts = parseInt(getAccts.nextLine());
+
+            PrintWriter writer = new PrintWriter(dir + "/data/AccountTrack.txt", "UTF-8");
+            writer.println(prevAccts + 1);
+        } catch(FileNotFoundException e) {
+            System.err.println("File could not be opened");
+        } catch(UnsupportedEncodingException e) {
+            System.err.println("Encoding not supported");
+        }
     }
 }
