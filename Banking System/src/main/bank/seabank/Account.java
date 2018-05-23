@@ -64,10 +64,6 @@ public abstract class Account {
                 rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount));
                 rewrite.close();
             }
-            if(amount > prevBalance) {
-                rewrite.println(acc_withdrawFrom + ":" + (prevBalance - (amount + amount * .5)));
-                rewrite.close();
-            }
         } catch(FileNotFoundException e) {
             System.err.println("Unable to locate file");
         } catch(UnsupportedEncodingException e) {

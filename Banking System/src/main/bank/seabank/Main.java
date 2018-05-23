@@ -189,8 +189,14 @@ public class Main {
                 withdrawMon(accToWithdrawFrom);
             }
             else {
-                Account.withdraw(amountToWithdraw, accToWithdrawFrom);
-                System.out.println("\n\n\nSuccessfully withdrawn $" + NumberFormat.getNumberInstance(Locale.US).format(amountToWithdraw) + " from account #" + accToWithdrawFrom + "!");
+                if(Account.getBalance(accToWithdrawFrom) >= amountToWithdraw) {
+                    Account.withdraw(amountToWithdraw, accToWithdrawFrom);
+                    System.out.println("\n\n\nSuccessfully withdrawn $" + NumberFormat.getNumberInstance(Locale.US).format(amountToWithdraw) + " from account #" + accToWithdrawFrom + "!");
+                }
+                else {
+                    System.out.println("The amount of money you are requesting to withdraw exceeds your balance.");
+                    withdrawMon(accToWithdrawFrom);
+                }
                 try {
                     TimeUnit.SECONDS.sleep(2);
                 } catch(InterruptedException e) {
@@ -258,9 +264,15 @@ public class Main {
             transferAmount(fromAcc, toAcc);
         }
         else {
-            Account.withdraw(amountToTransfer, fromAcc);
-            Account.deposit(amountToTransfer, toAcc);
-            System.out.println("\n\n\n\n\n$" + NumberFormat.getNumberInstance(Locale.US).format(amountToTransfer)  + " successfully transferred to account #" + toAcc + "!");
+            if(Account.getBalance(fromAcc) >= amountToTransfer) {
+                Account.withdraw(amountToTransfer, fromAcc);
+                Account.deposit(amountToTransfer, toAcc);
+                System.out.println("\n\n\n\n\n$" + NumberFormat.getNumberInstance(Locale.US).format(amountToTransfer) + " successfully transferred to account #" + toAcc + "!");
+            }
+            else {
+                System.out.println("The amount of money you are requesting to send exceeds your limit.");
+                transferAmount(fromAcc, toAcc);
+            }
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch(InterruptedException e) {
