@@ -16,6 +16,11 @@ import static java.lang.Integer.parseInt;
 /*
     TODO
 
+    FOR OVERFLOW ON DOUBLE
+    - COMPLETE RESTRUCTURING
+    -- Login based on username, account number is based on number of accounts held by person
+    -- No need to log in to user's accounts, but just the user account itself
+
     - FIX OVERFLOW ON DOUBLE BUG
     1)Logged in account transactions
         - If debit
@@ -221,6 +226,10 @@ public class Main {
             if(amountToDeposit == 0.0) display(accToDepositTo);
             else if(amountToDeposit < 0) {
                 System.out.println("\n\n\n\n\nCannot deposit a negative amount!");
+                depositMon(accToDepositTo);
+            }
+            else if(amountToDeposit > 2000000) {
+                System.out.println("\n\n\n\n\nCannot deposit more than $2million at once");
                 depositMon(accToDepositTo);
             }
             else {

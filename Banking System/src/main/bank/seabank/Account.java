@@ -167,8 +167,8 @@ public abstract class Account {
         try {
             Scanner accFileReader = new Scanner(new File(dir + "/data/accounts/" + accBalance_toGet + ".txt"));
             String fullFile = accFileReader.nextLine();
-            String[] splittedFile = fullFile.split(":");
-            balance = parseDouble(splittedFile[1]);
+            String[] splitFile = fullFile.split(":");
+            balance = parseDouble(splitFile[1]);
         } catch(Exception e) {
             System.err.println(e);
         }
