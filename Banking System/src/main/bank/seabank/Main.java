@@ -15,13 +15,14 @@ import static java.lang.Integer.parseInt;
 
 /*
     TODO
-    1) Withdraw limit + transfer limit
-    2) Logged in account transactions
-    3) Branch 2: Create Account
-    4) Change : to >> on next line
-    5) Change stupid error messages
-    6) Update readme
-    7) Add password change to display()
+    1)Logged in account transactions
+        - If debit
+            - If transaction > balance, subtract fee, return that subtracted fee
+    2) Branch 2: Create Account
+    3) Change : to >> on next line
+    4) Change stupid error messages
+    5) Update readme
+    6) Add password change to display()
  */
 
 
