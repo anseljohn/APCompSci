@@ -213,7 +213,7 @@ public class Main {
 
     public static void depositMon(int accToDepositTo) {
         System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accToDepositTo)));
-        System.out.print("Amount to deposit (or 0 to go back): $");
+        System.out.print("Amount to deposit (enter 0 to go back): $");
         try {
             double amountToDeposit = parseDouble(s.next());
             if(amountToDeposit == 0.0) display(accToDepositTo);
@@ -239,7 +239,7 @@ public class Main {
 
     public static void transferMon(int from) {
         System.out.println("\nBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(from)));
-        System.out.print("Transfer money to (or 0 to go back): #");
+        System.out.print("To (enter 0 to go back): #");
         try {
             int transferTo = parseInt(s.next());
             if(transferTo == 0) {
@@ -257,7 +257,7 @@ public class Main {
         }
     }
     public static void transferAmount(int fromAcc, int toAcc) {
-        System.out.print("Amount to transfer (or 0 to go back): $");
+        System.out.print("Amount to transfer (enter 0 to go back): $");
         double amountToTransfer = parseDouble(s.next());
         if(amountToTransfer == 0.0) display(fromAcc);
         else if(amountToTransfer < 0) {

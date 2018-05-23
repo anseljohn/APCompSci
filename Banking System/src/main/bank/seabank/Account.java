@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
@@ -76,7 +77,8 @@ public abstract class Account {
     public void writeToFile() {
         try {
             PrintWriter writer = new PrintWriter(dir + "/data/accounts/" + accNumber + ".txt", "UTF-8");
-            writer.print(accNumber + ":" + balance);
+            writer.print(accNumber + ":");
+            writer.printf(" %.0f", balance);
             writer.close();
 
             PrintWriter passWriter = new PrintWriter(dir + "/data/pass/" + accNumber + "pass.txt", "UTF-8");
