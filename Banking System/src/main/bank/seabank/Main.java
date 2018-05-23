@@ -17,7 +17,7 @@ import static java.lang.Integer.parseInt;
     TODO
     1)Logged in account transactions
         - If debit
-            - If transaction > balance, subtract fee, return that subtracted fee
+            - If transaction > balance, subtract fee, return that program subtracted a fee
     2) Branch 2: Create Account
     3) Change : to >> on next line
     4) Change stupid error messages
