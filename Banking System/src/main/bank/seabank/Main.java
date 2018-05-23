@@ -21,13 +21,13 @@ import static java.lang.Integer.parseInt;
     4) Change : to >> on next line
     5) Change stupid error messages
     6) Update readme
+    7) Add password change to display()
  */
 
 
 public class Main {
     private static Scanner s = new Scanner(System.in);
     public static void main(String[] args) {
-        ///Account testAccount = new CheckingAccount(100.0, new Password("Antonio703!"));
         System.out.println("Welcome to Sea Bank!\n");
         try {
             TimeUnit.SECONDS.sleep(2);
