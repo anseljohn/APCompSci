@@ -22,11 +22,13 @@ public abstract class Account {
     private Password accPass;
 
     private static String dir = System.getProperty("user.dir");
+    private static int amountAccounts = 2;
 
-    public Account(double startingBalance, int accountNumber, Password p) {
+    public Account(double startingBalance, Password p) {
         balance = startingBalance;
-        accNumber = accountNumber;
+        accNumber = amountAccounts;
         accPass = p;
+        amountAccounts++;
         writeToFile();
     }
 

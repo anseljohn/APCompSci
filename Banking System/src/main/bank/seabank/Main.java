@@ -83,14 +83,14 @@ public class Main {
                 accNonexistant(login_accNum);
             }
         } catch(NumberFormatException e) {
-            System.out.println("\nPlease enter an integer\n");
+            System.out.println("\n\n\n\n\nPlease enter an integer\n");
             login();
         }
 
     }
 
     public static void accNonexistant(int nonExistentAcc) {
-        System.out.println("\nAccount #" + nonExistentAcc + " does not seem to exist.\n"  +
+        System.out.println("\n\n\n\n\nAccount #" + nonExistentAcc + " does not seem to exist.\n"  +
                 "Would you like to create an account?\n");
         System.out.print("(yY/nN)>> ");
         String createAcc_failedLogin = s.next();
@@ -118,7 +118,7 @@ public class Main {
             mainMenu();
         }
         else {
-            System.out.println("\nPlease enter (yY/nN)");
+            System.out.println("\n\n\n\n\nPlease enter (yY/nN)");
             retryLogin();
         }
     }
@@ -135,7 +135,7 @@ public class Main {
         }
         else {
 //            cls();
-            System.out.println("\nIncorrect password!");
+            System.out.println("\n\n\n\n\nIncorrect password!");
             promptForPass(accToAccess);
         }
     }
@@ -167,8 +167,13 @@ public class Main {
             else if(accountOption == 4) {
                 mainMenu();
             }
+            else {
+                System.out.println("\n\n\n\n\nPlease select a number from below");
+                display(accountToDisplay);
+            }
         } catch(NumberFormatException e) {
-            System.out.println("\nPlease enter an integer\n");
+            System.out.println("\n\n\n\n\nPlease enter an integer\n");
+            display(accountToDisplay);
         }
 
     }
@@ -185,7 +190,7 @@ public class Main {
             }
             else {
                 Account.withdraw(amountToWithdraw, accToWithdrawFrom);
-                System.out.println("\n\n\nSuccessfully withdrawn $" + amountToWithdraw + " from account #" + accToWithdrawFrom + "!");
+                System.out.println("\n\n\nSuccessfully withdrawn $" + NumberFormat.getNumberInstance(Locale.US).format(amountToWithdraw) + " from account #" + accToWithdrawFrom + "!");
                 try {
                     TimeUnit.SECONDS.sleep(2);
                 } catch(InterruptedException e) {
@@ -211,7 +216,7 @@ public class Main {
             }
             else {
                 Account.deposit(amountToDeposit, accToDepositTo);
-                System.out.println("\n\n\nSuccessfully deposited $" + amountToDeposit + " to account #" + accToDepositTo + "!");
+                System.out.println("\n\n\nSuccessfully deposited $" + NumberFormat.getNumberInstance(Locale.US).format(amountToDeposit) + " to account #" + accToDepositTo + "!");
                 try {
                     TimeUnit.SECONDS.sleep(2);
                 } catch(InterruptedException e) {
@@ -226,8 +231,8 @@ public class Main {
     }
 
     public static void transferMon(int from) {
-        System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(from)));
-        System.out.println("Transfer money to (or 0 to go back): #");
+        System.out.println("\nBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(from)));
+        System.out.print("Transfer money to (or 0 to go back): #");
         try {
             int transferTo = parseInt(s.next());
             if(transferTo == 0) {
@@ -245,7 +250,7 @@ public class Main {
         }
     }
     public static void transferAmount(int fromAcc, int toAcc) {
-        System.out.println("Amount to transfer (or 0 to go back): $");
+        System.out.print("Amount to transfer (or 0 to go back): $");
         double amountToTransfer = parseDouble(s.next());
         if(amountToTransfer == 0.0) display(fromAcc);
         else if(amountToTransfer < 0) {
@@ -255,7 +260,7 @@ public class Main {
         else {
             Account.withdraw(amountToTransfer, fromAcc);
             Account.deposit(amountToTransfer, toAcc);
-            System.out.println("\n\n\n\n\n$" + amountToTransfer  + " successfully transferred to account #" + toAcc + "!");
+            System.out.println("\n\n\n\n\n$" + NumberFormat.getNumberInstance(Locale.US).format(amountToTransfer)  + " successfully transferred to account #" + toAcc + "!");
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch(InterruptedException e) {

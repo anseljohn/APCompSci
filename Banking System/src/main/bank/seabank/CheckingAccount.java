@@ -9,8 +9,8 @@ public class CheckingAccount extends Account{
     private double balance;
     private Date startDate;
 
-    public CheckingAccount(double startingBalance, int accountNumber, Password p) {
-        super(startingBalance, accountNumber, p);
+    public CheckingAccount(double startingBalance, Password p) {
+        super(startingBalance, p);
         startDate = new Date();
     }
 
