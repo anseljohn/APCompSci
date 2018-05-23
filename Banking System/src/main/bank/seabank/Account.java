@@ -25,9 +25,9 @@ public abstract class Account {
     private static String dir = System.getProperty("user.dir");
 
     public Account(double startingBalance, Password p) {
+        balance = startingBalance;
         try {
             Scanner s = new Scanner(new File(dir + "/data/AccountTrack.txt"));
-            balance = startingBalance;
             accNumber = parseInt(s.nextLine());
         } catch(FileNotFoundException e) {
             System.err.println("File could not be opened");
@@ -80,11 +80,11 @@ public abstract class Account {
     public void writeToFile() {
         try {
             PrintWriter writer = new PrintWriter(dir + "/data/accounts/" + accNumber + ".txt", "UTF-8");
-            writer.println(accNumber + ":" + balance);
+            writer.print(accNumber + ":" + balance);
             writer.close();
 
             PrintWriter passWriter = new PrintWriter(dir + "/data/pass/" + accNumber + "pass.txt", "UTF-8");
-            passWriter.println(encryptPass());
+            passWriter.print(encryptPass());
             passWriter.close();
 
         } catch(FileNotFoundException e) {
@@ -183,7 +183,8 @@ public abstract class Account {
             int prevAccts = parseInt(getAccts.nextLine());
 
             PrintWriter writer = new PrintWriter(dir + "/data/AccountTrack.txt", "UTF-8");
-            writer.println(prevAccts + 1);
+            writer.print(prevAccts + 1);
+            writer.close();
         } catch(FileNotFoundException e) {
             System.err.println("File could not be opened");
         } catch(UnsupportedEncodingException e) {
