@@ -5,6 +5,8 @@ import java.io.File;
 //import java.nio.file.Paths;
 //import java.text.NumberFormat;
 //import java.util.InputMismatchException;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -140,7 +142,7 @@ public class Main {
 
     public static void display(int accountToDisplay) {
         System.out.println("\nAccount #" + accountToDisplay);
-        System.out.println("\n\tBalance: $" + Account.getBalance(accountToDisplay));
+        System.out.println("\n\tBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accountToDisplay)));
         System.out.println("\n\t(0) Withdraw Money");
         System.out.println("\t(1) Deposit Money");
         System.out.println("\t(2) Transfer money");
@@ -172,7 +174,7 @@ public class Main {
     }
 
     public static void withdrawMon(int accToWithdrawFrom){
-        System.out.println("\nBalance: " + Account.getBalance(accToWithdrawFrom));
+        System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accToWithdrawFrom)));
         System.out.print("Amount to withdraw (or enter 0 to go back): $");
         try {
             double amountToWithdraw = parseDouble(s.next());
@@ -198,7 +200,7 @@ public class Main {
     }
 
     public static void depositMon(int accToDepositTo) {
-        System.out.println("\nBalance: " + Account.getBalance(accToDepositTo));
+        System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accToDepositTo)));
         System.out.print("Amount to deposit (or 0 to go back): $");
         try {
             double amountToDeposit = parseDouble(s.next());
@@ -224,7 +226,7 @@ public class Main {
     }
 
     public static void transferMon(int from) {
-        System.out.println("\nBalance: " + Account.getBalance(from));
+        System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(from)));
         System.out.println("Transfer money to (or 0 to go back): #");
         try {
             int transferTo = parseInt(s.next());
