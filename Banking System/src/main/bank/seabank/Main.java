@@ -15,7 +15,7 @@ import static java.lang.Integer.parseInt;
 
 /*
     TODO
-    1) Ability to transfer $$ to acc in display()
+    1) Withdraw limit + transfer limit
     2) Logged in account transactions
     3) Branch 2: Create Account
     4) Change : to >> on next line
@@ -27,7 +27,7 @@ import static java.lang.Integer.parseInt;
 public class Main {
     private static Scanner s = new Scanner(System.in);
     public static void main(String[] args) {
-        Account testAccount = new CheckingAccount(100.0, new Password("Antonio123!"));
+        ///Account testAccount = new CheckingAccount(100.0, new Password("Antonio703!"));
         System.out.println("Welcome to Sea Bank!\n");
         try {
             TimeUnit.SECONDS.sleep(2);
