@@ -75,7 +75,7 @@ public abstract class Account {
 
     public void writeToFile() {
         try {
-            PrintWriter writer = new PrintWriter(dir + "/data/UserAccounts/" + useracc.getUsername() + "/" + accNumber + ".txt", "UTF-8");
+            PrintWriter writer = new PrintWriter(dir + "/data/UserAccounts/" + useracc.getUsername() + "/BankAccounts/" + accNumber + ".txt", "UTF-8");
             writer.print(accNumber + ":");
             writer.printf(" %.0f", balance);
             writer.close();

@@ -47,9 +47,6 @@ public class Main {
 //            Thread.currentThread().interrupt();
 //        }
 //        mainMenu();
-
-        UserAccount u = new UserAccount(new Username("User1"), new Password("Abcd123!"));
-        UserAccount u2 = new UserAccount(new Username("User2"), new Password("Antonio123!"));
     }
 
 //    public static void mainMenu() {

@@ -33,7 +33,18 @@ public class UserAccount {
 
     public void writeToFile() {
         File f = new File(dir + "/data/UserAccounts/" + user.getUser());
+        File holdAccs = new File(dir + "/data/UserAccounts/" + user.getUser() + "/BankAccounts/");
         f.mkdirs();
+        holdAccs.mkdirs();
+
+        try {
+            PrintWriter writePass = new PrintWriter(new File(dir + "/data/UserAccounts/" + user.getUser() + "/pass.txt"));
+            writePass.print(encryptPass());
+            writePass.close();
+
+        } catch(FileNotFoundException e) {
+            System.err.println("Could not open file pass.txt");
+        }
     }
 
     public String encryptPass() {
