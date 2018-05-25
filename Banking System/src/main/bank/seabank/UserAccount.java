@@ -25,15 +25,8 @@ public class UserAccount {
     }
 
     public void writeToFile() {
-//        try {
-            File f = new File(dir + "/data/UserAccounts/" + user.getUser());
-            if(f.mkdirs()) System.out.println("Directory created.");
-            else System.out.println("Directory not created");
-//            PrintWriter write = new PrintWriter(new File(dir + "/data/UserAccounts/" + user.getUser()));
-//            write.close();
-//        } catch(FileNotFoundException e) {
-//            System.err.println("Unable to locate folder");
-//        }
+        File f = new File(dir + "/data/UserAccounts/" + user.getUser());
+        f.mkdirs();
     }
 
     public String encryptPass() {

@@ -23,6 +23,8 @@ import static java.lang.Integer.parseInt;
     -- No need to log in to user's accounts, but just the user account itself
 
     - FIX OVERFLOW ON DOUBLE BUG
+
+    REMEMBER FOR NO DUPLICATE USERNAMES
     1)Logged in account transactions
         - If debit
             - If transaction > balance, subtract fee, return that program subtracted a fee
@@ -46,7 +48,8 @@ public class Main {
 //        }
 //        mainMenu();
 
-        UserAccount u = new UserAccount(new Username("User1"), new Password("Antonio123!"));
+        UserAccount u = new UserAccount(new Username("User1"), new Password("Abcd123!"));
+        UserAccount u2 = new UserAccount(new Username("User2"), new Password("Antonio123!"));
     }
 
 //    public static void mainMenu() {
