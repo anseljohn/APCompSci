@@ -22,6 +22,13 @@ public class UserAccount {
         user = u;
         userPass = p;
         writeToFile();
+        try {
+            PrintWriter writeAccTrack = new PrintWriter(new File(dir + "/data/UserAccounts/" + u.getUser() + "/AccountTrack.txt"));
+            writeAccTrack.print(1);
+            writeAccTrack.close();
+        } catch(FileNotFoundException e) {
+            System.err.println("Could not open file");
+        }
     }
 
     public void writeToFile() {
