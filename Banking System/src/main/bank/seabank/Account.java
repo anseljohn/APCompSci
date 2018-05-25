@@ -24,7 +24,7 @@ public abstract class Account {
 
     private static String dir = System.getProperty("user.dir");
 
-    public Account() {
+    public Account(Username u) {
         balance = 0.0;
         try {
             Scanner s = new Scanner(new File(dir + "/data/AccountTrack.txt"));
@@ -32,7 +32,7 @@ public abstract class Account {
         } catch(FileNotFoundException e) {
             System.err.println("File could not be opened");
         }
-        accountTrack();
+        accountTrack(u);
         writeToFile();
     }
 
@@ -40,9 +40,9 @@ public abstract class Account {
         DEBIT, CREDIT, CHECK;
     }
 
-    public static void deposit(double amount, int acc_depositTo) {
+    public static void deposit(double amount, Username u, int acc_depositTo) {
         try {
-            double prevBalance = getBalance(acc_depositTo);
+            double prevBalance = getBalance(u, acc_depositTo);
             PrintWriter rewrite = new PrintWriter(dir + "/data/accounts/" + acc_depositTo + ".txt", "UTF-8");
             if(amount > 0) {
                 rewrite.print(acc_depositTo + ":" + (prevBalance + amount));
@@ -55,9 +55,9 @@ public abstract class Account {
         }
     }
 
-    public static void withdraw(double amount, int acc_withdrawFrom) {
+    public static void withdraw(double amount, Username u, int acc_withdrawFrom) {
         try {
-            double prevBalance = getBalance(acc_withdrawFrom);
+            double prevBalance = getBalance(u, acc_withdrawFrom);
             PrintWriter rewrite = new PrintWriter(dir + "/data/accounts/" + acc_withdrawFrom + ".txt", "UTF-8");
             if(amount > 0 && amount <= prevBalance) {
                 rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount));
@@ -70,19 +70,14 @@ public abstract class Account {
         }
     }
 
-    public abstract void transaction(double amount, Payment typeOfPayment);
+    public abstract void transaction(double amount, Payment typeOfPayment, Username u);
 
     public void writeToFile() {
         try {
-            PrintWriter writer = new PrintWriter(dir + "/data/accounts/" + accNumber + ".txt", "UTF-8");
+            PrintWriter writer = new PrintWriter(dir + "/data/" + accNumber + ".txt", "UTF-8");
             writer.print(accNumber + ":");
             writer.printf(" %.0f", balance);
             writer.close();
-
-            PrintWriter passWriter = new PrintWriter(dir + "/data/pass/" + accNumber + "pass.txt", "UTF-8");
-            passWriter.print(encryptPass());
-            passWriter.close();
-
         } catch(FileNotFoundException e) {
             System.err.println("U bad where's ur file");
         } catch(UnsupportedEncodingException e) {
@@ -91,7 +86,7 @@ public abstract class Account {
     }
 
 
-    public static double getBalance(int accBalance_toGet) {
+    public static double getBalance(Username u, int accBalance_toGet) {
         double balance = 0.0;
         try {
             Scanner accFileReader = new Scanner(new File(dir + "/data/accounts/" + accBalance_toGet + ".txt"));
@@ -104,7 +99,7 @@ public abstract class Account {
         return balance;
     }
 
-    public static void accountTrack() {
+    public static void accountTrack(Username u) {
         try {
             Scanner getAccts = new Scanner(new File(dir + "/data/AccountTrack.txt"));
             int prevAccts = parseInt(getAccts.nextLine());

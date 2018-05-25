@@ -16,7 +16,7 @@ public class UserAccount {
     private Username user;
     private Password userPass;
 
-    private String dir = System.getProperty("user.dir");
+    private static String dir = System.getProperty("user.dir");
 
     public UserAccount(Username u) {
         user = u;
