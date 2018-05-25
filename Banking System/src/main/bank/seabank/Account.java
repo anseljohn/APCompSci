@@ -26,6 +26,7 @@ public abstract class Account {
     private static String dir = System.getProperty("user.dir");
 
     public Account(Password p) {
+        balance = 0.0;
         try {
             Scanner s = new Scanner(new File(dir + "/data/AccountTrack.txt"));
             accNumber = parseInt(s.nextLine());
