@@ -25,6 +25,8 @@ import static java.lang.Integer.parseInt;
     - FIX OVERFLOW ON DOUBLE BUG
 
     REMEMBER FOR NO DUPLICATE USERNAMES
+    USERNAME MUST BE MORE THAN 4 CHARACTERS
+
     1)Logged in account transactions
         - If debit
             - If transaction > balance, subtract fee, return that program subtracted a fee
@@ -42,67 +44,67 @@ public class Main {
     public static void main(String[] args) {
         Account acc = new CheckingAccount("User2");
 
-//        System.out.println("Welcome to Sea Bank!\n");
-//        try {
-//            TimeUnit.SECONDS.sleep(2);
-//        } catch(InterruptedException e) {
-//            Thread.currentThread().interrupt();
-//        }
-//        mainMenu();
+        System.out.println("Welcome to Sea Bank!\n");
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch(InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        mainMenu();
     }
 
-//    public static void mainMenu() {
-//        System.out.println("\nPlease select an item below:");
-//        System.out.println("(0) Login");
-//        System.out.println("(1) Create Account");
-//        System.out.println("(2) Exit");
-//        System.out.print(">> ");
-//        try {
-//            int mainMenu = parseInt(s.next());
-//            if (mainMenu == 0) {
-//                login();
-//            }
-//            else if(mainMenu == 1) {
-//                System.out.println("coo create acc"); //add in account creation
-//            }
-//            else if(mainMenu == 2) {
-//                System.exit(0);
-//            }
-//            else {
-//                System.out.println("\n\n\n\n\nPlease select a number from the list below");
-//                mainMenu();
-//            }
-//        } catch(NumberFormatException e) {
-//            System.out.println("\n\n\n\n\nPlease enter an integer");
-//            mainMenu();
-//        }
-//    }
-//
-//
-//    /*
-//        START OF TREE FOR login OPTION
-//     */
-//    public static void login() {
-//        System.out.print("\nAccount number (or enter 0 to go back): ");
-//        try {
-//            int login_accNum = parseInt(s.next());
-//            if(login_accNum == 0) {
-//                mainMenu();
-//            }
-//            if (accExists(login_accNum)) {
-//                System.out.println("\nAccount #" + login_accNum + " found!");
-//                promptForPass(login_accNum);
-//            }
-//            else {
-//                accNonexistant(login_accNum);
-//            }
-//        } catch(NumberFormatException e) {
-//            System.out.println("\n\n\n\n\nPlease enter an integer\n");
-//            login();
-//        }
-//
-//    }
-//
+    public static void mainMenu() {
+        System.out.println("\nPlease select an item below:");
+        System.out.println("(0) Login");
+        System.out.println("(1) Create Account");
+        System.out.println("(2) Exit");
+        System.out.print(">> ");
+        try {
+            int mainMenu = parseInt(s.next());
+            if (mainMenu == 0) {
+                login();
+            }
+            else if(mainMenu == 1) {
+                System.out.println("coo create acc"); //add in account creation
+            }
+            else if(mainMenu == 2) {
+                System.exit(0);
+            }
+            else {
+                System.out.println("\n\n\n\n\nPlease select a number from the list below");
+                mainMenu();
+            }
+        } catch(NumberFormatException e) {
+            System.out.println("\n\n\n\n\nPlease enter an integer");
+            mainMenu();
+        }
+    }
+
+
+    /*
+        START OF TREE FOR login OPTION
+     */
+    public static void login() {
+        System.out.print("\nUsername (or enter b to go back): ");
+        try {
+            String user = s.next();
+            if(user.equals("b")) {
+                mainMenu();
+            }
+            if (accExists(user)) {
+                System.out.println("\n User \'" + user + "\' found!");
+                promptForPass(login_accNum);
+            }
+            else {
+                accNonexistant(login_accNum);
+            }
+        } catch(NumberFormatException e) {
+            System.out.println("\n\n\n\n\nPlease enter an integer\n");
+            login();
+        }
+
+    }
+
 //    public static void accNonexistant(int nonExistentAcc) {
 //        System.out.println("\n\n\n\n\nAccount #" + nonExistentAcc + " does not seem to exist.\n"  +
 //                "Would you like to create an account?\n");
@@ -317,8 +319,8 @@ public class Main {
 
 
     //For finding if acc exists or not
-    public static boolean accExists(int accToCheck) {
-        return new File(System.getProperty("user.dir") + "/data/accounts/" + accToCheck + ".txt").exists();
+    public static boolean accExists(String user) {
+        return new File(System.getProperty("user.dir") + "/data/UserAccounts/" + user).exists();
     }
 
 //    public static void cls() {
