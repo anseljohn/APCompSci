@@ -24,7 +24,7 @@ public abstract class Account {
 
     private static String dir = System.getProperty("user.dir");
 
-    public Account(Username u) {
+    public Account(String u) {
         balance = 0.0;
         try {
             Scanner s = new Scanner(new File(dir + "/data/AccountTrack.txt"));
@@ -40,7 +40,7 @@ public abstract class Account {
         DEBIT, CREDIT, CHECK;
     }
 
-    public static void deposit(double amount, Username u, int acc_depositTo) {
+    public static void deposit(double amount, String u, int acc_depositTo) {
         try {
             double prevBalance = getBalance(u, acc_depositTo);
             PrintWriter rewrite = new PrintWriter(dir + "/data/accounts/" + acc_depositTo + ".txt", "UTF-8");
@@ -55,7 +55,7 @@ public abstract class Account {
         }
     }
 
-    public static void withdraw(double amount, Username u, int acc_withdrawFrom) {
+    public static void withdraw(double amount, String u, int acc_withdrawFrom) {
         try {
             double prevBalance = getBalance(u, acc_withdrawFrom);
             PrintWriter rewrite = new PrintWriter(dir + "/data/accounts/" + acc_withdrawFrom + ".txt", "UTF-8");
@@ -70,7 +70,7 @@ public abstract class Account {
         }
     }
 
-    public abstract void transaction(double amount, Payment typeOfPayment, Username u);
+    public abstract void transaction(double amount, Payment typeOfPayment, String u);
 
     public void writeToFile() {
         try {
@@ -86,7 +86,7 @@ public abstract class Account {
     }
 
 
-    public static double getBalance(Username u, int accBalance_toGet) {
+    public static double getBalance(String u, int accBalance_toGet) {
         double balance = 0.0;
         try {
             Scanner accFileReader = new Scanner(new File(dir + "/data/accounts/" + accBalance_toGet + ".txt"));
@@ -99,12 +99,12 @@ public abstract class Account {
         return balance;
     }
 
-    public static void accountTrack(Username u) {
+    public static void accountTrack(String u) {
         try {
-            Scanner getAccts = new Scanner(new File(dir + "/data/AccountTrack.txt"));
+            Scanner getAccts = new Scanner(new File(dir + "/data/UserAccounts/" + u + "/AccountTrack.txt"));
             int prevAccts = parseInt(getAccts.nextLine());
 
-            PrintWriter writer = new PrintWriter(dir + "/data/AccountTrack.txt", "UTF-8");
+            PrintWriter writer = new PrintWriter(dir + "/data/UserAccounts/" + u + "/AccountTrack.txt", "UTF-8");
             writer.print(prevAccts + 1);
             writer.close();
         } catch(FileNotFoundException e) {
