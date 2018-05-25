@@ -14,15 +14,18 @@ import static java.lang.Integer.parseInt;
 
 public class UserAccount {
     private Username user;
+    private Password userPass;
+
+    private String dir = System.getProperty("user.dir");
 
     public UserAccount(Username u) {
         user = u;
     }
 
     public String encryptPass() {
-        String message = accPass.getPass();
+        String message = userPass.getPass();
         String encryptedMessage = "";
-        int key = accPass.getPass().length();
+        int key = userPass.getPass().length();
         char ch;
 
         for(int i = 0; i < message.length(); ++i){
