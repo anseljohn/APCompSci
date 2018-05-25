@@ -26,10 +26,11 @@ import static java.lang.Integer.parseInt;
         - If debit
             - If transaction > balance, subtract fee, return that program subtracted a fee
     2) Branch 2: Create Account
-    3) Change : to >> on next line
-    4) Change stupid error messages
-    5) Update readme
-    6) Add password change to display()
+    3) Fix verify methods in Username and Password
+    4) Change : to >> on next line
+    5) Change stupid error messages
+    6) Update readme
+    7) Add password change to display()
  */
 
 
