@@ -228,9 +228,9 @@ public class Main {
                 System.out.println("\n\n\n\n\nCannot deposit a negative amount!");
                 depositMon(accToDepositTo);
             }
-            else if(amountToDeposit > 2000000) {
-                System.out.println("\n\n\n\n\nCannot deposit more than $2million at once");
-                depositMon(accToDepositTo);
+            else if(Account.getBalance(accToDepositTo) >= 5000000) {
+                System.out.println("\n\n\n\n\nYou have reached the maximum amount of money!");
+                System.out.println("Please open a new bank account.");
             }
             else {
                 Account.deposit(amountToDeposit, accToDepositTo);
