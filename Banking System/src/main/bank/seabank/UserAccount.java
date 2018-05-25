@@ -23,6 +23,15 @@ public class UserAccount {
         userPass = p;
     }
 
+    public void writeToFile() {
+        try {
+            PrintWriter write = new PrintWriter(new File(dir + "/data/" + user));
+            write.close();
+        } catch(FileNotFoundException e) {
+            System.err.println("Unable to locate folder");
+        }
+    }
+
     public String encryptPass() {
         String message = userPass.getPass();
         String encryptedMessage = "";

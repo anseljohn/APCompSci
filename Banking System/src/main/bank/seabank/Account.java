@@ -27,7 +27,7 @@ public abstract class Account {
     public Account(String u) {
         balance = 0.0;
         try {
-            Scanner s = new Scanner(new File(dir + "/data/AccountTrack.txt"));
+            Scanner s = new Scanner(new File(dir + "/data/UserAccounts/" + u + "/AccountTrack.txt"));
             accNumber = parseInt(s.nextLine());
         } catch(FileNotFoundException e) {
             System.err.println("File could not be opened");
@@ -74,7 +74,7 @@ public abstract class Account {
 
     public void writeToFile() {
         try {
-            PrintWriter writer = new PrintWriter(dir + "/data/" + accNumber + ".txt", "UTF-8");
+            PrintWriter writer = new PrintWriter(dir + "/data/UserAccounts/" + u".txt", "UTF-8");
             writer.print(accNumber + ":");
             writer.printf(" %.0f", balance);
             writer.close();
