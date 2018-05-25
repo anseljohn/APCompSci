@@ -9,7 +9,7 @@ public class CheckingAccount extends Account{
     private double balance;
     private Date startDate;
 
-    public CheckingAccount(UserAccount u) {
+    public CheckingAccount(String u) {
         super(u);
         startDate = new Date();
     }

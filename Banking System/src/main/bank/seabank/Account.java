@@ -21,19 +21,20 @@ import static java.lang.Integer.parseInt;
 public abstract class Account {
     private double balance;
     private int accNumber;
-    private UserAccount useracc;
+    private String user;
 
     private static String dir = System.getProperty("user.dir");
 
-    public Account(UserAccount u) {
+    public Account(String username) {
         balance = 0.0;
+        user = username;
         try {
-            Scanner s = new Scanner(new File(dir + "/data/UserAccounts/" + u.getUsername() + "/AccountTrack.txt"));
+            Scanner s = new Scanner(new File(dir + "/data/UserAccounts/" + username + "/AccountTrack.txt"));
             accNumber = parseInt(s.nextLine());
         } catch(FileNotFoundException e) {
             System.err.println("File could not be opened");
         }
-        accountTrack(u.getUsername());
+        accountTrack(username);
         writeToFile();
     }
 
@@ -59,7 +60,7 @@ public abstract class Account {
     public static void withdraw(double amount, String u, int acc_withdrawFrom) {
         try {
             double prevBalance = getBalance(u, acc_withdrawFrom);
-            PrintWriter rewrite = new PrintWriter(dir + "/data/accounts/" + acc_withdrawFrom + ".txt", "UTF-8");
+            PrintWriter rewrite = new PrintWriter(dir + "/data/UserAccounts/" + u + "/BankAccounts/" + acc_withdrawFrom + ".txt", "UTF-8");
             if(amount > 0 && amount <= prevBalance) {
                 rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount));
                 rewrite.close();
@@ -75,9 +76,9 @@ public abstract class Account {
 
     public void writeToFile() {
         try {
-            PrintWriter writer = new PrintWriter(dir + "/data/UserAccounts/" + useracc.getUsername() + "/BankAccounts/" + accNumber + ".txt", "UTF-8");
+            PrintWriter writer = new PrintWriter(dir + "/data/UserAccounts/" + user + "/BankAccounts/" + accNumber + ".txt", "UTF-8");
             writer.print(accNumber + ":");
-            writer.printf(" %.0f", balance);
+            writer.print(balance);
             writer.close();
         } catch(FileNotFoundException e) {
             System.err.println("U bad where's ur file");
@@ -90,7 +91,7 @@ public abstract class Account {
     public static double getBalance(String u, int accBalance_toGet) {
         double balance = 0.0;
         try {
-            Scanner accFileReader = new Scanner(new File(dir + "/data/accounts/" + accBalance_toGet + ".txt"));
+            Scanner accFileReader = new Scanner(new File(dir + "/data/UserAccounts/" + u + "/" + accBalance_toGet + ".txt"));
             String fullFile = accFileReader.nextLine();
             String[] splitFile = fullFile.split(":");
             balance = parseDouble(splitFile[1]);
