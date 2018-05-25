@@ -9,12 +9,12 @@ public class CheckingAccount extends Account{
     private double balance;
     private Date startDate;
 
-    public CheckingAccount(Password p) {
-        super(p);
+    public CheckingAccount(Username u) {
+        super(u);
         startDate = new Date();
     }
 
-    public void transaction(double amount, Payment typeOfPayment) {
+    public void transaction(double amount, Payment typeOfPayment, Username u) {
 
     }
 }

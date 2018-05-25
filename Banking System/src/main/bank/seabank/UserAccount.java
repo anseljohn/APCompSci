@@ -18,8 +18,9 @@ public class UserAccount {
 
     private static String dir = System.getProperty("user.dir");
 
-    public UserAccount(Username u) {
+    public UserAccount(Username u, Password p) {
         user = u;
+        userPass = p;
     }
 
     public String encryptPass() {
