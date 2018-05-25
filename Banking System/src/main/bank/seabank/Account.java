@@ -21,18 +21,19 @@ import static java.lang.Integer.parseInt;
 public abstract class Account {
     private double balance;
     private int accNumber;
+    private UserAccount useracc;
 
     private static String dir = System.getProperty("user.dir");
 
-    public Account(String u) {
+    public Account(UserAccount u) {
         balance = 0.0;
         try {
-            Scanner s = new Scanner(new File(dir + "/data/UserAccounts/" + u + "/AccountTrack.txt"));
+            Scanner s = new Scanner(new File(dir + "/data/UserAccounts/" + u.getUsername() + "/AccountTrack.txt"));
             accNumber = parseInt(s.nextLine());
         } catch(FileNotFoundException e) {
             System.err.println("File could not be opened");
         }
-        accountTrack(u);
+        accountTrack(u.getUsername());
         writeToFile();
     }
 
@@ -74,7 +75,7 @@ public abstract class Account {
 
     public void writeToFile() {
         try {
-            PrintWriter writer = new PrintWriter(dir + "/data/UserAccounts/" + u".txt", "UTF-8");
+            PrintWriter writer = new PrintWriter(dir + "/data/UserAccounts/" + useracc.getUsername() + "/" + accNumber + ".txt", "UTF-8");
             writer.print(accNumber + ":");
             writer.printf(" %.0f", balance);
             writer.close();
