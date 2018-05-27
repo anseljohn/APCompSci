@@ -93,10 +93,10 @@ public class Main {
             }
             if (accExists(user)) {
                 System.out.println("\n User \'" + user + "\' found!");
-                promptForPass(login_accNum);
+                promptForPass(user);
             }
             else {
-                accNonexistant(login_accNum);
+                accNonexistant(user);
             }
         } catch(NumberFormatException e) {
             System.out.println("\n\n\n\n\nPlease enter an integer\n");
@@ -105,58 +105,58 @@ public class Main {
 
     }
 
-//    public static void accNonexistant(int nonExistentAcc) {
-//        System.out.println("\n\n\n\n\nAccount #" + nonExistentAcc + " does not seem to exist.\n"  +
-//                "Would you like to create an account?\n");
-//        System.out.print("(yY/nN)>> ");
-//        String createAcc_failedLogin = s.next();
-//        if(createAcc_failedLogin.toLowerCase().equals("y")) {
-//            System.out.println("go to create account"); //fill in later with method call
-//        }
-//        else if(createAcc_failedLogin.toLowerCase().equals("n")) {
-//            retryLogin();
-//        }
-//        else {
-//            System.out.println("\nPlease enter (yY/nN)");
-//            accNonexistant(nonExistentAcc);
-//        }
-//    }
-//
-//    public static void retryLogin() {
-//        System.out.println("\nRetry login?");
-//        System.out.print("(yY/nN)>> ");
-//
-//        String retry = s.next();
-//        if(retry.toLowerCase().equals("y")) {
-//            login();
-//        }
-//        else if(retry.toLowerCase().equals("n")) {
-//            mainMenu();
-//        }
-//        else {
-//            System.out.println("\n\n\n\n\nPlease enter (yY/nN)");
-//            retryLogin();
-//        }
-//    }
-//
-//    public static void promptForPass(int accToAccess) {
-//        System.out.print("Account password (or enter 0 to go back): ");
-//        String login_pass = s.next();
-//
-//        if (login_pass.equals("0")) {
-//            login();
-//        }
-//        if(login_pass.equals(Account.decryptPass(accToAccess))) {
-//            display(accToAccess);
-//        }
-//        else {
-////            cls();
-//            System.out.println("\n\n\n\n\nIncorrect password!");
-//            promptForPass(accToAccess);
-//        }
-//    }
-//
-//    public static void display(int accountToDisplay) {
+    public static void accNonexistant(String nonExistentAcc) {
+        System.out.println("\n\n\n\n\nAccount \'" + nonExistentAcc + "\' does not seem to exist.\n"  +
+                "Would you like to create an account?\n");
+        System.out.print("(yY/nN)>> ");
+        String createAcc_failedLogin = s.next();
+        if(createAcc_failedLogin.toLowerCase().equals("y")) {
+            System.out.println("go to create account"); //fill in later with method call
+        }
+        else if(createAcc_failedLogin.toLowerCase().equals("n")) {
+            retryLogin();
+        }
+        else {
+            System.out.println("\nPlease enter (yY/nN)");
+            accNonexistant(nonExistentAcc);
+        }
+    }
+
+    public static void retryLogin() {
+        System.out.println("\nRetry login?");
+        System.out.print("(yY/nN)>> ");
+
+        String retry = s.next();
+        if(retry.toLowerCase().equals("y")) {
+            login();
+        }
+        else if(retry.toLowerCase().equals("n")) {
+            mainMenu();
+        }
+        else {
+            System.out.println("\n\n\n\n\nPlease enter (yY/nN)");
+            retryLogin();
+        }
+    }
+
+    public static void promptForPass(String accToAccess) {
+        System.out.print("Account password (or enter 0 to go back): ");
+        String login_pass = s.next();
+
+        if (login_pass.equals("0")) {
+            login();
+        }
+        if(login_pass.equals(UserAccount.decryptPass(accToAccess))) {
+            display(accToAccess);
+        }
+        else {
+//            cls();
+            System.out.println("\n\n\n\n\nIncorrect password!");
+            promptForPass(accToAccess);
+        }
+    }
+
+//    public static void displayBankAccount(String accountToDisplay) {
 //        System.out.println("\nAccount #" + accountToDisplay);
 //        System.out.println("\n\tBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accountToDisplay)));
 //        System.out.println("\n\t(0) Withdraw Money");
@@ -193,7 +193,7 @@ public class Main {
 //        }
 //
 //    }
-//
+
 //    public static void withdrawMon(int accToWithdrawFrom){
 //        System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accToWithdrawFrom)));
 //        System.out.print("Amount to withdraw (or enter 0 to go back): $");

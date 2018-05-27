@@ -80,11 +80,11 @@ public class UserAccount {
         return encryptedMessage;
     }
 
-    public static String decryptPass(int decrypt_AccNum) {
+    public static String decryptPass(String decrypt_Acc) {
         String message = "";
         String decryptedMessage = "";
         try {
-            Scanner encryptedPass_File = new Scanner(new File(dir + "/data/pass/" + decrypt_AccNum + "pass.txt"));
+            Scanner encryptedPass_File = new Scanner(new File(dir + "/data/UserAccounts/" + decrypt_Acc + "/pass.txt"));
             message = encryptedPass_File.nextLine();
         } catch(Exception e) {
             System.err.println("U R SOOOOO BAD, ERROR HAS OCCURRED");
