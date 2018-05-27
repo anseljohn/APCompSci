@@ -1,19 +1,17 @@
 package main.bank.seabank;
 
-import jdk.nashorn.internal.objects.Global;
-
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-
 import static java.lang.Integer.parseInt;
 //import java.nio.file.Files;
 //import java.nio.file.Paths;
 //import java.text.NumberFormat;
 //import java.util.InputMismatchException;
 //import java.text.NumberFormat;
-//import java.util.Locale;
 //import static java.lang.Double.parseDouble;
 
 /*
@@ -160,7 +158,7 @@ public class Main {
     }
 
     public static void display(String accToDisplay) {
-        System.out.println("\n\n\n\n\nWelcome, " + accToDisplay + "\n");
+        System.out.println("\n\n\n\n\nWelcome, " + accToDisplay + "!\n");
         System.out.println("\tAccounts owned: ");
 
         File accountFolder = new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/");
@@ -169,7 +167,8 @@ public class Main {
             try {
                 Scanner readAccType = new Scanner(new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/" + fileName));
                 String accountType = readAccType.next().split(":")[2];
-                System.out.println("\t\tAccount #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")) + " (" + accountType + ")");
+                System.out.println("\tAccount #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")) + " (" + accountType + ")");
+                chooseAccount(accToDisplay);
             } catch (FileNotFoundException e) {
                 System.err.println("Cannot open account file: " + fileName);
             } catch (Exception e) {
@@ -179,16 +178,28 @@ public class Main {
 
     }
 
-//    public static void displayBankAccount(String accountToDisplay) {
-//        System.out.println("\nAccount #" + accountToDisplay);
-//        System.out.println("\n\tBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accountToDisplay)));
-//        System.out.println("\n\t(0) Withdraw Money");
-//        System.out.println("\t(1) Deposit Money");
-//        System.out.println("\t(2) Transfer money");
-//        System.out.println("\t(3) Log a Transaction");
-//        System.out.println("\t(4) Log out");
-//        System.out.print("\n>> ");
-//
+    public static void chooseAccount(String user) {
+        System.out.println("Please select an account number from above (or enter 0 to go back)");
+        System.out.print(">> ");
+        int accountToChoose = parseInt(s.next());
+        if(bankAccExists(user, accountToChoose)) {
+            displayBankAccount(user, accountToChoose);
+        }
+        else {
+            System.err.println("Account does not exist");
+        }
+    }
+
+    public static void displayBankAccount(String accountToDisplay, int usersAccToDisplay) {
+        System.out.println("\nAccount #" + usersAccToDisplay);
+        System.out.println("\n\tBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accountToDisplay, usersAccToDisplay)));
+        System.out.println("\n\t(0) Withdraw Money");
+        System.out.println("\t(1) Deposit Money");
+        System.out.println("\t(2) Transfer money");
+        System.out.println("\t(3) Log a Transaction");
+        System.out.println("\t(4) Log out");
+        System.out.print("\n>> ");
+
 //        try {
 //            int accountOption = parseInt(s.next());
 //            if (accountOption == 0) {
@@ -214,8 +225,8 @@ public class Main {
 //            System.out.println("\n\n\n\n\nPlease enter an integer\n");
 //            display(accountToDisplay);
 //        }
-//
-//    }
+
+    }
 
 //    public static void withdrawMon(int accToWithdrawFrom){
 //        System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accToWithdrawFrom)));
@@ -343,7 +354,10 @@ public class Main {
 
     //For finding if acc exists or not
     public static boolean accExists(String user) {
-        return new File(System.getProperty("user.dir") + "/data/UserAccounts/" + user).exists();
+        return new File(dir + "/data/UserAccounts/" + user).exists();
+    }
+    public static boolean bankAccExists(String user, int usersAcc) {
+        return new File(dir + "/data/UserAccounts/" + user + "/BankAccounts/" + usersAcc + ".txt").exists();
     }
 
 //    public static void cls() {
