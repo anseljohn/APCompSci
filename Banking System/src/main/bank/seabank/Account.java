@@ -43,9 +43,9 @@ public abstract class Account {
     public static void deposit(double amount, String u, int acc_depositTo) {
         try {
             double prevBalance = getBalance(u, acc_depositTo);
-            PrintWriter rewrite = new PrintWriter(dir + "/data/accounts/" + acc_depositTo + ".txt", "UTF-8");
+            PrintWriter rewrite = new PrintWriter(dir + "/data/UserAccounts/" + u + "/BankAccounts" + acc_depositTo + ".txt", "UTF-8");
             if(amount > 0) {
-                rewrite.print(acc_depositTo + ":" + (prevBalance + amount));
+                rewrite.print(acc_depositTo + ":" + (prevBalance + amount) + ":" + getAccountType(u, acc_depositTo));
                 rewrite.close();
             }
         } catch(FileNotFoundException e) {
@@ -60,7 +60,7 @@ public abstract class Account {
             double prevBalance = getBalance(u, acc_withdrawFrom);
             PrintWriter rewrite = new PrintWriter(dir + "/data/UserAccounts/" + u + "/BankAccounts/" + acc_withdrawFrom + ".txt", "UTF-8");
             if(amount > 0 && amount <= prevBalance) {
-                rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount));
+                rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount) + ":" + getAccountType(u, acc_withdrawFrom));
                 rewrite.close();
             }
         } catch(FileNotFoundException e) {
@@ -96,6 +96,17 @@ public abstract class Account {
             System.err.println(e);
         }
         return balance;
+    }
+
+    public static String getAccountType(String u, int accsTypeToGet) {
+        String type = "";
+        try {
+            Scanner readFile = new Scanner(new File(dir + "/data/UserAccounts/" + u + "/BankAccounts/" + accsTypeToGet + ".txt"));
+            type = readFile.nextLine().split(":")[2];
+        } catch(FileNotFoundException e) {
+            System.err.println("Cannot open file: " + accsTypeToGet  + ".txt");
+        }
+        return type;
     }
 
     public static void accountTrack(String u) {

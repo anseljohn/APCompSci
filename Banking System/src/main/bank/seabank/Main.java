@@ -167,7 +167,7 @@ public class Main {
             try {
                 Scanner readAccType = new Scanner(new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/" + fileName));
                 String accountType = readAccType.next().split(":")[2];
-                System.out.println("\tAccount #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")) + " (" + accountType + ")");
+                System.out.println("\n\tAccount #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")) + " (" + accountType + ")");
                 chooseAccount(accToDisplay);
             } catch (FileNotFoundException e) {
                 System.err.println("Cannot open account file: " + fileName);
@@ -208,9 +208,9 @@ public class Main {
             if (accountOption == 0) {
                 withdrawMon(accountToDisplay, usersAccToDisplay);
             }
-//            else if(accountOption == 1) {
-//                depositMon(accountToDisplay);
-//            }
+            else if(accountOption == 1) {
+                depositMon(accountToDisplay, usersAccToDisplay);
+            }
 //            else if(accountOption == 2) {
 //                transferMon(accountToDisplay);
 //            }
@@ -263,36 +263,40 @@ public class Main {
         }
     }
 
-//    public static void depositMon(int accToDepositTo) {
-//        System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accToDepositTo)));
-//        System.out.print("Amount to deposit (enter 0 to go back): $");
-//        try {
-//            double amountToDeposit = parseDouble(s.next());
-//            if(amountToDeposit == 0.0) display(accToDepositTo);
-//            else if(amountToDeposit < 0) {
-//                System.out.println("\n\n\n\n\nCannot deposit a negative amount!");
-//                depositMon(accToDepositTo);
-//            }
-//            else if(Account.getBalance(accToDepositTo) >= 5000000) {
-//                System.out.println("\n\n\n\n\nYou have reached the maximum amount of money!");
-//                System.out.println("Please open a new bank account.");
-//            }
-//            else {
-//                Account.deposit(amountToDeposit, accToDepositTo);
-//                System.out.println("\n\n\nSuccessfully deposited $" + NumberFormat.getNumberInstance(Locale.US).format(amountToDeposit) + " to account #" + accToDepositTo + "!");
-//                try {
-//                    TimeUnit.SECONDS.sleep(2);
-//                } catch(InterruptedException e) {
-//                    Thread.currentThread().interrupt();
-//                }
-//                display(accToDepositTo);
-//            }
-//        } catch(NumberFormatException e) {
-//            System.out.println("\n\n\n\n\nPlease enter a number");
-//            depositMon(accToDepositTo);
-//        }
-//    }
-//
+    public static void depositMon(String user, int accToDepositTo) {
+        System.out.println("\nBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, accToDepositTo)));
+        System.out.print("Amount to deposit (enter 0 to go back): $");
+        try {
+            double amountToDeposit = parseDouble(s.next());
+            if(amountToDeposit == 0.0) displayBankAccount(user, accToDepositTo);
+            else if(amountToDeposit < 0) {
+                System.out.println("\n\n\n\n\nCannot deposit a negative amount!");
+                depositMon(user, accToDepositTo);
+            }
+            else if(Account.getBalance(user, accToDepositTo) >= 5000000) {
+                System.out.println("\n\n\n\n\nYou have reached the maximum amount of money!");
+                System.out.println("Please open a new bank account.");
+            }
+            else if(amountToDeposit >= 5000000) {
+                System.out.println("\n\n\n\n\nBank accounts can have a maximum of $5,000,000");
+                System.out.println("Please open a new bank account or deposit less.");
+            }
+            else {
+                Account.deposit(amountToDeposit, user, accToDepositTo);
+                System.out.println("\n\n\nSuccessfully deposited $" + NumberFormat.getNumberInstance(Locale.US).format(amountToDeposit) + " to account #" + accToDepositTo + "!");
+                try {
+                    TimeUnit.SECONDS.sleep(2);
+                } catch(InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+                displayBankAccount(user, accToDepositTo);
+            }
+        } catch(NumberFormatException e) {
+            System.out.println("\n\n\n\n\nPlease enter a number");
+            depositMon(user, accToDepositTo);
+        }
+    }
+
 //    public static void transferMon(int from) {
 //        System.out.println("\nBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(from)));
 //        System.out.print("To (enter 0 to go back): #");
