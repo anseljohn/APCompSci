@@ -203,11 +203,11 @@ public class Main {
         System.out.println("\t(4) Log out");
         System.out.print("\n>> ");
 
-//        try {
-//            int accountOption = parseInt(s.next());
-//            if (accountOption == 0) {
-//                withdrawMon(accountToDisplay);
-//            }
+        try {
+            int accountOption = parseInt(s.next());
+            if (accountOption == 0) {
+                withdrawMon(accountToDisplay);
+            }
 //            else if(accountOption == 1) {
 //                depositMon(accountToDisplay);
 //            }
@@ -217,17 +217,17 @@ public class Main {
 //            else if(accountOption == 3) {
 //
 //            }
-//            else if(accountOption == 4) {
-//                mainMenu();
-//            }
-//            else {
-//                System.out.println("\n\n\n\n\nPlease select a number from below");
-//                display(accountToDisplay);
-//            }
-//        } catch(NumberFormatException e) {
-//            System.out.println("\n\n\n\n\nPlease enter an integer\n");
-//            display(accountToDisplay);
-//        }
+            else if(accountOption == 4) {
+                mainMenu();
+            }
+            else {
+                System.out.println("\n\n\n\n\nPlease select a number from below");
+                display(accountToDisplay);
+            }
+        } catch(NumberFormatException e) {
+            System.out.println("\n\n\n\n\nPlease enter an integer\n");
+            display(accountToDisplay);
+        }
 
     }
 
