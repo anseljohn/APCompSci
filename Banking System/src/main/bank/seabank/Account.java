@@ -22,12 +22,14 @@ public abstract class Account {
     private double balance;
     private int accNumber;
     private String user;
+    private String accTypeStr;
 
     private static String dir = System.getProperty("user.dir");
 
-    public Account(String username) {
+    public Account(String username, AccountType paymentType) {
         balance = 0.0;
         user = username;
+        accTypeStr = paymentType.toString();
         try {
             Scanner s = new Scanner(new File(dir + "/data/UserAccounts/" + username + "/AccountTrack.txt"));
             accNumber = parseInt(s.nextLine());
@@ -36,10 +38,6 @@ public abstract class Account {
         }
         accountTrack(username);
         writeToFile();
-    }
-
-    enum Payment {
-        DEBIT, CREDIT, CHECK;
     }
 
     public static void deposit(double amount, String u, int acc_depositTo) {
@@ -77,8 +75,7 @@ public abstract class Account {
     public void writeToFile() {
         try {
             PrintWriter writer = new PrintWriter(dir + "/data/UserAccounts/" + user + "/BankAccounts/" + accNumber + ".txt", "UTF-8");
-            writer.print(accNumber + ":");
-            writer.print(balance);
+            writer.print(accNumber + ":" + balance + ":" + accTypeStr);
             writer.close();
         } catch(FileNotFoundException e) {
             System.err.println("U bad where's ur file");
@@ -114,5 +111,14 @@ public abstract class Account {
         } catch(UnsupportedEncodingException e) {
             System.err.println("Encoding not supported");
         }
+    }
+
+    //Enums
+    enum Payment {
+        DEBIT, CREDIT, CHECK;
+    }
+
+    public enum AccountType {
+        CHECKING, SAVINGS; //maybe add KIDS
     }
 }

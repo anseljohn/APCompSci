@@ -156,6 +156,11 @@ public class Main {
         }
     }
 
+    public static void display(String accToDisplay) {
+        System.out.println("\n\n\n\n\nWelcome, " + accToDisplay);
+
+    }
+
 //    public static void displayBankAccount(String accountToDisplay) {
 //        System.out.println("\nAccount #" + accountToDisplay);
 //        System.out.println("\n\tBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accountToDisplay)));
