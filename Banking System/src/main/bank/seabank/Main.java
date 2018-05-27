@@ -1,6 +1,9 @@
 package main.bank.seabank;
 
+import jdk.nashorn.internal.objects.Global;
+
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -41,6 +44,8 @@ import static java.lang.Integer.parseInt;
 
 public class Main {
     private static Scanner s = new Scanner(System.in);
+    private static String dir = System.getProperty("user.dir");
+
     public static void main(String[] args) {
         System.out.println("Welcome to Sea Bank!\n");
         try {
@@ -155,7 +160,22 @@ public class Main {
     }
 
     public static void display(String accToDisplay) {
-        System.out.println("\n\n\n\n\nWelcome, " + accToDisplay);
+        System.out.println("\n\n\n\n\nWelcome, " + accToDisplay + "\n");
+        System.out.println("\tAccounts owned: ");
+
+        File accountFolder = new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/");
+        String[] accountAccounts = accountFolder.list();
+        for(String fileName : accountAccounts) {
+            try {
+                Scanner readAccType = new Scanner(new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/" + fileName));
+                String accountType = readAccType.next().split(":")[2];
+                System.out.println("\t\tAccount #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")) + " (" + accountType + ")");
+            } catch (FileNotFoundException e) {
+                System.err.println("Cannot open account file: " + fileName);
+            } catch (Exception e) {
+                System.err.println(e);
+            }
+        }
 
     }
 
