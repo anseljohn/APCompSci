@@ -6,13 +6,13 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 //import java.nio.file.Files;
 //import java.nio.file.Paths;
 //import java.text.NumberFormat;
 //import java.util.InputMismatchException;
 //import java.text.NumberFormat;
-//import static java.lang.Double.parseDouble;
 
 /*
     TODO
@@ -206,7 +206,7 @@ public class Main {
         try {
             int accountOption = parseInt(s.next());
             if (accountOption == 0) {
-                withdrawMon(accountToDisplay);
+                withdrawMon(accountToDisplay, usersAccToDisplay);
             }
 //            else if(accountOption == 1) {
 //                depositMon(accountToDisplay);
@@ -231,38 +231,38 @@ public class Main {
 
     }
 
-//    public static void withdrawMon(int accToWithdrawFrom){
-//        System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accToWithdrawFrom)));
-//        System.out.print("Amount to withdraw (or enter 0 to go back): $");
-//        try {
-//            double amountToWithdraw = parseDouble(s.next());
-//            if(amountToWithdraw == 0.0) display(accToWithdrawFrom);
-//            else if(amountToWithdraw < 0) {
-//                System.out.println("\n\n\n\n\nCannot withdraw a negative amount!");
-//                withdrawMon(accToWithdrawFrom);
-//            }
-//            else {
-//                if(Account.getBalance(accToWithdrawFrom) >= amountToWithdraw) {
-//                    Account.withdraw(amountToWithdraw, accToWithdrawFrom);
-//                    System.out.println("\n\n\nSuccessfully withdrawn $" + NumberFormat.getNumberInstance(Locale.US).format(amountToWithdraw) + " from account #" + accToWithdrawFrom + "!");
-//                }
-//                else {
-//                    System.out.println("The amount of money you are requesting to withdraw exceeds your balance.");
-//                    withdrawMon(accToWithdrawFrom);
-//                }
-//                try {
-//                    TimeUnit.SECONDS.sleep(2);
-//                } catch(InterruptedException e) {
-//                    Thread.currentThread().interrupt();
-//                }
-//                display(accToWithdrawFrom);
-//            }
-//        } catch(NumberFormatException e) {
-//            System.out.println("\n\n\n\n\nPlease enter a number");
-//            withdrawMon(accToWithdrawFrom);
-//        }
-//    }
-//
+    public static void withdrawMon(String user, int accToWithdrawFrom){
+        System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, accToWithdrawFrom)));
+        System.out.print("Amount to withdraw (or enter 0 to go back): $");
+        try {
+            double amountToWithdraw = parseDouble(s.next());
+            if(amountToWithdraw == 0.0) displayBankAccount(user, accToWithdrawFrom);
+            else if(amountToWithdraw < 0) {
+                System.out.println("\n\n\n\n\nCannot withdraw a negative amount!");
+                withdrawMon(user, accToWithdrawFrom);
+            }
+            else {
+                if(Account.getBalance(user, accToWithdrawFrom) >= amountToWithdraw) {
+                    Account.withdraw(amountToWithdraw, user, accToWithdrawFrom);
+                    System.out.println("\n\n\nSuccessfully withdrawn $" + NumberFormat.getNumberInstance(Locale.US).format(amountToWithdraw) + " from account #" + accToWithdrawFrom + "!");
+                }
+                else {
+                    System.out.println("The amount of money you are requesting to withdraw exceeds your balance.");
+                    withdrawMon(user, accToWithdrawFrom);
+                }
+                try {
+                    TimeUnit.SECONDS.sleep(2);
+                } catch(InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+                displayBankAccount(user, accToWithdrawFrom);
+            }
+        } catch(NumberFormatException e) {
+            System.out.println("\n\n\n\n\nPlease enter a number");
+            withdrawMon(user, accToWithdrawFrom);
+        }
+    }
+
 //    public static void depositMon(int accToDepositTo) {
 //        System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accToDepositTo)));
 //        System.out.print("Amount to deposit (enter 0 to go back): $");
