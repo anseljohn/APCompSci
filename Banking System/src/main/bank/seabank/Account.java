@@ -43,9 +43,10 @@ public abstract class Account {
     public static void deposit(double amount, String u, int acc_depositTo) {
         try {
             double prevBalance = getBalance(u, acc_depositTo);
-            PrintWriter rewrite = new PrintWriter(dir + "/data/UserAccounts/" + u + "/BankAccounts" + acc_depositTo + ".txt", "UTF-8");
+            String type = getAccountType(u, acc_depositTo);
+            PrintWriter rewrite = new PrintWriter(dir + "/data/UserAccounts/" + u + "/BankAccounts/" + acc_depositTo + ".txt", "UTF-8");
             if(amount > 0) {
-                rewrite.print(acc_depositTo + ":" + (prevBalance + amount) + ":" + getAccountType(u, acc_depositTo));
+                rewrite.print(acc_depositTo + ":" + (prevBalance + amount) + ":" + type);
                 rewrite.close();
             }
         } catch(FileNotFoundException e) {
