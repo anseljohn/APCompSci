@@ -1,17 +1,17 @@
 package main.bank.seabank;
 
 import java.io.File;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+import static java.lang.Integer.parseInt;
 //import java.nio.file.Files;
 //import java.nio.file.Paths;
 //import java.text.NumberFormat;
 //import java.util.InputMismatchException;
-import java.text.NumberFormat;
-import java.util.Locale;
-import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
-
-import static java.lang.Double.parseDouble;
-import static java.lang.Integer.parseInt;
+//import java.text.NumberFormat;
+//import java.util.Locale;
+//import static java.lang.Double.parseDouble;
 
 /*
     TODO
@@ -42,15 +42,13 @@ import static java.lang.Integer.parseInt;
 public class Main {
     private static Scanner s = new Scanner(System.in);
     public static void main(String[] args) {
-//        Account acc = new CheckingAccount("User2");
-//
-//        System.out.println("Welcome to Sea Bank!\n");
-//        try {
-//            TimeUnit.SECONDS.sleep(2);
-//        } catch(InterruptedException e) {
-//            Thread.currentThread().interrupt();
-//        }
-//        mainMenu();
+        System.out.println("Welcome to Sea Bank!\n");
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch(InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        mainMenu();
     }
 
     public static void mainMenu() {
@@ -85,14 +83,14 @@ public class Main {
         START OF TREE FOR login OPTION
      */
     public static void login() {
-        System.out.print("\nUsername (or enter b to go back): ");
+        System.out.print("\n\n\n\n\nUsername (or enter b to go back): ");
         try {
             String user = s.next();
             if(user.equals("b")) {
                 mainMenu();
             }
             if (accExists(user)) {
-                System.out.println("\n User \'" + user + "\' found!");
+                System.out.println("\nUser \'" + user + "\' found!");
                 promptForPass(user);
             }
             else {
@@ -140,10 +138,10 @@ public class Main {
     }
 
     public static void promptForPass(String accToAccess) {
-        System.out.print("Account password (or enter 0 to go back): ");
+        System.out.print("Account password (or enter b to go back): ");
         String login_pass = s.next();
 
-        if (login_pass.equals("0")) {
+        if (login_pass.equals("b")) {
             login();
         }
         if(login_pass.equals(UserAccount.decryptPass(accToAccess))) {
