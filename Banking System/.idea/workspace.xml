@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0edbb042-f80f-4c53-8d1d-9a24ad330809" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Banking System/main/bank/seabank/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Banking System/main/bank/seabank/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Banking System/main/bank/seabank/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Banking System/main/bank/seabank/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/bank/seabank/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bank/seabank/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/bank/seabank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bank/seabank/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,8 +23,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-884">
-              <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+            <state relative-caret-position="242">
+              <caret line="90" column="106" selection-start-line="90" selection-start-column="106" selection-end-line="90" selection-end-column="106" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,13 +90,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="213" column="43" lean-forward="true" selection-start-line="213" selection-start-column="43" selection-end-line="213" selection-end-column="43" />
+            <state relative-caret-position="470">
+              <caret line="190" column="14" lean-forward="true" selection-start-line="190" selection-start-column="14" selection-end-line="190" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#13369#13370#0" expanded="true" />
-                <element signature="e#13445#13446#0" expanded="true" />
+                <element signature="e#13480#13481#0" expanded="true" />
+                <element signature="e#13556#13557#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/UserAccounts/User1/BankAccounts/1.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -173,12 +189,13 @@
         <option value="$PROJECT_DIR$/data/AccountTrack.txt" />
         <option value="$PROJECT_DIR$/data/accounts/1.txt" />
         <option value="$PROJECT_DIR$/src/Username.java" />
-        <option value="$PROJECT_DIR$/src/main/bank/seabank/Account.java" />
         <option value="$PROJECT_DIR$/src/main/bank/seabank/UserAccount.java" />
         <option value="$PROJECT_DIR$/src/main/bank/seabank/CheckingAccount.java" />
         <option value="$PROJECT_DIR$/src/main/bank/seabank/Password.java" />
         <option value="$PROJECT_DIR$/src/main/bank/seabank/Username.java" />
         <option value="$PROJECT_DIR$/src/main/bank/seabank/Main.java" />
+        <option value="$PROJECT_DIR$/data/UserAccounts/User1/BankAccounts/1.txt" />
+        <option value="$PROJECT_DIR$/src/main/bank/seabank/Account.java" />
       </list>
     </option>
   </component>
@@ -303,7 +320,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527442402574" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527442790369" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -327,7 +344,7 @@
       </Profilers>
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527442402575" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527442790369" />
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -507,7 +524,6 @@
     <entry file="file://$PROJECT_DIR$/data/accounts/2.txt" />
     <entry file="file://$PROJECT_DIR$/data/accounts/1.txt" />
     <entry file="file://$PROJECT_DIR$/data/UserAccounts/User1/pass.txt" />
-    <entry file="file://$PROJECT_DIR$/data/UserAccounts/User1/BankAccounts/1.txt" />
     <entry file="file://$PROJECT_DIR$/data/UserAccounts/User2/AccountTrack.txt" />
     <entry file="file://$PROJECT_DIR$/data/UserAccounts/User1/AccountTrack.txt" />
     <entry file="file://$PROJECT_DIR$/data/UserAccounts/User 1/AccountTrack.txt">
@@ -564,21 +580,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/UserAccounts/User1/BankAccounts/1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Account.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-884">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        <state relative-caret-position="242">
+          <caret line="90" column="106" selection-start-line="90" selection-start-column="106" selection-end-line="90" selection-end-column="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="213" column="43" lean-forward="true" selection-start-line="213" selection-start-column="43" selection-end-line="213" selection-end-column="43" />
+        <state relative-caret-position="470">
+          <caret line="190" column="14" lean-forward="true" selection-start-line="190" selection-start-column="14" selection-end-line="190" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#13369#13370#0" expanded="true" />
-            <element signature="e#13445#13446#0" expanded="true" />
+            <element signature="e#13480#13481#0" expanded="true" />
+            <element signature="e#13556#13557#0" expanded="true" />
           </folding>
         </state>
       </provider>

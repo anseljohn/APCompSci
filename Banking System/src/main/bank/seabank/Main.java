@@ -179,11 +179,14 @@ public class Main {
     }
 
     public static void chooseAccount(String user) {
-        System.out.println("Please select an account number from above (or enter 0 to go back)");
+        System.out.println("\nPlease select an account number from above (or enter 0 to go back)");
         System.out.print(">> ");
         int accountToChoose = parseInt(s.next());
         if(bankAccExists(user, accountToChoose)) {
             displayBankAccount(user, accountToChoose);
+        }
+        else if(accountToChoose == 0) {
+            display(user);
         }
         else {
             System.err.println("Account does not exist");

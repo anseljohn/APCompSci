@@ -88,7 +88,7 @@ public abstract class Account {
     public static double getBalance(String u, int accBalance_toGet) {
         double balance = 0.0;
         try {
-            Scanner accFileReader = new Scanner(new File(dir + "/data/UserAccounts/" + u + "/" + accBalance_toGet + ".txt"));
+            Scanner accFileReader = new Scanner(new File(dir + "/data/UserAccounts/" + u + "/BankAccounts/" + accBalance_toGet + ".txt"));
             String fullFile = accFileReader.nextLine();
             String[] splitFile = fullFile.split(":");
             balance = parseDouble(splitFile[1]);
