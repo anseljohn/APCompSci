@@ -42,15 +42,15 @@ import static java.lang.Integer.parseInt;
 public class Main {
     private static Scanner s = new Scanner(System.in);
     public static void main(String[] args) {
-        Account acc = new CheckingAccount("User2");
-
-        System.out.println("Welcome to Sea Bank!\n");
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch(InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-        mainMenu();
+//        Account acc = new CheckingAccount("User2");
+//
+//        System.out.println("Welcome to Sea Bank!\n");
+//        try {
+//            TimeUnit.SECONDS.sleep(2);
+//        } catch(InterruptedException e) {
+//            Thread.currentThread().interrupt();
+//        }
+//        mainMenu();
     }
 
     public static void mainMenu() {
