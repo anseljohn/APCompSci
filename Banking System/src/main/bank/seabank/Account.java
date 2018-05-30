@@ -59,9 +59,10 @@ public abstract class Account {
     public static void withdraw(double amount, String u, int acc_withdrawFrom) {
         try {
             double prevBalance = getBalance(u, acc_withdrawFrom);
+            String type = getAccountType(u, acc_withdrawFrom);
             PrintWriter rewrite = new PrintWriter(dir + "/data/UserAccounts/" + u + "/BankAccounts/" + acc_withdrawFrom + ".txt", "UTF-8");
             if(amount > 0 && amount <= prevBalance) {
-                rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount) + ":" + getAccountType(u, acc_withdrawFrom));
+                rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount) + ":" + type);
                 rewrite.close();
             }
         } catch(FileNotFoundException e) {
