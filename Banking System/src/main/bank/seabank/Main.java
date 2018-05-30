@@ -36,7 +36,7 @@ public class Main {
     private static String dir = System.getProperty("user.dir");
 
     public static void main(String[] args) {
-    	Account user1acc = new CheckingAccount("User1");
+    	
         System.out.println("Welcome to Sea Bank!\n");
         try {
             TimeUnit.SECONDS.sleep(2);
@@ -159,6 +159,7 @@ public class Main {
             try {
                 Scanner readAccType = new Scanner(new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/" + fileName));
                 String accountType = readAccType.next().split(":")[2];
+                readAccType.close();
                 System.out.println("\n\tAccount #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")) + " (" + accountType + ")");
                 chooseAccount(accToDisplay);
             } catch (FileNotFoundException e) {
@@ -167,6 +168,7 @@ public class Main {
                 System.err.println(e);
             }
         }
+        System.out.println("\n");
 
     }
 
@@ -203,9 +205,9 @@ public class Main {
             else if(accountOption == 1) {
                 depositMon(accountToDisplay, usersAccToDisplay);
             }
-//            else if(accountOption == 2) {
-//                transferMon(accountToDisplay);
-//            }
+            else if(accountOption == 2) {
+                transferMon(accountToDisplay, usersAccToDisplay);
+            }
 //            else if(accountOption == 3) {
 //
 //            }
@@ -289,53 +291,64 @@ public class Main {
         }
     }
 
-//    public static void transferMon(String user, int from) {
-//        System.out.println("\nBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, from)));
-//        System.out.println("User to send money to (enter b to go back): ");
-//        System.out.print(">> ");
-//        String transferTo = s.next();
-//        if(transferTo.equals("b")) {
-//            displayBankAccount(user, from);
-//        }
-//        else if(accExists(transferTo)) {                        // FOR HERE: check if user exists, then check if that account number exists for that user
-//            System.out.println("Account # for that user (enter 0 to go back): ");
-//            System.out.print(">> #");
-//            int toUsersAcc = parseInt(s.next());
-//            
-//            try {
-//            	toUsers
-//            }
-//        }
-//        else {
-//            System.out.println("That account doesn't seem to exist.");
-//        }
-//    }
-//    public static void transferAmount(int fromAcc, int toAcc) {
-//        System.out.print("Amount to transfer (enter 0 to go back): $");
-//        double amountToTransfer = parseDouble(s.next());
-//        if(amountToTransfer == 0.0) display(fromAcc);
-//        else if(amountToTransfer < 0) {
-//            System.out.println("\n\n\n\n\nCannot transfer a negative amount!");
-//            transferAmount(fromAcc, toAcc);
-//        }
-//        else {
-//            if(Account.getBalance(fromAcc) >= amountToTransfer) {
-//                Account.withdraw(amountToTransfer, fromAcc);
-//                Account.deposit(amountToTransfer, toAcc);
-//                System.out.println("\n\n\n\n\n$" + NumberFormat.getNumberInstance(Locale.US).format(amountToTransfer) + " successfully transferred to account #" + toAcc + "!");
-//            }
-//            else {
-//                System.out.println("The amount of money you are requesting to send exceeds your limit.");
-//                transferAmount(fromAcc, toAcc);
-//            }
-//            try {
-//                TimeUnit.SECONDS.sleep(2);
-//            } catch(InterruptedException e) {
-//                Thread.currentThread().interrupt();
-//            }
-//            display(fromAcc);
-//        }
-//    }
+    public static void transferMon(String user, int from) {
+        System.out.println("\n\n\nBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, from)));
+        System.out.println("\nUser to send money to (enter b to go back): ");
+        System.out.print(">> ");
+        String transferTo = s.next();
+        if(transferTo.equals("b")) {
+            displayBankAccount(user, from);
+        }
+        else if(accExists(transferTo)) {                        // FOR HERE: check if user exists, then check if that account number exists for that user
+
+        }
+        else {
+            System.out.println("That account doesn't seem to exist.");
+        }
+    }
+    public static void transferToUsersAcc(String user, int from, String toUser) {
+        System.out.println("Account # for that user (enter 0 to go back): ");
+        System.out.print(">> #");
+        int toUsersAcc = parseInt(s.next());
+        
+        try {
+        	if(toUsersAcc == 0) {
+        		transferMon(user, from);
+        	}
+        	else if(bankAccExists(user, toUsersAcc)) {
+        		transferAmount(user, from, toUser, toUsersAcc);
+        	}
+        } catch (NumberFormatException e) {
+        	System.out.println("\n\n\n\n\nPlease enter an integer");
+        	transferToUsersAcc(user, from, toUser);
+        }
+    }
+    public static void transferAmount(String fromUser, int fromAcc, String toUser, int toAcc) {
+        System.out.print("Amount to transfer (enter 0 to go back): $");
+        double amountToTransfer = parseDouble(s.next());
+        if(amountToTransfer == 0.0) displayBankAccount(fromUser, fromAcc);
+        else if(amountToTransfer < 0) {
+            System.out.println("\n\n\n\n\nCannot transfer a negative amount!");
+            transferAmount(fromUser, fromAcc, toUser, toAcc);
+        }
+        else {
+            if(Account.getBalance(fromUser, fromAcc) >= amountToTransfer) {
+                Account.withdraw(amountToTransfer, fromUser, fromAcc);
+                Account.deposit(amountToTransfer, toUser, toAcc);
+                System.out.println("\n\n\n\n\n$" + NumberFormat.getNumberInstance(Locale.US).format(amountToTransfer) + " successfully transferred to account #" + toAcc + "!");
+            }
+            else {
+                System.out.println("The amount of money you are requesting to send exceeds your limit.");
+                transferAmount(fromUser, fromAcc, toUser, toAcc);
+            }
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch(InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            displayBankAccount(fromUser, fromAcc);
+        }
+    }
     /*
         END OF TREE FOR login OPTION
      */
