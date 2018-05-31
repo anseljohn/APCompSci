@@ -18,18 +18,16 @@ import static java.lang.Integer.parseInt;
 //import javax.crypto.SecretKey;
 //import javax.crypto.spec.SecretKeySpec;
 
-public abstract class Account {
+public class Account {
     private double balance;
     private int accNumber;
     private String user;
-    private String accTypeStr;
 
     private static String dir = System.getProperty("user.dir");
 
-    public Account(String username, AccountType paymentType) {
+    public Account(String username) {
         balance = 0.0;
         user = username;
-        accTypeStr = paymentType.toString();
         try {
             Scanner s = new Scanner(new File(dir + "/data/UserAccounts/" + username + "/AccountTrack.txt"));
             accNumber = parseInt(s.nextLine());
@@ -43,10 +41,9 @@ public abstract class Account {
     public static void deposit(double amount, String u, int acc_depositTo) {
         try {
             double prevBalance = getBalance(u, acc_depositTo);
-            String type = getAccountType(u, acc_depositTo);
             PrintWriter rewrite = new PrintWriter(dir + "/data/UserAccounts/" + u + "/BankAccounts/" + acc_depositTo + ".txt", "UTF-8");
             if(amount > 0) {
-                rewrite.print(acc_depositTo + ":" + (prevBalance + amount) + ":" + type);
+                rewrite.print(acc_depositTo + ":" + (prevBalance + amount));
                 rewrite.close();
             }
         } catch(FileNotFoundException e) {
@@ -59,10 +56,9 @@ public abstract class Account {
     public static void withdraw(double amount, String u, int acc_withdrawFrom) {
         try {
             double prevBalance = getBalance(u, acc_withdrawFrom);
-            String type = getAccountType(u, acc_withdrawFrom);
             PrintWriter rewrite = new PrintWriter(dir + "/data/UserAccounts/" + u + "/BankAccounts/" + acc_withdrawFrom + ".txt", "UTF-8");
             if(amount > 0 && amount <= prevBalance) {
-                rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount) + ":" + type);
+                rewrite.println(acc_withdrawFrom + ":" + (prevBalance - amount));
                 rewrite.close();
             }
         } catch(FileNotFoundException e) {
@@ -75,12 +71,12 @@ public abstract class Account {
     public void writeToFile() {
         try {
             PrintWriter writer = new PrintWriter(dir + "/data/UserAccounts/" + user + "/BankAccounts/" + accNumber + ".txt", "UTF-8");
-            writer.print(accNumber + ":" + balance + ":" + accTypeStr);
+            writer.print(accNumber + ":" + balance);
             writer.close();
         } catch(FileNotFoundException e) {
-            System.err.println("U bad where's ur file");
+            System.err.println(dir + "/data/UserAccounts/" + user + "/BankAccounts/" + accNumber + ".txt cannot be opened");
         } catch(UnsupportedEncodingException e) {
-            System.err.println("haha u bad encoding bad ha");
+            System.err.println("Encoding UTF-8 error");
         }
     }
 
@@ -98,17 +94,6 @@ public abstract class Account {
         return balance;
     }
 
-    public static String getAccountType(String u, int accsTypeToGet) {
-        String type = "";
-        try {
-            Scanner readFile = new Scanner(new File(dir + "/data/UserAccounts/" + u + "/BankAccounts/" + accsTypeToGet + ".txt"));
-            type = readFile.nextLine().split(":")[2];
-        } catch(FileNotFoundException e) {
-            System.err.println("Cannot open file: " + accsTypeToGet  + ".txt");
-        }
-        return type;
-    }
-
     public static void accountTrack(String u) {
         try {
             Scanner getAccts = new Scanner(new File(dir + "/data/UserAccounts/" + u + "/AccountTrack.txt"));
@@ -118,7 +103,7 @@ public abstract class Account {
             writer.print(prevAccts + 1);
             writer.close();
         } catch(FileNotFoundException e) {
-            System.err.println("File could not be opened");
+            System.err.println(" could not be opened");
         } catch(UnsupportedEncodingException e) {
             System.err.println("Encoding not supported");
         }

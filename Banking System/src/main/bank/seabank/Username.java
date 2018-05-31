@@ -20,6 +20,7 @@ public class Username {
         else {
             username = newUsername;
         }
+
     }
 
     public String getUser() {

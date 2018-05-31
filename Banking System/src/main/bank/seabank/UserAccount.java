@@ -28,6 +28,7 @@ public class UserAccount {
         } catch(FileNotFoundException e) {
             System.err.println("Could not open file");
         }
+        Account usersAccount = new Account(u.getUser());
     }
 
     public void writeToFile() {

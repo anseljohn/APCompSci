@@ -19,10 +19,7 @@ import static java.lang.Integer.parseInt;
     REMEMBER FOR NO DUPLICATE USERNAMES
     USERNAME MUST BE MORE THAN 4 CHARACTERS
 
-    1) Non existent user in transfer fix
-    2) Branch 2: Create Account
     3) Fix verify methods in Username and Password
-    4) Change : to >> on next line
     5) Change stupid error messages
     6) Update readme
     7) Add password change to display()
@@ -30,7 +27,6 @@ import static java.lang.Integer.parseInt;
 
 
 public class Main {
-    private static Scanner s = new Scanner(System.in);
     private static String dir = System.getProperty("user.dir");
     private static Username newUsername;
     private static Password newPassword;
@@ -47,11 +43,12 @@ public class Main {
     }
 
     public static void mainMenu() {
+        Scanner s = new Scanner(System.in);
         System.out.println("\nPlease select an item below:");
         System.out.println("(0) Login");
         System.out.println("(1) Create Account");
         System.out.println("(2) Exit");
-        System.out.print(">> ");
+        System.out.print("\n>> ");
         try {
             int mainMenu = parseInt(s.next());
             if (mainMenu == 0) {
@@ -61,7 +58,7 @@ public class Main {
                 promptForNewUsername();
                 promptForNewPassword();
                 UserAccount newUser = new UserAccount(newUsername, newPassword);
-                System.out.println("\n\n\n\n\nAccount successfully created!\n");
+                System.out.println("\n\n\n\n\n\n\nAccount successfully created!\n");
                 mainMenu();
             }
             else if(mainMenu == 2) {
@@ -82,6 +79,7 @@ public class Main {
         START OF TREE FOR login OPTION
      */
     public static void login() {
+        Scanner s = new Scanner(System.in);
         System.out.print("\n\n\n\n\nUsername (or enter b to go back): ");
         try {
             String user = s.next();
@@ -102,15 +100,23 @@ public class Main {
     }
 
     public static void accNonexistant(String nonExistentAcc) {
+        Scanner s = new Scanner(System.in);
         System.out.println("\n\n\n\n\nAccount \'" + nonExistentAcc + "\' does not seem to exist.\n"  +
                 "Would you like to create an account?\n");
-        System.out.print("(yY/nN)>> ");
+        System.out.print("(yY/nN/bB(back))>> ");
         String createAcc_failedLogin = s.next();
         if(createAcc_failedLogin.toLowerCase().equals("y")) {
-            System.out.println("go to create account"); //fill in later with method call
+            promptForNewUsername();
+            promptForNewPassword();
+            UserAccount newUser = new UserAccount(newUsername, newPassword);
+            System.out.println("\n\n\n\n\nAccount successfully created!\n");
+            mainMenu();
         }
         else if(createAcc_failedLogin.toLowerCase().equals("n")) {
             retryLogin();
+        }
+        else if(createAcc_failedLogin.toLowerCase().equals("b")) {
+            mainMenu();
         }
         else {
             System.out.println("\nPlease enter (yY/nN)");
@@ -119,6 +125,7 @@ public class Main {
     }
 
     public static void retryLogin() {
+        Scanner s = new Scanner(System.in);
         System.out.println("\nRetry login?");
         System.out.print("(yY/nN)>> ");
 
@@ -136,6 +143,7 @@ public class Main {
     }
 
     public static void promptForPass(String accToAccess) {
+        Scanner s = new Scanner(System.in);
         System.out.print("Account password (or enter b to go back): ");
         String login_pass = s.next();
 
@@ -161,9 +169,8 @@ public class Main {
         for(String fileName : accountAccounts) {
             try {
                 Scanner readAccType = new Scanner(new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/" + fileName));
-                String accountType = readAccType.next().split(":")[2];
                 readAccType.close();
-                System.out.println("\n\tAccount #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")) + " (" + accountType + ")");
+                System.out.println("\n\tAccount #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")));
                 chooseAccount(accToDisplay);
             } catch (FileNotFoundException e) {
                 System.err.println("Cannot open account file: " + fileName);
@@ -171,32 +178,43 @@ public class Main {
                 System.err.println(e);
             }
         }
-        System.out.println("\n");
 
     }
 
     public static void chooseAccount(String user) {
-        System.out.println("\nPlease select an account number from above (or enter 0 to go back)");
-        System.out.print(">> ");
-        int accountToChoose = parseInt(s.next());
-        if(bankAccExists(user, accountToChoose)) {
-            displayBankAccount(user, accountToChoose);
-        }
-        else if(accountToChoose == 0) {
-            display(user);
-        }
-        else {
-            System.err.println("Account does not exist");
+        Scanner s = new Scanner(System.in);
+        try {
+            System.out.println("\nPlease select an account number from above [ enter \'0\' to log out | enter \'999\' to create a new account ]");
+            System.out.print(">> ");
+            String accountToChooseStr = s.next();
+            int accountToChoose = parseInt(accountToChooseStr);
+            if (bankAccExists(user, accountToChoose)) {
+                displayBankAccount(user, accountToChoose);
+            } else if (accountToChoose == 0) {
+                mainMenu();
+            } else if (accountToChoose == 999) {
+                promptForNewUsername();
+                promptForNewPassword();
+                UserAccount newUser = new UserAccount(newUsername, newPassword);
+                System.out.println("\n\n\n\n\nAccount successfully created!\n");
+                mainMenu();
+            } else {
+                System.err.println("Account does not exist");
+            }
+        } catch(NumberFormatException e) {
+            System.out.println("\nPlease enter an integer");
+            chooseAccount(user);
         }
     }
 
     public static void displayBankAccount(String accountToDisplay, int usersAccToDisplay) {
+        Scanner s = new Scanner(System.in);
         System.out.println("\nAccount #" + usersAccToDisplay);
         System.out.println("\n\tBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accountToDisplay, usersAccToDisplay)));
         System.out.println("\n\t(0) Withdraw Money");
         System.out.println("\t(1) Deposit Money");
         System.out.println("\t(2) Transfer money");
-        System.out.println("\t(3) Log out");
+        System.out.println("\t(3) Go back to accounts");
         System.out.print("\n>> ");
 
         try {
@@ -211,7 +229,7 @@ public class Main {
                 transferMon(accountToDisplay, usersAccToDisplay);
             }
             else if(accountOption == 3) {
-                mainMenu();
+                display(accountToDisplay);
             }
             else {
                 System.out.println("\n\n\n\n\nPlease select a number from below");
@@ -225,6 +243,7 @@ public class Main {
     }
 
     public static void withdrawMon(String user, int accToWithdrawFrom){
+        Scanner s = new Scanner(System.in);
         System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, accToWithdrawFrom)));
         System.out.print("Amount to withdraw (or enter 0 to go back): $");
         try {
@@ -257,6 +276,7 @@ public class Main {
     }
 
     public static void depositMon(String user, int accToDepositTo) {
+        Scanner s = new Scanner(System.in);
         System.out.println("\nBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, accToDepositTo)));
         System.out.print("Amount to deposit (enter 0 to go back): $");
         try {
@@ -291,6 +311,7 @@ public class Main {
     }
 
     public static void transferMon(String user, int from) {
+        Scanner s = new Scanner(System.in);
         System.out.println("\n\n\nBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, from)));
         System.out.println("\nUser to send money to (enter b to go back): ");
         System.out.print(">> ");
@@ -303,9 +324,11 @@ public class Main {
         }
         else {
             System.out.println("That account doesn't seem to exist.");
+            transferMon(user, from);
         }
     }
     public static void transferToUsersAcc(String user, int from, String toUser) {
+        Scanner s = new Scanner(System.in);
         System.out.println("Account # for that user (enter 0 to go back): ");
         System.out.print(">> #");
         int toUsersAcc = parseInt(s.next());
@@ -323,6 +346,7 @@ public class Main {
         }
     }
     public static void transferAmount(String fromUser, int fromAcc, String toUser, int toAcc) {
+        Scanner s = new Scanner(System.in);
         System.out.print("Amount to transfer (enter 0 to go back): $");
         double amountToTransfer = parseDouble(s.next());
         if(amountToTransfer == 0.0) displayBankAccount(fromUser, fromAcc);
@@ -358,7 +382,8 @@ public class Main {
         START OF TREE FOR create account OPTION
      */
     public static void promptForNewUsername() {
-        System.out.print("Username: ");
+        Scanner s = new Scanner(System.in);
+        System.out.print("\nUsername: ");
         String newUserUsername = s.next();
         if(accExists(newUserUsername)) {
             System.out.println("\n\n\nUser \'" + newUserUsername + "\' already exists!\n");
@@ -370,13 +395,14 @@ public class Main {
     }
 
     public static void promptForNewPassword() {
+        Scanner s = new Scanner(System.in);
         System.out.print("Password: ");
         String newPass = s.next();
         System.out.print("Re-enter password: ");
         String confirmPass = s.next();
 
         if(!newPass.equals(confirmPass)) {
-            System.out.println("\n\nPassword confirmation incorrect!\n");
+            System.out.println("\n\nPassword confirmation incorrect!");
             promptForNewPassword();
         }
         else {
