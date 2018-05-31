@@ -5,13 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class UserAccount {
+class UserAccount {
     private Username user;
     private Password userPass;
 
     private static String dir = System.getProperty("user.dir");
 
-    public UserAccount(Username u, Password p) {
+    private UserAccount(Username u, Password p) {
         user = u;
         userPass = p;
         writeToFile();
@@ -20,12 +20,12 @@ public class UserAccount {
             writeAccTrack.print(1);
             writeAccTrack.close();
         } catch(FileNotFoundException e) {
-            System.err.println("Could not open file");
+            System.err.println("Error code 7113 : Could not open file");
         }
         Account usersAccount = new Account(u.getUser());
     }
 
-    public void writeToFile() {
+    private void writeToFile() {
         File f = new File(dir + "/data/UserAccounts/" + user.getUser());
         File holdAccs = new File(dir + "/data/UserAccounts/" + user.getUser() + "/BankAccounts/");
         f.mkdirs();
@@ -37,11 +37,11 @@ public class UserAccount {
             writePass.close();
 
         } catch(FileNotFoundException e) {
-            System.err.println("Could not open file pass.txt");
+            System.err.println("Error code 7113 : Could not open file pass.txt");
         }
     }
 
-    public String encryptPass() {
+    private String encryptPass() {
         String message = userPass.getPass();
         String encryptedMessage = "";
         int key = userPass.getPass().length();
@@ -74,14 +74,14 @@ public class UserAccount {
         return encryptedMessage;
     }
 
-    public static String decryptPass(String decrypt_Acc) {
+    private static String decryptPass(String decrypt_Acc) {
         String message = "";
         String decryptedMessage = "";
         try {
             Scanner encryptedPass_File = new Scanner(new File(dir + "/data/UserAccounts/" + decrypt_Acc + "/pass.txt"));
             message = encryptedPass_File.nextLine();
         } catch(Exception e) {
-            System.err.println("U R SOOOOO BAD, ERROR HAS OCCURRED");
+            System.err.println(e);
         }
         int key = message.length();
         char ch;
@@ -108,10 +108,5 @@ public class UserAccount {
             }
         }
         return decryptedMessage;
-    }
-
-    //getters
-    public String getUsername() {
-        return user.getUser();
     }
 }

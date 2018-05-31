@@ -14,7 +14,6 @@ import static java.lang.Integer.parseInt;
     REMEMBER FOR NO DUPLICATE USERNAMES
     USERNAME MUST BE MORE THAN 4 CHARACTERS
 
-    1) Change add accs on display to add new bank acc
     2) Error codes
     3) Fix verify methods in Username and Password
     4) Update readme to show directions
@@ -33,6 +32,7 @@ public class Main {
         try {
             TimeUnit.SECONDS.sleep(2);
         } catch(InterruptedException e) {
+            System.err.println("Error code 51339");
             Thread.currentThread().interrupt();
         }
         mainMenu();
@@ -170,7 +170,7 @@ public class Main {
                     System.out.println("\n\tAccount #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")));
                     chooseAccount(accToDisplay);
                 } catch (FileNotFoundException e) {
-                    System.err.println("Cannot open account file: " + fileName);
+                    System.err.println("Error code 7113 : Cannot open account file: " + fileName);
                 } catch (Exception e) {
                     System.err.println(e);
                 }
@@ -260,6 +260,7 @@ public class Main {
                 try {
                     TimeUnit.SECONDS.sleep(2);
                 } catch(InterruptedException e) {
+                    System.err.println("Error code 51339");
                     Thread.currentThread().interrupt();
                 }
                 displayBankAccount(user, accToWithdrawFrom);
@@ -295,6 +296,7 @@ public class Main {
                 try {
                     TimeUnit.SECONDS.sleep(2);
                 } catch(InterruptedException e) {
+                    System.err.println("Error code 51339");
                     Thread.currentThread().interrupt();
                 }
                 displayBankAccount(user, accToDepositTo);
@@ -362,6 +364,7 @@ public class Main {
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch(InterruptedException e) {
+                System.err.println("Error code 51339");
                 Thread.currentThread().interrupt();
             }
             displayBankAccount(fromUser, fromAcc);

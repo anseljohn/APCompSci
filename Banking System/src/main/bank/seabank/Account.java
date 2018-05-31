@@ -22,7 +22,7 @@ public class Account {
             Scanner s = new Scanner(new File(dir + "/data/UserAccounts/" + username + "/AccountTrack.txt"));
             accNumber = parseInt(s.nextLine());
         } catch(FileNotFoundException e) {
-            System.err.println("File could not be opened");
+            System.err.println("Error code 7113 : File could not be opened");
         }
         accountTrack(username);
         writeToFile();
@@ -37,9 +37,9 @@ public class Account {
                 rewrite.close();
             }
         } catch(FileNotFoundException e) {
-            System.err.println("Unable to locate file");
+            System.err.println("Error code 7113 : Unable to locate file");
         } catch(UnsupportedEncodingException e) {
-            System.err.println("Encoding not supported");
+            System.err.println("Error code 320 : Encoding not supported");
         }
     }
 
@@ -52,9 +52,9 @@ public class Account {
                 rewrite.close();
             }
         } catch(FileNotFoundException e) {
-            System.err.println("Unable to locate file");
+            System.err.println("Error code 7113 : Unable to locate file");
         } catch(UnsupportedEncodingException e) {
-            System.err.println("Encoding not supported");
+            System.err.println("Error code 320 : Encoding not supported");
         }
     }
 
@@ -64,9 +64,9 @@ public class Account {
             writer.print(accNumber + ":" + balance);
             writer.close();
         } catch(FileNotFoundException e) {
-            System.err.println(dir + "/data/UserAccounts/" + user + "/BankAccounts/" + accNumber + ".txt cannot be opened");
+            System.err.println("Error code : 7113\n" + dir + "/data/UserAccounts/" + user + "/BankAccounts/" + accNumber + ".txt cannot be opened");
         } catch(UnsupportedEncodingException e) {
-            System.err.println("Encoding UTF-8 error");
+            System.err.println("Error code 320 : Encoding UTF-8 error");
         }
     }
 
@@ -93,9 +93,9 @@ public class Account {
             writer.print(prevAccts + 1);
             writer.close();
         } catch(FileNotFoundException e) {
-            System.err.println(" could not be opened");
+            System.err.println("Error code 7113 : file could not be opened");
         } catch(UnsupportedEncodingException e) {
-            System.err.println("Encoding not supported");
+            System.err.println("Error code 320 : Encoding not supported");
         }
     }
 
