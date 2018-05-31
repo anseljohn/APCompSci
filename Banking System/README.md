@@ -4,7 +4,7 @@ Use the numpad to choose from the list of choices the program outputs.
 
 There are currently two default usable accounts
 
-User1: Password - Abcd123!
+User1: Password - Antonio703!
     Accounts for User1
         - 1
 

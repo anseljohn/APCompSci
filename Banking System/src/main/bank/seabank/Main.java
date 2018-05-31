@@ -56,7 +56,7 @@ public class Main {
                 login();
             }
             else if(mainMenu == 1) {
-                System.out.println("coo create acc"); //add in account creation
+                createAccount();
             }
             else if(mainMenu == 2) {
                 System.exit(0);
@@ -93,7 +93,6 @@ public class Main {
             System.out.println("\n\n\n\n\nPlease enter an integer\n");
             login();
         }
-
     }
 
     public static void accNonexistant(String nonExistentAcc) {
@@ -357,10 +356,33 @@ public class Main {
         START OF TREE FOR create account OPTION
      */
     public static void createAccount() {
+        Username u;
+        Password p;
+        u = promptForNewUsername();
+        p = promptForNewPassword();
+        UserAccount newAcc = new UserAccount(u, p);
+    }
+    public static Username promptForNewUsername() {
+        System.out.print("Username: ");
+        String newUserUsername = s.next();
+        if(accExists(newUserUsername)) {
+            System.out.println("\n\n\nUser \'" + newUserUsername + "\' already exists!\n");
+            promptForNewUsername();
+        }
 
     }
-    public static void promptForNewUser() {
 
+    public static Password promptForNewPassword() {
+        System.out.print("Password: ");
+        String newPass = s.next();
+        System.out.print("Re-enter password: ");
+        String confirmPass = s.next();
+
+        if(!newPass.equals(confirmPass)) {
+            System.out.println("\n\nPassword not confirmed correctly!\n");
+            promptForNewPassword();
+        }
+        return new Password(newPass);
     }
 
 
