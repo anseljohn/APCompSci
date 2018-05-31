@@ -300,7 +300,7 @@ public class Main {
             displayBankAccount(user, from);
         }
         else if(accExists(transferTo)) {                        // FOR HERE: check if user exists, then check if that account number exists for that user
-
+            transferToUsersAcc(user, from, transferTo);
         }
         else {
             System.out.println("That account doesn't seem to exist.");
