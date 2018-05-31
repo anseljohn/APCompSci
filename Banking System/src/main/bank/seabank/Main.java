@@ -19,9 +19,7 @@ import static java.lang.Integer.parseInt;
     REMEMBER FOR NO DUPLICATE USERNAMES
     USERNAME MUST BE MORE THAN 4 CHARACTERS
 
-    1)Logged in account transactions
-        - If debit
-            - If transaction > balance, subtract fee, return that program subtracted a fee
+    1) Non existent user in transfer fix
     2) Branch 2: Create Account
     3) Fix verify methods in Username and Password
     4) Change : to >> on next line
