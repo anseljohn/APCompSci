@@ -11,10 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0edbb042-f80f-4c53-8d1d-9a24ad330809" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User1/AccountTrack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/UserAccounts/User1/AccountTrack.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User1/BankAccounts/1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/UserAccounts/User1/BankAccounts/1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User1/BankAccounts/2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/UserAccounts/User1/BankAccounts/2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/bank/seabank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bank/seabank/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +37,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="357" column="40" selection-start-line="357" selection-start-column="40" selection-end-line="357" selection-end-column="40" />
+            <state relative-caret-position="497">
+              <caret line="436" column="9" lean-forward="true" selection-start-line="436" selection-start-column="9" selection-end-line="436" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#17615#17616#0" expanded="true" />
@@ -127,20 +123,20 @@
       <find>Username</find>
       <find>parseint</find>
       <find>accToWithdrawFrom</find>
-      <find />
+      <find>accounts owned</find>
       <find>display</find>
-      <find />
-      <find />
-      <find />
-      <find />
+      <find>user to send money</find>
+      <find>please select an account</find>
+      <find>please select an a</find>
+      <find>would you like to</find>
       <find>try</find>
-      <find />
+      <find>try {</find>
       <find>53119</find>
       <find>transfer</find>
       <find>catch</find>
       <find>public</find>
-      <find />
-      <find />
+      <find>password m</find>
+      <find>password must</find>
       <find>created</find>
       <find>promptfornewusername</find>
       <find>999</find>
@@ -320,7 +316,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527796000164" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527796054120" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -344,7 +340,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527796000170" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527796054122" />
       </method>
     </configuration>
     <configuration name="AppTest" type="Application" factoryName="Application">
@@ -482,7 +478,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="996" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -492,7 +487,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50026953" side_tool="true" weight="0.3852459" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49973047" visible="true" weight="0.36568847" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49973047" weight="0.57223475" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960285" weight="0.3291829" />
       <window_info id="Capture Tool" order="6" />
@@ -737,8 +732,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="357" column="40" selection-start-line="357" selection-start-column="40" selection-end-line="357" selection-end-column="40" />
+        <state relative-caret-position="497">
+          <caret line="436" column="9" lean-forward="true" selection-start-line="436" selection-start-column="9" selection-end-line="436" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#17615#17616#0" expanded="true" />
