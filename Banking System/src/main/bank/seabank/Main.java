@@ -297,7 +297,7 @@ public class Main {
         if(transferTo.equals("b")) {
             displayBankAccount(user, from);
         }
-        else if(accExists(transferTo)) {                        // FOR HERE: check if user exists, then check if that account number exists for that user
+        else if(accExists(transferTo)) {
             transferToUsersAcc(user, from, transferTo);
         }
         else {
@@ -333,7 +333,7 @@ public class Main {
             if(Account.getBalance(fromUser, fromAcc) >= amountToTransfer) {
                 Account.withdraw(amountToTransfer, fromUser, fromAcc);
                 Account.deposit(amountToTransfer, toUser, toAcc);
-                System.out.println("\n\n\n\n\n$" + NumberFormat.getNumberInstance(Locale.US).format(amountToTransfer) + " successfully transferred to account #" + toAcc + "!");
+                System.out.println("\n\n\n\n\n$" + NumberFormat.getNumberInstance(Locale.US).format(amountToTransfer) + " successfully transferred to " + toUser + "\'s account #" + toAcc + "!");
             }
             else {
                 System.out.println("The amount of money you are requesting to send exceeds your limit.");
