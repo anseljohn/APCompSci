@@ -164,7 +164,6 @@ public class Main {
             display(accToAccess);
         }
         else {
-//            cls();
             System.out.println("\n\n\n\n\nIncorrect password!");
             promptForPass(accToAccess);
         }
@@ -247,7 +246,7 @@ public class Main {
             }
             else {
                 System.out.println("\n\n\n\n\nPlease select a number from below");
-                display(accountToDisplay);
+                displayBankAccount(accountToDisplay, usersAccToDisplay);
             }
         } catch(NumberFormatException e) {
             System.out.println("\n\n\n\n\nPlease enter an integer\n");
@@ -306,10 +305,12 @@ public class Main {
             else if(Account.getBalance(user, accToDepositTo) >= 5000000) {
                 System.out.println("\n\n\n\n\nYou have reached the maximum amount of money!");
                 System.out.println("Please open a new bank account.");
+                displayBankAccount(user, accToDepositTo);
             }
             else if(amountToDeposit >= 5000000) {
                 System.out.println("\n\n\n\n\nBank accounts can have a maximum of $5,000,000");
                 System.out.println("Please open a new bank account or deposit less.");
+                depositMon(user, accToDepositTo);
             }
             else {
                 Account.deposit(amountToDeposit, user, accToDepositTo);
