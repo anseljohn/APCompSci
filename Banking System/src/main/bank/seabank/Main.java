@@ -14,9 +14,11 @@ import static java.lang.Integer.parseInt;
     REMEMBER FOR NO DUPLICATE USERNAMES
     USERNAME MUST BE MORE THAN 4 CHARACTERS
 
+    1) Change add accs on display to add new bank acc
+    2) Error codes
     3) Fix verify methods in Username and Password
-    6) Update readme to show directions
-    7) Add password change to display() //OPTIONAL
+    4) Update readme to show directions
+    5) Add password change to display() //OPTIONAL
  */
 
 
@@ -25,7 +27,7 @@ public class Main {
     private static Username newUsername;
     private static Password newPassword;
 
-    public static void main(String[] args) {
+    private static void main(String[] args) {
     	
         System.out.println("Welcome to Sea Bank!\n");
         try {
@@ -36,7 +38,7 @@ public class Main {
         mainMenu();
     }
 
-    public static void mainMenu() {
+    private static void mainMenu() {
         Scanner s = new Scanner(System.in);
         System.out.println("\nPlease select an item below:");
         System.out.println("(0) Login");
@@ -72,7 +74,7 @@ public class Main {
     /*
         START OF TREE FOR login OPTION
      */
-    public static void login() {
+    private static void login() {
         Scanner s = new Scanner(System.in);
         System.out.print("\n\n\n\n\nUsername (or enter b to go back): ");
         try {
@@ -93,7 +95,7 @@ public class Main {
         }
     }
 
-    public static void accNonexistant(String nonExistentAcc) {
+    private static void accNonexistant(String nonExistentAcc) {
         Scanner s = new Scanner(System.in);
         System.out.println("\n\n\n\n\nAccount \'" + nonExistentAcc + "\' does not seem to exist.\n"  +
                 "Would you like to create an account?\n");
@@ -118,7 +120,7 @@ public class Main {
         }
     }
 
-    public static void retryLogin() {
+    private static void retryLogin() {
         Scanner s = new Scanner(System.in);
         System.out.println("\nRetry login?");
         System.out.print("(yY/nN)>> ");
@@ -136,7 +138,7 @@ public class Main {
         }
     }
 
-    public static void promptForPass(String accToAccess) {
+    private static void promptForPass(String accToAccess) {
         Scanner s = new Scanner(System.in);
         System.out.print("Account password (or enter b to go back): ");
         String login_pass = s.next();
@@ -154,31 +156,34 @@ public class Main {
         }
     }
 
-    public static void display(String accToDisplay) {
+    private static void display(String accToDisplay) {
         System.out.println("\n\n\n\n\nWelcome, " + accToDisplay + "!\n");
         System.out.println("\tAccounts owned: ");
 
         File accountFolder = new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/");
         String[] accountAccounts = accountFolder.list();
-        for(String fileName : accountAccounts) {
-            try {
-                Scanner readAccType = new Scanner(new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/" + fileName));
-                readAccType.close();
-                System.out.println("\n\tAccount #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")));
-                chooseAccount(accToDisplay);
-            } catch (FileNotFoundException e) {
-                System.err.println("Cannot open account file: " + fileName);
-            } catch (Exception e) {
-                System.err.println(e);
+        try {
+            for (String fileName : accountAccounts) {
+                try {
+                    Scanner readAccType = new Scanner(new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/" + fileName));
+                    readAccType.close();
+                    System.out.println("\n\tAccount #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")));
+                    chooseAccount(accToDisplay);
+                } catch (FileNotFoundException e) {
+                    System.err.println("Cannot open account file: " + fileName);
+                } catch (Exception e) {
+                    System.err.println(e);
+                }
             }
+        } catch(NullPointerException e) {
+            System.out.println("Error code 99 : User has no bank accounts");
         }
-
     }
 
-    public static void chooseAccount(String user) {
+    private static void chooseAccount(String user) {
         Scanner s = new Scanner(System.in);
         try {
-            System.out.println("\nPlease select an account number from above [ enter \'0\' to log out | enter \'999\' to create a new account ]");
+            System.out.println("\nPlease select an account number from above [ enter \'0\' to log out | enter \'999\' to add a new bank account ]");
             System.out.print(">> ");
             String accountToChooseStr = s.next();
             int accountToChoose = parseInt(accountToChooseStr);
@@ -187,11 +192,7 @@ public class Main {
             } else if (accountToChoose == 0) {
                 mainMenu();
             } else if (accountToChoose == 999) {
-                promptForNewUsername();
-                promptForNewPassword();
-                UserAccount newUser = new UserAccount(newUsername, newPassword);
-                System.out.println("\n\n\n\n\nAccount successfully created!\n");
-                mainMenu();
+                Account newAcc = new Account(user);
             } else {
                 System.err.println("Account does not exist");
             }
@@ -201,7 +202,7 @@ public class Main {
         }
     }
 
-    public static void displayBankAccount(String accountToDisplay, int usersAccToDisplay) {
+    private static void displayBankAccount(String accountToDisplay, int usersAccToDisplay) {
         Scanner s = new Scanner(System.in);
         System.out.println("\nAccount #" + usersAccToDisplay);
         System.out.println("\n\tBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(accountToDisplay, usersAccToDisplay)));
@@ -236,7 +237,7 @@ public class Main {
 
     }
 
-    public static void withdrawMon(String user, int accToWithdrawFrom){
+    private static void withdrawMon(String user, int accToWithdrawFrom){
         Scanner s = new Scanner(System.in);
         System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, accToWithdrawFrom)));
         System.out.print("Amount to withdraw (or enter 0 to go back): $");
@@ -269,7 +270,7 @@ public class Main {
         }
     }
 
-    public static void depositMon(String user, int accToDepositTo) {
+    private static void depositMon(String user, int accToDepositTo) {
         Scanner s = new Scanner(System.in);
         System.out.println("\nBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, accToDepositTo)));
         System.out.print("Amount to deposit (enter 0 to go back): $");
@@ -304,7 +305,7 @@ public class Main {
         }
     }
 
-    public static void transferMon(String user, int from) {
+    private static void transferMon(String user, int from) {
         Scanner s = new Scanner(System.in);
         System.out.println("\n\n\nBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, from)));
         System.out.println("\nUser to send money to (enter b to go back): ");
@@ -321,7 +322,7 @@ public class Main {
             transferMon(user, from);
         }
     }
-    public static void transferToUsersAcc(String user, int from, String toUser) {
+    private static void transferToUsersAcc(String user, int from, String toUser) {
         Scanner s = new Scanner(System.in);
         System.out.println("Account # for that user (enter 0 to go back): ");
         System.out.print(">> #");
@@ -339,7 +340,7 @@ public class Main {
         	transferToUsersAcc(user, from, toUser);
         }
     }
-    public static void transferAmount(String fromUser, int fromAcc, String toUser, int toAcc) {
+    private static void transferAmount(String fromUser, int fromAcc, String toUser, int toAcc) {
         Scanner s = new Scanner(System.in);
         System.out.print("Amount to transfer (enter 0 to go back): $");
         double amountToTransfer = parseDouble(s.next());
@@ -375,7 +376,7 @@ public class Main {
     /*
         START OF TREE FOR create account OPTION
      */
-    public static void promptForNewUsername() {
+    private static void promptForNewUsername() {
         Scanner s = new Scanner(System.in);
         System.out.print("\nUsername: ");
         String newUserUsername = s.next();
@@ -388,7 +389,7 @@ public class Main {
         }
     }
 
-    public static void promptForNewPassword() {
+    private static void promptForNewPassword() {
         Scanner s = new Scanner(System.in);
         System.out.print("Password: ");
         String newPass = s.next();
@@ -406,10 +407,10 @@ public class Main {
 
 
     //For finding if acc exists or not
-    public static boolean accExists(String user) {
+    private static boolean accExists(String user) {
         return new File(dir + "/data/UserAccounts/" + user).exists();
     }
-    public static boolean bankAccExists(String user, int usersAcc) {
+    private static boolean bankAccExists(String user, int usersAcc) {
         return new File(dir + "/data/UserAccounts/" + user + "/BankAccounts/" + usersAcc + ".txt").exists();
     }
 }

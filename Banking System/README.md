@@ -11,3 +11,8 @@ User1: Password - Antonio703!
 User #2: Password - Antonio123!
     Accounts for User2
         - 1
+
+
+Error codes:
+
+00 - NullPointerException, variable accessed may be null
