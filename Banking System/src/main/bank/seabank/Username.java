@@ -1,29 +1,32 @@
 package main.bank.seabank;
 
-import java.io.File;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Username {
+class Username {
     private String username;
     Pattern pattern = Pattern.compile("\\s");
 
-    public Username (String u) {
-        setUsername(u);
+    Username (String u) {
+        username = u;
     }
 
-    public void setUsername(String newUsername) {
-        Matcher matcher = pattern.matcher(newUsername);
-        if(matcher.find()) {
-            System.out.println("Username cannot contain spaces.");
-        }
-        else {
-            username = newUsername;
-        }
+    static boolean verifyUsername(String username) {
+        boolean noSpaces = false;
+        boolean amountCharacters = false;
 
+        if(username.contains(" ")) {
+            System.out.println("Username may not contain spaces!");
+            return false;
+        }
+        if(username.length() < 5 || username.length() > 13) {
+            System.out.println("Username must be between 5-13 characters.");
+            return false;
+        }
+        return true;
     }
 
-    public String getUser() {
+
+    String getUser() {
         return username;
     }
 }

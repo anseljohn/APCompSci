@@ -11,13 +11,12 @@ import static java.lang.Integer.parseInt;
 
 /*
     TODO
-    REMEMBER FOR NO DUPLICATE USERNAMES
     USERNAME MUST BE MORE THAN 4 CHARACTERS
 
-    2) Error codes
-    3) Fix verify methods in Username and Password
-    4) Update readme to show directions
-    5) Add password change to display() //OPTIONAL
+    1) Fix verify methods in Username
+    2) inefficiency in password verification
+    2) Update readme to show directions
+    3) Add password change to display() //OPTIONAL
  */
 
 
@@ -51,12 +50,15 @@ public class Main {
                 login();
             }
             else if(mainMenu == 1) {
+                System.out.println("\n\nUsername must:");
+                System.out.println("\t- have 5-13 characters" +
+                        "\n\t- contain spaces.");
                 promptForNewUsername();
                 System.out.println("\n\nPassword must:");
                 System.out.println("\t- have 5-13 characters." +
                         "\n\t- have at least 1 uppercase and 1 lowecase letter." +
-                        "\n\t- have at least 1 special character (~`!@#$%^&*()+=_-{}[]\\|:;”’?/<>,.)" +
-                        "\n\t- have at least 1 digit (0123456789)\n");
+                        "\n\t- have at least 1 special character (~`!@#$%^&*()+=_-{}[]\\|:;”’?/<>,.)." +
+                        "\n\t- have at least 1 digit (0123456789).\n");
                 promptForNewPassword();
                 UserAccount newUser = new UserAccount(newUsername, newPassword);
                 System.out.println("\n\n\n\n\n\n\nAccount successfully created!\n");
@@ -400,7 +402,8 @@ public class Main {
             promptForNewUsername();
         }
         else {
-            newUsername = new Username(newUserUsername);
+            if (Username.verifyUsername(newUserUsername)) newUsername = new Username(newUserUsername);
+            else promptForNewUsername();
         }
     }
 
@@ -420,9 +423,7 @@ public class Main {
                 promptForNewPassword();
             }
         }
-        else {
-            promptForNewPassword();
-        }
+        else promptForNewPassword();
     }
 
 

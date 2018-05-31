@@ -10,10 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0edbb042-f80f-4c53-8d1d-9a24ad330809" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User1/AccountTrack.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User1/BankAccounts/1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User1/pass.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User2/AccountTrack.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User2/BankAccounts/1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User2/pass.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/bank/seabank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bank/seabank/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/bank/seabank/Password.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bank/seabank/Password.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/bank/seabank/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bank/seabank/UserAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/bank/seabank/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bank/seabank/Username.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,12 +45,12 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="69" column="13" lean-forward="true" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+            <state relative-caret-position="264">
+              <caret line="405" column="40" selection-start-line="405" selection-start-column="40" selection-end-line="405" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#16812#16813#0" expanded="true" />
-                <element signature="e#16888#16889#0" expanded="true" />
+                <element signature="e#17363#17364#0" expanded="true" />
+                <element signature="e#17439#17440#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,10 +87,13 @@
       <file leaf-file-name="Username.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Username.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="204">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#238#239#0" expanded="true" />
+                <element signature="e#266#267#0" expanded="true" />
+                <element signature="e#617#618#0" expanded="true" />
+                <element signature="e#648#649#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,8 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>displa</find>
-      <find>suc</find>
       <find>login</find>
       <find>with</find>
       <find>balance</find>
@@ -132,6 +138,8 @@
       <find>public</find>
       <find />
       <find />
+      <find>created</find>
+      <find>promptfornewusername</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -177,11 +185,11 @@
         <option value="$PROJECT_DIR$/data/UserAccounts/User1/BankAccounts/1.txt" />
         <option value="$PROJECT_DIR$/src/main/bank/seabank/CheckingAccount.java" />
         <option value="$PROJECT_DIR$/data/UserAccounts/User1/AccountTrack.txt" />
-        <option value="$PROJECT_DIR$/src/main/bank/seabank/Username.java" />
         <option value="$PROJECT_DIR$/src/main/bank/seabank/Account.java" />
         <option value="$PROJECT_DIR$/src/main/bank/seabank/UserAccount.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/bank/seabank/Password.java" />
+        <option value="$PROJECT_DIR$/src/main/bank/seabank/Username.java" />
         <option value="$PROJECT_DIR$/src/main/bank/seabank/Main.java" />
       </list>
     </option>
@@ -286,7 +294,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527792256850" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527793194615" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -310,7 +318,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527792256855" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527793194621" />
       </method>
     </configuration>
     <configuration name="AppTest" type="Application" factoryName="Application">
@@ -458,7 +466,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50026953" side_tool="true" weight="0.3852459" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49973047" visible="true" weight="0.42212188" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49973047" weight="0.42212188" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960285" weight="0.3291829" />
       <window_info id="Capture Tool" order="6" />
@@ -519,7 +527,10 @@
         <state relative-caret-position="306">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#266#267#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -530,8 +541,8 @@
           <caret line="402" column="48" lean-forward="true" selection-start-line="402" selection-start-column="48" selection-end-line="402" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#16812#16813#0" expanded="true" />
-            <element signature="e#16888#16889#0" expanded="true" />
+            <element signature="e#17363#17364#0" expanded="true" />
+            <element signature="e#17439#17440#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -552,8 +563,8 @@
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#16812#16813#0" expanded="true" />
-            <element signature="e#16888#16889#0" expanded="true" />
+            <element signature="e#17363#17364#0" expanded="true" />
+            <element signature="e#17439#17440#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -580,7 +591,10 @@
         <state relative-caret-position="374">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#266#267#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -635,16 +649,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/CheckingAccount.java" />
     <entry file="file://$PROJECT_DIR$/data/UserAccounts/User1/AccountTrack.txt" />
     <entry file="file://$PROJECT_DIR$/data/UserAccounts/User2/BankAccounts/1.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Username.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Account.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
@@ -686,14 +690,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Username.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding>
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#266#267#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="69" column="13" lean-forward="true" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+        <state relative-caret-position="264">
+          <caret line="405" column="40" selection-start-line="405" selection-start-column="40" selection-end-line="405" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#16812#16813#0" expanded="true" />
-            <element signature="e#16888#16889#0" expanded="true" />
+            <element signature="e#17363#17364#0" expanded="true" />
+            <element signature="e#17439#17440#0" expanded="true" />
           </folding>
         </state>
       </provider>
