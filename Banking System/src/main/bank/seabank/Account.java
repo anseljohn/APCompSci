@@ -72,8 +72,6 @@ public abstract class Account {
         }
     }
 
-    public abstract void transaction(double amount, Payment typeOfPayment, String u);
-
     public void writeToFile() {
         try {
             PrintWriter writer = new PrintWriter(dir + "/data/UserAccounts/" + user + "/BankAccounts/" + accNumber + ".txt", "UTF-8");
@@ -124,11 +122,6 @@ public abstract class Account {
         } catch(UnsupportedEncodingException e) {
             System.err.println("Encoding not supported");
         }
-    }
-
-    //Enums
-    enum Payment {
-        DEBIT, CREDIT, CHECK;
     }
 
     public enum AccountType {
