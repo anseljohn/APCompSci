@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0edbb042-f80f-4c53-8d1d-9a24ad330809" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User1/AccountTrack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/UserAccounts/User1/AccountTrack.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User1/pass.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/UserAccounts/User1/pass.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/bank/seabank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bank/seabank/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -34,12 +31,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="362" column="51" selection-start-line="362" selection-start-column="51" selection-end-line="362" selection-end-column="51" />
+            <state relative-caret-position="735">
+              <caret line="71" column="42" lean-forward="true" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#14839#14840#0" expanded="true" />
-                <element signature="e#14915#14916#0" expanded="true" />
+                <element signature="e#14850#14851#0" expanded="true" />
+                <element signature="e#14926#14927#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -315,7 +312,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527730144929" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527733209444" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -339,7 +336,7 @@
       </Profilers>
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527730144929" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527733209444" />
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -603,12 +600,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="362" column="51" selection-start-line="362" selection-start-column="51" selection-end-line="362" selection-end-column="51" />
+        <state relative-caret-position="735">
+          <caret line="71" column="42" lean-forward="true" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#14839#14840#0" expanded="true" />
-            <element signature="e#14915#14916#0" expanded="true" />
+            <element signature="e#14850#14851#0" expanded="true" />
+            <element signature="e#14926#14927#0" expanded="true" />
           </folding>
         </state>
       </provider>

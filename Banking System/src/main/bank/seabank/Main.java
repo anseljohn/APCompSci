@@ -32,6 +32,8 @@ import static java.lang.Integer.parseInt;
 public class Main {
     private static Scanner s = new Scanner(System.in);
     private static String dir = System.getProperty("user.dir");
+    private static Username newUsername;
+    private static Password newPassword;
 
     public static void main(String[] args) {
     	
@@ -56,7 +58,9 @@ public class Main {
                 login();
             }
             else if(mainMenu == 1) {
-                createAccount();
+                promptForNewUsername();
+                promptForNewPassword();
+                UserAccount newUser = new UserAccount(newUsername, newPassword);
             }
             else if(mainMenu == 2) {
                 System.exit(0);
@@ -355,34 +359,31 @@ public class Main {
     /*
         START OF TREE FOR create account OPTION
      */
-    public static void createAccount() {
-        Username u;
-        Password p;
-        u = promptForNewUsername();
-        p = promptForNewPassword();
-        UserAccount newAcc = new UserAccount(u, p);
-    }
-    public static Username promptForNewUsername() {
+    public static void promptForNewUsername() {
         System.out.print("Username: ");
         String newUserUsername = s.next();
         if(accExists(newUserUsername)) {
             System.out.println("\n\n\nUser \'" + newUserUsername + "\' already exists!\n");
             promptForNewUsername();
         }
-
+        else {
+            newUsername = new Username(newUserUsername);
+        }
     }
 
-    public static Password promptForNewPassword() {
+    public static void promptForNewPassword() {
         System.out.print("Password: ");
         String newPass = s.next();
         System.out.print("Re-enter password: ");
         String confirmPass = s.next();
 
         if(!newPass.equals(confirmPass)) {
-            System.out.println("\n\nPassword not confirmed correctly!\n");
+            System.out.println("\n\nPassword confirmation incorrect!\n");
             promptForNewPassword();
         }
-        return new Password(newPass);
+        else {
+            newPassword = new Password(newPass);
+        }
     }
 
 
@@ -393,21 +394,4 @@ public class Main {
     public static boolean bankAccExists(String user, int usersAcc) {
         return new File(dir + "/data/UserAccounts/" + user + "/BankAccounts/" + usersAcc + ".txt").exists();
     }
-
-//    public static void cls() {
-//        if(System.getProperty("os.name").toLowerCase().indexOf("win") > -1) {
-//            try {
-//                Runtime.getRuntime().exec("cls");
-//            } catch(Exception e) {
-//                System.out.println("Command not found: cls");
-//            }
-//        }
-//        else if(System.getProperty("os.name").toLowerCase().indexOf("ux") > -1) {
-//            try {
-//                Runtime.getRuntime().exec("clear");
-//            } catch(Exception e) {
-//                System.out.println("Command not found: clear");
-//            }
-//        }
-//    }
 }
