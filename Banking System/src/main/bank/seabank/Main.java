@@ -61,6 +61,8 @@ public class Main {
                 promptForNewUsername();
                 promptForNewPassword();
                 UserAccount newUser = new UserAccount(newUsername, newPassword);
+                System.out.println("\n\n\n\n\nAccount successfully created!\n");
+                mainMenu();
             }
             else if(mainMenu == 2) {
                 System.exit(0);
@@ -194,8 +196,7 @@ public class Main {
         System.out.println("\n\t(0) Withdraw Money");
         System.out.println("\t(1) Deposit Money");
         System.out.println("\t(2) Transfer money");
-        System.out.println("\t(3) Log a Transaction");
-        System.out.println("\t(4) Log out");
+        System.out.println("\t(3) Log out");
         System.out.print("\n>> ");
 
         try {
@@ -209,10 +210,7 @@ public class Main {
             else if(accountOption == 2) {
                 transferMon(accountToDisplay, usersAccToDisplay);
             }
-//            else if(accountOption == 3) {
-//
-//            }
-            else if(accountOption == 4) {
+            else if(accountOption == 3) {
                 mainMenu();
             }
             else {
