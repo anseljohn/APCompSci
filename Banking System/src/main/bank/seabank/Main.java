@@ -13,10 +13,10 @@ import static java.lang.Integer.parseInt;
     TODO
     USERNAME MUST BE MORE THAN 4 CHARACTERS
 
-    1) Fix verify methods in Username
-    2) inefficiency in password verification
+    1) inefficiency in password verification
     2) Update readme to show directions
-    3) Add password change to display() //OPTIONAL
+    3) (OPTIONAL) Be able to enter amount with commas
+    4) (OPTIONAL) Add password change to display()
  */
 
 
@@ -56,7 +56,7 @@ public class Main {
                 promptForNewUsername();
                 System.out.println("\n\nPassword must:");
                 System.out.println("\t- have 5-13 characters." +
-                        "\n\t- have at least 1 uppercase and 1 lowecase letter." +
+                        "\n\t- have at least 1 uppercase and 1 lowercase letter." +
                         "\n\t- have at least 1 special character (~`!@#$%^&*()+=_-{}[]\\|:;”’?/<>,.)." +
                         "\n\t- have at least 1 digit (0123456789).\n");
                 promptForNewPassword();
@@ -89,7 +89,8 @@ public class Main {
      */
     private static void login() {
         Scanner s = new Scanner(System.in);
-        System.out.print("\n\n\n\n\nUsername (or enter b to go back): ");
+        System.out.println("\n\n\n\n\nUsername (or enter b to go back)");
+        System.out.print(">> ");
         try {
             String user = s.next();
             if(user.equals("b")) {
@@ -170,24 +171,27 @@ public class Main {
     }
 
     private static void display(String accToDisplay) {
-        System.out.println("\n\n\n\n\nWelcome, " + accToDisplay + "!\n");
-        System.out.println("\tAccounts owned: ");
+        System.out.println("\n\nWelcome, " + accToDisplay + "!\n");
+        /*try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch(InterruptedException e) {
+            System.err.println("Error code 51339");
+            Thread.currentThread().interrupt();
+        }*/
+        System.out.println("\tAccounts owned:");
 
         File accountFolder = new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/");
         String[] accountAccounts = accountFolder.list();
         try {
-            for (String fileName : accountAccounts) {
-                try {
-                    Scanner readAccType = new Scanner(new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/" + fileName));
-                    readAccType.close();
-                    System.out.println("\n\t\t- Account #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")));
-                    chooseAccount(accToDisplay);
-                } catch (FileNotFoundException e) {
-                    System.err.println("Error code 7113 : Cannot open account file: " + fileName);
-                } catch (Exception e) {
-                    System.err.println(e);
+            for (int i = 0; i <  accountAccounts.length; i++) {
+                for(int j = 0; j < accountAccounts.length; j++) {
+                    if(accountAccounts[j].contains((i + 1) +"")) {
+                        System.out.println("\t\t- Account #" + Integer.parseInt(accountAccounts[j].replaceAll("[\\D]", "")));
+                        break;
+                    }
                 }
             }
+            chooseAccount(accToDisplay);
         } catch(NullPointerException e) {
             System.out.println("Error code 99 : User has no bank accounts");
         }
@@ -208,7 +212,8 @@ public class Main {
                 Account newAcc = new Account(user);
                 display(user);
             } else {
-                System.err.println("Account does not exist");
+                System.out.println("\n\n\n\n\nAccount #" + accountToChoose + "does not exist");
+                display(user);
             }
         } catch(NumberFormatException e) {
             System.out.println("\nPlease enter an integer");
@@ -254,7 +259,8 @@ public class Main {
     private static void withdrawMon(String user, int accToWithdrawFrom){
         Scanner s = new Scanner(System.in);
         System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, accToWithdrawFrom)));
-        System.out.print("Amount to withdraw (or enter 0 to go back): $");
+        System.out.println("\nAmount to withdraw (or enter 0 to go back):");
+        System.out.print(">> $");
         try {
             double amountToWithdraw = parseDouble(s.next());
             if(amountToWithdraw == 0.0) displayBankAccount(user, accToWithdrawFrom);
@@ -288,7 +294,8 @@ public class Main {
     private static void depositMon(String user, int accToDepositTo) {
         Scanner s = new Scanner(System.in);
         System.out.println("\nBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, accToDepositTo)));
-        System.out.print("Amount to deposit (enter 0 to go back): $");
+        System.out.println("Amount to deposit (enter 0 to go back):");
+        System.out.print(">> $");
         try {
             double amountToDeposit = parseDouble(s.next());
             if(amountToDeposit == 0.0) displayBankAccount(user, accToDepositTo);
@@ -348,9 +355,13 @@ public class Main {
         	if(toUsersAcc == 0) {
         		transferMon(user, from);
         	}
-        	else if(bankAccExists(user, toUsersAcc)) {
+        	else if(bankAccExists(toUser, toUsersAcc)) {
         		transferAmount(user, from, toUser, toUsersAcc);
         	}
+        	else {
+        	    System.out.println(toUser + " does not have account #" + toUsersAcc);
+        	    transferToUsersAcc(user, from, toUser);
+            }
         } catch (NumberFormatException e) {
         	System.out.println("\n\n\n\n\nPlease enter an integer");
         	transferToUsersAcc(user, from, toUser);
@@ -358,7 +369,8 @@ public class Main {
     }
     private static void transferAmount(String fromUser, int fromAcc, String toUser, int toAcc) {
         Scanner s = new Scanner(System.in);
-        System.out.print("Amount to transfer (enter 0 to go back): $");
+        System.out.println("Amount to transfer (enter 0 to go back):");
+        System.out.print(">> $");
         double amountToTransfer = parseDouble(s.next());
         if(amountToTransfer == 0.0) displayBankAccount(fromUser, fromAcc);
         else if(amountToTransfer < 0) {
