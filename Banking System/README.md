@@ -1,8 +1,7 @@
-Hello!
+Welcome to SeaBank!
 
-Use the numpad to choose from the list of choices the program outputs.
-
-
+Before you get started
+    - Make sure you have Java 7 or higher
 
 
 Error codes:

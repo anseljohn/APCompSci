@@ -4,60 +4,59 @@ import java.util.ArrayList;
 
 public class Password {
     private String pass;
-    private ArrayList<Character> specialChars = new ArrayList<Character>();
+    private static ArrayList<String> specialChars = new ArrayList<String>();
     private static String specialCharsStr = "~`!@#$%^&*()+=_-{}[]\\|:;”’?/<>,.";
 
-    public Password() {
-        pass = "";
-    }
-    public Password(String password) {
+    Password(String password) {
         pass = password;
-        for(int i = 0; i < specialCharsStr.length(); i++) specialChars.add(specialCharsStr.charAt(i));
-        //verifyPassword();
     }
 
-    public void verifyPassword() {
+    static boolean verifyPassword(String newPass) {
         boolean hasSpecialChar = false;
         boolean hasUpperCase = false;
         boolean hasLowerCase = false;
         boolean hasDigit = false;
 
-        String newPass = pass;
+        for(int i = 0; i < specialCharsStr.length(); i++) specialChars.add(specialCharsStr.charAt(i) + "");
 
         for(int i = 0; i < newPass.length(); i++) {
             if(Character.isLetter(newPass.charAt(i)) && (newPass.charAt(i) + "").equals((newPass.charAt(i) + "").toUpperCase())) hasUpperCase = true;
             if(Character.isLetter(newPass.charAt(i)) && (newPass.charAt(i) + "").equals((newPass.charAt(i) + "").toLowerCase())) hasLowerCase = true;
-            if((newPass.charAt(i) + "").equals(i + "")) hasDigit = true;
-            for(Character s : specialChars) {
-                if(newPass.charAt(i) == s) {
+            if(newPass.contains(i + "")) hasDigit = true;
+            for(String s : specialChars) {
+                if(newPass.contains(s)) {
                     hasSpecialChar = true;
                 }
             }
         }
 
         if(newPass.length() < 5 || newPass.length() > 13) {
-            System.out.println("Password must be between 5-13 characters.");
+            System.out.println("\n\nPassword must be between 5-13 characters.");
+            return false;
         }
         if(!hasSpecialChar) {
-            System.out.println("Password must contain at least one special character. (" + specialCharsStr + ")");
+            System.out.println("\n\nPassword must contain at least one special character. (" + specialCharsStr + ")\n");
+            return false;
         }
         if(!hasUpperCase) {
-            System.out.println("Password must have at least 1 uppercase letter.");
+            System.out.println("\n\nPassword must have at least 1 uppercase letter.\n");
+            return false;
         }
         if(!hasLowerCase) {
-            System.out.println("Password must have at least 1 lowercase letter.");
+            System.out.println("\n\nPassword must have at least 1 lowercase letter.\n");
+            return false;
         }
         if(!hasDigit) {
-            System.out.println("Password must have at least one digit.");
+            System.out.println("\n\nPassword must have at least one digit.\n");
+            return false;
         }
         else {
-            System.out.println( "Password set");
-            pass = newPass;
+            return true;
         }
     }
 
     public static String getSpecialChars() {
         return specialCharsStr;
     }
-    public String getPass() { return pass; }
+    String getPass() { return pass; }
 }

@@ -11,7 +11,7 @@ class UserAccount {
 
     private static String dir = System.getProperty("user.dir");
 
-    private UserAccount(Username u, Password p) {
+    UserAccount(Username u, Password p) {
         user = u;
         userPass = p;
         writeToFile();
@@ -74,7 +74,7 @@ class UserAccount {
         return encryptedMessage;
     }
 
-    private static String decryptPass(String decrypt_Acc) {
+    public static String decryptPass(String decrypt_Acc) {
         String message = "";
         String decryptedMessage = "";
         try {

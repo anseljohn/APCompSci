@@ -26,7 +26,7 @@ public class Main {
     private static Username newUsername;
     private static Password newPassword;
 
-    private static void main(String[] args) {
+    public static void main(String[] args) {
     	
         System.out.println("Welcome to Sea Bank!\n");
         try {
@@ -52,9 +52,20 @@ public class Main {
             }
             else if(mainMenu == 1) {
                 promptForNewUsername();
+                System.out.println("\n\nPassword must:");
+                System.out.println("\t- have 5-13 characters." +
+                        "\n\t- have at least 1 uppercase and 1 lowecase letter." +
+                        "\n\t- have at least 1 special character (~`!@#$%^&*()+=_-{}[]\\|:;”’?/<>,.)" +
+                        "\n\t- have at least 1 digit (0123456789)\n");
                 promptForNewPassword();
                 UserAccount newUser = new UserAccount(newUsername, newPassword);
                 System.out.println("\n\n\n\n\n\n\nAccount successfully created!\n");
+                try {
+                    TimeUnit.SECONDS.sleep(2);
+                } catch(InterruptedException e) {
+                    System.err.println("Error code 51339");
+                    Thread.currentThread().interrupt();
+                }
                 mainMenu();
             }
             else if(mainMenu == 2) {
@@ -167,7 +178,7 @@ public class Main {
                 try {
                     Scanner readAccType = new Scanner(new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/" + fileName));
                     readAccType.close();
-                    System.out.println("\n\tAccount #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")));
+                    System.out.println("\n\t\t- Account #" + Integer.parseInt(fileName.replaceAll("[\\D]", "")));
                     chooseAccount(accToDisplay);
                 } catch (FileNotFoundException e) {
                     System.err.println("Error code 7113 : Cannot open account file: " + fileName);
@@ -183,8 +194,8 @@ public class Main {
     private static void chooseAccount(String user) {
         Scanner s = new Scanner(System.in);
         try {
-            System.out.println("\nPlease select an account number from above [ enter \'0\' to log out | enter \'999\' to add a new bank account ]");
-            System.out.print(">> ");
+            System.out.println("\nPlease enter an account number from above [ enter \'0\' to log out | enter \'999\' to add a new bank account ]");
+            System.out.print(">> #");
             String accountToChooseStr = s.next();
             int accountToChoose = parseInt(accountToChooseStr);
             if (bankAccExists(user, accountToChoose)) {
@@ -193,6 +204,7 @@ public class Main {
                 mainMenu();
             } else if (accountToChoose == 999) {
                 Account newAcc = new Account(user);
+                display(user);
             } else {
                 System.err.println("Account does not exist");
             }
@@ -396,15 +408,20 @@ public class Main {
         Scanner s = new Scanner(System.in);
         System.out.print("Password: ");
         String newPass = s.next();
-        System.out.print("Re-enter password: ");
-        String confirmPass = s.next();
+        if(Password.verifyPassword(newPass)) {
+            System.out.print("Re-enter password: ");
+            String confirmPass = s.next();
 
-        if(!newPass.equals(confirmPass)) {
-            System.out.println("\n\nPassword confirmation incorrect!");
-            promptForNewPassword();
+            if(newPass.equals(confirmPass)) {
+                newPassword = new Password(newPass);
+            }
+            else {
+                System.out.println("\n\nPassword confirmation incorrect!");
+                promptForNewPassword();
+            }
         }
         else {
-            newPassword = new Password(newPass);
+            promptForNewPassword();
         }
     }
 
