@@ -4,10 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/bank/seabank/Password.java" line="20" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0edbb042-f80f-4c53-8d1d-9a24ad330809" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/bank/seabank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bank/seabank/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="0edbb042-f80f-4c53-8d1d-9a24ad330809" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="335" column="167" selection-start-line="335" selection-start-column="167" selection-end-line="335" selection-end-column="167" />
+            <state relative-caret-position="595">
+              <caret line="332" column="73" lean-forward="true" selection-start-line="332" selection-start-column="73" selection-end-line="332" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -298,7 +295,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527726191196" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527727356249" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -322,7 +319,7 @@
       </Profilers>
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527726191196" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527727356250" />
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -567,8 +564,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="335" column="167" selection-start-line="335" selection-start-column="167" selection-end-line="335" selection-end-column="167" />
+        <state relative-caret-position="595">
+          <caret line="332" column="73" lean-forward="true" selection-start-line="332" selection-start-column="73" selection-end-line="332" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
