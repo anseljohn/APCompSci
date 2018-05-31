@@ -5,18 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
-//import java.math.BigDecimal;
-//import java.nio.file.Files;
-//import java.nio.file.Paths;
-
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
-//import java.nio.file.Files;
-//import java.nio.file.Paths;
-//import javax.crypto.Cipher;
-//import javax.crypto.KeyGenerator;
-//import javax.crypto.SecretKey;
-//import javax.crypto.spec.SecretKeySpec;
 
 public class Account {
     private double balance;

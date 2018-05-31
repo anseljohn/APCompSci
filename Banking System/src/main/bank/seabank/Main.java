@@ -8,11 +8,6 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
-//import java.nio.file.Files;
-//import java.nio.file.Paths;
-//import java.text.NumberFormat;
-//import java.util.InputMismatchException;
-//import java.text.NumberFormat;
 
 /*
     TODO
@@ -20,9 +15,8 @@ import static java.lang.Integer.parseInt;
     USERNAME MUST BE MORE THAN 4 CHARACTERS
 
     3) Fix verify methods in Username and Password
-    5) Change stupid error messages
-    6) Update readme
-    7) Add password change to display()
+    6) Update readme to show directions
+    7) Add password change to display() //OPTIONAL
  */
 
 
