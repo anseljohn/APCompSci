@@ -8,7 +8,7 @@ Directions:
 	1) Open up the Banking System folder in a jde
 	2) Go to /src/main/bank/seabank (/src/main.bank.seabank in a jde)
 	3) Double click Main.java
-	4) Click ctrl + shift + f10 in intellij, ctrl + f11 in eclipse, or just click run to run Main.java
+	4) Press ctrl + shift + f10 in intellij, ctrl + f11 in eclipse, or just click run to run Main.java
 	5) No accounts should exist so navigate to Create Account
 	6) Enter in a username and password
 	7) Log in
