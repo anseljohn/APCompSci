@@ -70,10 +70,22 @@ public class Main {
             }
             else {
                 System.out.println("\n\n\n\n\nPlease select a number from the list below");
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch(InterruptedException ie) {
+                    System.err.println("Error code 51339");
+                    Thread.currentThread().interrupt();
+                }
                 mainMenu();
             }
         } catch(NumberFormatException e) {
             System.out.println("\n\n\n\n\nPlease enter an integer");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch(InterruptedException ie) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
             mainMenu();
         }
     }
@@ -100,6 +112,12 @@ public class Main {
             }
         } catch(NumberFormatException e) {
             System.out.println("\n\n\n\n\nPlease enter an integer\n");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch(InterruptedException ie) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
             login();
         }
     }
@@ -125,6 +143,12 @@ public class Main {
         }
         else {
             System.out.println("\nPlease enter (yY/nN)");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch(InterruptedException ie) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
             accNonexistant(nonExistentAcc); //Recursion
         }
     }
@@ -143,6 +167,12 @@ public class Main {
         }
         else {
             System.out.println("\n\n\n\n\nPlease enter (yY/nN)");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch(InterruptedException ie) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
             retryLogin();
         }
     }
@@ -166,12 +196,6 @@ public class Main {
 
     private static void display(String accToDisplay) {
         System.out.println("\n\nWelcome, " + accToDisplay + "!\n");
-        /*try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch(InterruptedException e) {
-            System.err.println("Error code 51339");
-            Thread.currentThread().interrupt();
-        }*/
         System.out.println("\tAccounts owned:");
 
         File accountFolder = new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/");
@@ -188,6 +212,14 @@ public class Main {
             chooseAccount(accToDisplay);
         } catch(NullPointerException e) {
             System.out.println("Error code 99 : User has no bank accounts");
+            System.out.println("Returning to main menu...");
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch(InterruptedException ie) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
+            mainMenu();
         }
     }
 
@@ -241,10 +273,22 @@ public class Main {
             }
             else {
                 System.out.println("\n\n\n\n\nPlease select a number from below");
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch(InterruptedException ie) {
+                    System.err.println("Error code 51339");
+                    Thread.currentThread().interrupt();
+                }
                 displayBankAccount(accountToDisplay, usersAccToDisplay);
             }
         } catch(NumberFormatException e) {
             System.out.println("\n\n\n\n\nPlease enter an integer\n");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch(InterruptedException ie) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
             display(accountToDisplay);
         }
 
@@ -269,6 +313,12 @@ public class Main {
                 }
                 else {
                     System.out.println("The amount of money you are requesting to withdraw exceeds your balance.");
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch(InterruptedException ie) {
+                        System.err.println("Error code 51339");
+                        Thread.currentThread().interrupt();
+                    }
                     withdrawMon(user, accToWithdrawFrom);
                 }
                 try {
@@ -281,6 +331,12 @@ public class Main {
             }
         } catch(NumberFormatException e) {
             System.out.println("\n\n\n\n\nPlease enter a number");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch(InterruptedException ie) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
             withdrawMon(user, accToWithdrawFrom);
         }
     }
@@ -295,16 +351,34 @@ public class Main {
             if(amountToDeposit == 0.0) displayBankAccount(user, accToDepositTo);
             else if(amountToDeposit < 0) {
                 System.out.println("\n\n\n\n\nCannot deposit a negative amount!");
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch(InterruptedException ie) {
+                    System.err.println("Error code 51339");
+                    Thread.currentThread().interrupt();
+                }
                 depositMon(user, accToDepositTo);
             }
             else if(Account.getBalance(user, accToDepositTo) + amountToDeposit > 5000000) {
                 System.out.println("\n\n\n\n\nDepositing $" + (5000000 - Account.getBalance(user, accToDepositTo)) + "...");
                 System.out.println("Please open a new bank account to deposit the rest.");
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch(InterruptedException ie) {
+                    System.err.println("Error code 51339");
+                    Thread.currentThread().interrupt();
+                }
                 displayBankAccount(user, accToDepositTo);
             }
             else if(amountToDeposit > 5000000) {
                 System.out.println("\n\n\n\n\nBank accounts can have a maximum of $5,000,000");
                 System.out.println("Please open a new bank account or deposit less.");
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch(InterruptedException ie) {
+                    System.err.println("Error code 51339");
+                    Thread.currentThread().interrupt();
+                }
                 depositMon(user, accToDepositTo);
             }
             else {
@@ -320,6 +394,12 @@ public class Main {
             }
         } catch(NumberFormatException e) {
             System.out.println("\n\n\n\n\nPlease enter a number");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch(InterruptedException ie) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
             depositMon(user, accToDepositTo);
         }
     }
@@ -366,6 +446,12 @@ public class Main {
             }
         } catch (NumberFormatException e) {
         	System.out.println("\n\n\n\n\nPlease enter an integer");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch(InterruptedException ie) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
         	transferToUsersAcc(user, from, toUser);
         }
     }
@@ -377,6 +463,12 @@ public class Main {
         if(amountToTransfer == 0.0) displayBankAccount(fromUser, fromAcc);
         else if(amountToTransfer < 0) {
             System.out.println("\n\n\n\n\nCannot transfer a negative amount!");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch(InterruptedException ie) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
             transferAmount(fromUser, fromAcc, toUser, toAcc);
         }
         else {
@@ -387,6 +479,12 @@ public class Main {
             }
             else {
                 System.out.println("The amount of money you are requesting to send exceeds your limit.");
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch(InterruptedException ie) {
+                    System.err.println("Error code 51339");
+                    Thread.currentThread().interrupt();
+                }
                 transferAmount(fromUser, fromAcc, toUser, toAcc);
             }
             try {
@@ -413,6 +511,12 @@ public class Main {
         String newUserUsername = s.next();
         if(accExists(newUserUsername)) {
             System.out.println("\n\n\nUser \'" + newUserUsername + "\' already exists!\n");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch(InterruptedException ie) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
             promptForNewUsername();
         }
         else {
@@ -434,6 +538,12 @@ public class Main {
             }
             else {
                 System.out.println("\n\nPassword confirmation incorrect!");
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch(InterruptedException ie) {
+                    System.err.println("Error code 51339");
+                    Thread.currentThread().interrupt();
+                }
                 promptForNewPassword();
             }
         }
