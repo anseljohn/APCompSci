@@ -206,7 +206,7 @@ public class Main {
                 Account newAcc = new Account(user);
                 display(user);
             } else {
-                System.out.println("\n\n\n\n\nAccount #" + accountToChoose + "does not exist");
+                System.out.println("\n\n\n\n\nAccount #" + accountToChoose + " does not exist");
                 display(user);
             }
         } catch(NumberFormatException e) {
@@ -297,12 +297,12 @@ public class Main {
                 System.out.println("\n\n\n\n\nCannot deposit a negative amount!");
                 depositMon(user, accToDepositTo);
             }
-            else if(Account.getBalance(user, accToDepositTo) >= 5000000) {
-                System.out.println("\n\n\n\n\nYou have reached the maximum amount of money!");
-                System.out.println("Please open a new bank account.");
+            else if(Account.getBalance(user, accToDepositTo) + amountToDeposit > 5000000) {
+                System.out.println("\n\n\n\n\nDepositing $" + (5000000 - Account.getBalance(user, accToDepositTo)) + "...");
+                System.out.println("Please open a new bank account to deposit the rest.");
                 displayBankAccount(user, accToDepositTo);
             }
-            else if(amountToDeposit >= 5000000) {
+            else if(amountToDeposit > 5000000) {
                 System.out.println("\n\n\n\n\nBank accounts can have a maximum of $5,000,000");
                 System.out.println("Please open a new bank account or deposit less.");
                 depositMon(user, accToDepositTo);
@@ -337,7 +337,13 @@ public class Main {
             transferToUsersAcc(user, from, transferTo);
         }
         else {
-            System.out.println("That account doesn't seem to exist.");
+            System.out.println("\n\n\n\n\nThat account doesn't seem to exist.");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch(InterruptedException e) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
             transferMon(user, from);
         }
     }
