@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Password {
     private String pass;
-    private static ArrayList<String> specialChars = new ArrayList<String>();
+    private static ArrayList<String> specialChars = new ArrayList<String>(); //List interface
     private static String specialCharsStr = "~`!@#$%^&*()+=_-{}[]\\|:;”’?/<>,.";
 
     Password(String password) {
@@ -29,7 +29,7 @@ public class Password {
             return false;
         }
         
-        for(int i = 0; i < newPass.length(); i++) {
+        for(int i = 0; i < newPass.length(); i++) { //Looping through strings
             if(Character.isLetter(newPass.charAt(i)) && (newPass.charAt(i) + "").equals((newPass.charAt(i) + "").toUpperCase())) hasUpperCase = true;
             if(Character.isLetter(newPass.charAt(i)) && (newPass.charAt(i) + "").equals((newPass.charAt(i) + "").toLowerCase())) hasLowerCase = true;
             if(newPass.contains(i + "")) hasDigit = true;
