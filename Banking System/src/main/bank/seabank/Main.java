@@ -11,10 +11,7 @@ import static java.lang.Integer.parseInt;
 
 /*
     TODO
-    USERNAME MUST BE MORE THAN 4 CHARACTERS
-    
-    3) (OPTIONAL) Be able to enter amount with commas
-    4) (OPTIONAL) Add password change to display()
+    (Optional) Add ability to change username and password
  */
 
 
