@@ -19,23 +19,25 @@ public class Password {
 
         for(int i = 0; i < specialCharsStr.length(); i++) specialChars.add(specialCharsStr.charAt(i) + "");
 
+        for(String s : specialChars) {
+            if(newPass.contains(s)) {
+                hasSpecialChar = true;
+            }
+        }
+        if(!hasSpecialChar) {
+            System.out.println("\n\nPassword must contain at least one special character. (" + specialCharsStr + ")\n");
+            return false;
+        }
+        
         for(int i = 0; i < newPass.length(); i++) {
             if(Character.isLetter(newPass.charAt(i)) && (newPass.charAt(i) + "").equals((newPass.charAt(i) + "").toUpperCase())) hasUpperCase = true;
             if(Character.isLetter(newPass.charAt(i)) && (newPass.charAt(i) + "").equals((newPass.charAt(i) + "").toLowerCase())) hasLowerCase = true;
             if(newPass.contains(i + "")) hasDigit = true;
-            for(String s : specialChars) {
-                if(newPass.contains(s)) {
-                    hasSpecialChar = true;
-                }
-            }
+
         }
 
         if(newPass.length() < 5 || newPass.length() > 13) {
             System.out.println("\n\nPassword must be between 5-13 characters.");
-            return false;
-        }
-        if(!hasSpecialChar) {
-            System.out.println("\n\nPassword must contain at least one special character. (" + specialCharsStr + ")\n");
             return false;
         }
         if(!hasUpperCase) {

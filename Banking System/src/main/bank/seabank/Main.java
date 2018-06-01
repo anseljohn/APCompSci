@@ -12,9 +12,7 @@ import static java.lang.Integer.parseInt;
 /*
     TODO
     USERNAME MUST BE MORE THAN 4 CHARACTERS
-
-    1) inefficiency in password verification
-    2) Update readme to show directions
+    
     3) (OPTIONAL) Be able to enter amount with commas
     4) (OPTIONAL) Add password change to display()
  */
