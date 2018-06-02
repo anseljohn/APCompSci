@@ -318,7 +318,7 @@ public class Main {
 
     private static void withdrawMon(String user, int accToWithdrawFrom){
         Scanner s = new Scanner(System.in);
-        System.out.println("\nBalance: " + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, accToWithdrawFrom)));
+        System.out.println("\nBalance: $" + NumberFormat.getNumberInstance(Locale.US).format(Account.getBalance(user, accToWithdrawFrom)));
         System.out.println("\nAmount to withdraw (or enter 0 to go back):");
         System.out.print(">> $");
         try {
@@ -530,7 +530,7 @@ public class Main {
     private static void promptForNewUsername() {
         Scanner s = new Scanner(System.in);
         System.out.print("\nUsername: ");
-        String newUserUsername = s.next();
+        String newUserUsername = s.nextLine();
         if(accExists(newUserUsername)) {
             System.out.println("\n\n\nUser \'" + newUserUsername + "\' already exists!\n");
             try {

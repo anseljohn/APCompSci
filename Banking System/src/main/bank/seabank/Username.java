@@ -1,5 +1,6 @@
 package main.bank.seabank;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class Username {
@@ -11,10 +12,9 @@ class Username {
     }
 
     static boolean verifyUsername(String username) {
-        boolean noSpaces = false;
-        boolean amountCharacters = false;
-
-        if(username.contains(" ")) {
+    	Pattern pattern = Pattern.compile("\\s");
+    	Matcher matcher = pattern.matcher(username);
+        if(matcher.find()) {
             System.out.println("Username may not contain spaces!");
             return false;
         }
