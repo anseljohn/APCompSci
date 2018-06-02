@@ -20,6 +20,7 @@ Directions:
 		- Withdraw money from bank accounts
 		- Deposit money into bank accounts
 		- Transfer money between your bank accounts transfer to other's bank accounts
+		- I also recommend you close out of your JDE and re-enter, it's a beauty to see the accounts' access still available
 
 Error codes:
 00 - NullPointerException

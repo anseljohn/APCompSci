@@ -9,15 +9,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/bank/seabank/Password.java" line="14" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0edbb042-f80f-4c53-8d1d-9a24ad330809" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User1/AccountTrack.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User1/BankAccounts/1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User1/BankAccounts/2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User1/pass.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User3/AccountTrack.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User3/BankAccounts/1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/UserAccounts/User3/pass.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="0edbb042-f80f-4c53-8d1d-9a24ad330809" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="531">
-              <caret line="601" column="5" lean-forward="true" selection-start-line="601" selection-start-column="5" selection-end-line="601" selection-end-column="5" />
+            <state relative-caret-position="327">
+              <caret line="589" column="18" lean-forward="true" selection-start-line="589" selection-start-column="18" selection-end-line="589" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#23878#23879#0" expanded="true" />
@@ -54,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -235,7 +227,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Groovy JUnit" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit" value="groovy.util.GroovyTestCase" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../EOYProject/Banking System" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15313224" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -284,7 +276,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527907225587" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527907588292" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -308,7 +300,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527907225593" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527907588297" />
       </method>
     </configuration>
     <configuration name="AppTest" type="Application" factoryName="Application">
@@ -446,6 +438,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="996" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -608,9 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/UserAccount.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1190">
@@ -643,8 +633,8 @@
     <entry file="file://$PROJECT_DIR$/data/UserAccounts/User1/AccountTrack.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="601" column="5" lean-forward="true" selection-start-line="601" selection-start-column="5" selection-end-line="601" selection-end-column="5" />
+        <state relative-caret-position="327">
+          <caret line="589" column="18" lean-forward="true" selection-start-line="589" selection-start-column="18" selection-end-line="589" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#23878#23879#0" expanded="true" />
@@ -652,6 +642,9 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
