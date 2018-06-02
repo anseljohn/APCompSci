@@ -321,7 +321,7 @@ public class Main {
                 System.out.println("\n\n\n\n\nCannot withdraw a negative amount!");
                 withdrawMon(user, accToWithdrawFrom);
             }
-            else if(amountToWithdraw % 1 < .01) {
+            else if(amountToWithdraw % 1 != 0 && amountToWithdraw < .01) {
                 System.out.println("\n\n\n\n\nCannot subtract that little of an amount!");
                 withdrawMon(user, accToWithdrawFrom);
             }
@@ -378,7 +378,7 @@ public class Main {
                 }
                 depositMon(user, accToDepositTo);
             }
-            else if(amountToDeposit % 1 < .01) {
+            else if(amountToDeposit % 1 != 0 && amountToDeposit < .01) {
                 System.out.println("\n\n\n\n\nCannot deposit that little of an amount!");
                 depositMon(user, accToDepositTo);
             }
@@ -455,7 +455,7 @@ public class Main {
         System.out.println("Account # for that user (enter 0 to go back): ");
         System.out.print(">> #");
         int toUsersAcc = parseInt(s.next());
-        
+
         try {
         	if(toUsersAcc == 0) {
         		transferMon(user, from);
@@ -494,7 +494,7 @@ public class Main {
             }
             transferAmount(fromUser, fromAcc, toUser, toAcc);
         }
-        else if(amountToTransfer % 1 < .01) {
+        else if(amountToTransfer % 1 != 0 && amountToTransfer < .01) {
             System.out.println("\n\n\n\n\nCannot transfer that little of an amount!");
             transferAmount(fromUser, fromAcc, toUser, toAcc);
         }
