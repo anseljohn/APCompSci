@@ -122,10 +122,24 @@ public class Main {
         System.out.print("(yY/nN/bB(back))>> ");
         String createAcc_failedLogin = s.next();
         if(createAcc_failedLogin.toLowerCase().equals("y")) {
+            System.out.println("\n\nUsername must:");
+            System.out.println("\t- have 5-13 characters" +
+                    "\n\t- contain spaces.");
             promptForNewUsername();
+            System.out.println("\n\nPassword must:");
+            System.out.println("\t- have 5-13 characters." +
+                    "\n\t- have at least 1 uppercase and 1 lowercase letter." +
+                    "\n\t- have at least 1 special character (~`!@#$%^&*()+=_-{}[]\\|:;”’?/<>,.)." +
+                    "\n\t- have at least 1 digit (0123456789).\n");
             promptForNewPassword();
             UserAccount newUser = new UserAccount(newUsername, newPassword);
-            System.out.println("\n\n\n\n\nAccount successfully created!\n");
+            System.out.println("\n\n\n\n\n\n\nAccount successfully created!\n");
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch(InterruptedException e) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
             mainMenu();
         }
         else if(createAcc_failedLogin.toLowerCase().equals("n")) {
@@ -321,8 +335,8 @@ public class Main {
                 System.out.println("\n\n\n\n\nCannot withdraw a negative amount!");
                 withdrawMon(user, accToWithdrawFrom);
             }
-            else if(amountToWithdraw % 1 != 0 && amountToWithdraw < .01) {
-                System.out.println("\n\n\n\n\nCannot subtract that little of an amount!");
+            else if(amountToWithdraw % 1 != 0 && amountToWithdraw % 1 < .01) {
+                System.out.println("\n\n\n\n\nCannot subtract that little of a decimal!");
                 withdrawMon(user, accToWithdrawFrom);
             }
             else {
@@ -378,8 +392,8 @@ public class Main {
                 }
                 depositMon(user, accToDepositTo);
             }
-            else if(amountToDeposit % 1 != 0 && amountToDeposit < .01) {
-                System.out.println("\n\n\n\n\nCannot deposit that little of an amount!");
+            else if(amountToDeposit % 1.0 != 0.0 && amountToDeposit % 1 < .01) {
+                System.out.println("\n\n\n\n\nCannot deposit that little of a decimal!");
                 depositMon(user, accToDepositTo);
             }
             else if(Account.getBalance(user, accToDepositTo) + amountToDeposit > 5000000) {
@@ -457,25 +471,25 @@ public class Main {
         int toUsersAcc = parseInt(s.next());
 
         try {
-        	if(toUsersAcc == 0) {
-        		transferMon(user, from);
-        	}
-        	else if(bankAccExists(toUser, toUsersAcc)) {
-        		transferAmount(user, from, toUser, toUsersAcc);
-        	}
-        	else {
-        	    System.out.println(toUser + " does not have account #" + toUsersAcc);
-        	    transferToUsersAcc(user, from, toUser);
+            if(toUsersAcc == 0) {
+                transferMon(user, from);
+            }
+            else if(bankAccExists(toUser, toUsersAcc)) {
+                transferAmount(user, from, toUser, toUsersAcc);
+            }
+            else {
+                System.out.println(toUser + " does not have account #" + toUsersAcc);
+                transferToUsersAcc(user, from, toUser);
             }
         } catch (NumberFormatException e) {
-        	System.out.println("\n\n\n\n\nPlease enter an integer");
+            System.out.println("\n\n\n\n\nPlease enter an integer");
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch(InterruptedException ie) {
                 System.err.println("Error code 51339");
                 Thread.currentThread().interrupt();
             }
-        	transferToUsersAcc(user, from, toUser);
+            transferToUsersAcc(user, from, toUser);
         }
     }
     private static void transferAmount(String fromUser, int fromAcc, String toUser, int toAcc) {
@@ -494,8 +508,8 @@ public class Main {
             }
             transferAmount(fromUser, fromAcc, toUser, toAcc);
         }
-        else if(amountToTransfer % 1 != 0 && amountToTransfer < .01) {
-            System.out.println("\n\n\n\n\nCannot transfer that little of an amount!");
+        else if(amountToTransfer % 1 != 0 && amountToTransfer % 1 < .01) {
+            System.out.println("\n\n\n\n\nCannot transfer that little of a decimal!");
             transferAmount(fromUser, fromAcc, toUser, toAcc);
         }
         else {
