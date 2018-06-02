@@ -1,19 +1,12 @@
 package main.bank.seabank;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-import java.util.*;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
-
-/*
-    TODO
-    (Optional) Add ability to change username and password
- */
 
 
 public class Main {
@@ -22,16 +15,14 @@ public class Main {
     private static Password newPassword;
 
     public static void main(String[] args) {
-    	
-//        System.out.println("Welcome to Sea Bank!\n");
-//        try {
-//            TimeUnit.SECONDS.sleep(2);
-//        } catch(InterruptedException e) {
-//            System.err.println("Error code 51339");
-//            Thread.currentThread().interrupt();
-//        }
-//        mainMenu();
-    	printAllAccounts();
+        System.out.println("Welcome to Sea Bank!\n");
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch(InterruptedException e) {
+            System.err.println("Error code 51339");
+            Thread.currentThread().interrupt();
+        }
+        mainMenu();
     }
 
     private static void mainMenu() {
@@ -330,6 +321,10 @@ public class Main {
                 System.out.println("\n\n\n\n\nCannot withdraw a negative amount!");
                 withdrawMon(user, accToWithdrawFrom);
             }
+            else if(amountToWithdraw % 1 < .01) {
+                System.out.println("\n\n\n\n\nCannot subtract that little of an amount!");
+                withdrawMon(user, accToWithdrawFrom);
+            }
             else {
                 if(Account.getBalance(user, accToWithdrawFrom) >= amountToWithdraw) {
                     Account.withdraw(amountToWithdraw, user, accToWithdrawFrom);
@@ -381,6 +376,10 @@ public class Main {
                     System.err.println("Error code 51339");
                     Thread.currentThread().interrupt();
                 }
+                depositMon(user, accToDepositTo);
+            }
+            else if(amountToDeposit % 1 < .01) {
+                System.out.println("\n\n\n\n\nCannot deposit that little of an amount!");
                 depositMon(user, accToDepositTo);
             }
             else if(Account.getBalance(user, accToDepositTo) + amountToDeposit > 5000000) {
@@ -495,6 +494,10 @@ public class Main {
             }
             transferAmount(fromUser, fromAcc, toUser, toAcc);
         }
+        else if(amountToTransfer % 1 < .01) {
+            System.out.println("\n\n\n\n\nCannot transfer that little of an amount!");
+            transferAmount(fromUser, fromAcc, toUser, toAcc);
+        }
         else {
             if(Account.getBalance(fromUser, fromAcc) >= amountToTransfer) {
                 Account.withdraw(amountToTransfer, fromUser, fromAcc);
@@ -531,7 +534,7 @@ public class Main {
      */
     private static void promptForNewUsername() {
         Scanner s = new Scanner(System.in);
-        System.out.print("\nUsername: ");
+        System.out.print("\nUsername [enter 'b' to return to main menu]: ");
         String newUserUsername = s.nextLine();
         if(accExists(newUserUsername)) {
             System.out.println("\n\n\nUser \'" + newUserUsername + "\' already exists!\n");
@@ -543,6 +546,9 @@ public class Main {
             }
             promptForNewUsername();
         }
+        else if(newUserUsername.equals("b")) {
+            mainMenu();
+        }
         else {
             if (Username.verifyUsername(newUserUsername)) newUsername = new Username(newUserUsername);
             else promptForNewUsername();
@@ -551,9 +557,30 @@ public class Main {
 
     private static void promptForNewPassword() {
         Scanner s = new Scanner(System.in);
-        System.out.print("Password: ");
+        System.out.print("Password [enter b to go back]: ");
         String newPass = s.next();
-        if(Password.verifyPassword(newPass)) {
+        if(newPass.equals("b")) {
+            System.out.println("\n\nUsername must:");
+            System.out.println("\t- have 5-13 characters" +
+                    "\n\t- contain spaces.");
+            promptForNewUsername();
+            System.out.println("\n\nPassword must:");
+            System.out.println("\t- have 5-13 characters." +
+                    "\n\t- have at least 1 uppercase and 1 lowercase letter." +
+                    "\n\t- have at least 1 special character (~`!@#$%^&*()+=_-{}[]\\|:;”’?/<>,.)." +
+                    "\n\t- have at least 1 digit (0123456789).\n");
+            promptForNewPassword();
+            UserAccount newUser = new UserAccount(newUsername, newPassword);
+            System.out.println("\n\n\n\n\n\n\nAccount successfully created!\n");
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch(InterruptedException e) {
+                System.err.println("Error code 51339");
+                Thread.currentThread().interrupt();
+            }
+            mainMenu();
+        }
+        else if(Password.verifyPassword(newPass)) {
             System.out.print("Re-enter password: ");
             String confirmPass = s.next();
 
