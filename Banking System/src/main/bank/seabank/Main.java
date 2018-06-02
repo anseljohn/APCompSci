@@ -6,6 +6,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import java.util.*;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
@@ -22,14 +23,15 @@ public class Main {
 
     public static void main(String[] args) {
     	
-        System.out.println("Welcome to Sea Bank!\n");
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch(InterruptedException e) {
-            System.err.println("Error code 51339");
-            Thread.currentThread().interrupt();
-        }
-        mainMenu();
+//        System.out.println("Welcome to Sea Bank!\n");
+//        try {
+//            TimeUnit.SECONDS.sleep(2);
+//        } catch(InterruptedException e) {
+//            System.err.println("Error code 51339");
+//            Thread.currentThread().interrupt();
+//        }
+//        mainMenu();
+    	printAllAccounts();
     }
 
     private static void mainMenu() {
@@ -579,9 +581,5 @@ public class Main {
     }
     private static boolean bankAccExists(String user, int usersAcc) {
         return new File(dir + "/data/UserAccounts/" + user + "/BankAccounts/" + usersAcc + ".txt").exists();
-    }
-
-    private static void printAllAccounts() {
-
     }
 }
