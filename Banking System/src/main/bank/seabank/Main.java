@@ -209,7 +209,7 @@ public class Main {
             for (int i = 0; i <  accountAccounts.length; i++) {
                 for(int j = 0; j < accountAccounts.length; j++) {
                     if (Integer.parseInt(accountAccounts[j].replaceAll("[\\D]", "")) == files[i]) {
-                        System.out.println("\t\t- Account #" + Integer.parseInt(accountAccounts[j].replaceAll("[\\D]", "")));
+                        System.out.println("\t- Account #" + Integer.parseInt(accountAccounts[j].replaceAll("[\\D]", "")) + ": $" + Account.getBalance(accToDisplay, files[i]));
                         break;
                     }
                 }
