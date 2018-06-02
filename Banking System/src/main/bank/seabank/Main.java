@@ -200,10 +200,15 @@ public class Main {
 
         File accountFolder = new File(dir + "/data/UserAccounts/" + accToDisplay + "/BankAccounts/");
         String[] accountAccounts = accountFolder.list();
+        int[] files = new int[accountAccounts.length];
+        for(int i = 0; i < accountAccounts.length; i++) {
+            files[i] = Integer.parseInt(accountAccounts[i].replaceAll("[\\D]", ""));
+        }
+        files = sortFiles(files, accountAccounts.length);
         try {
             for (int i = 0; i <  accountAccounts.length; i++) {
                 for(int j = 0; j < accountAccounts.length; j++) {
-                    if(accountAccounts[j].contains((i + 1) +"")) {
+                    if (Integer.parseInt(accountAccounts[j].replaceAll("[\\D]", "")) == files[i]) {
                         System.out.println("\t\t- Account #" + Integer.parseInt(accountAccounts[j].replaceAll("[\\D]", "")));
                         break;
                     }
@@ -221,6 +226,23 @@ public class Main {
             }
             mainMenu();
         }
+    }
+
+    private static int[] sortFiles(int[] arr, int n)
+    {
+        int i, key, j;
+        for (i = 1; i < n; i++)
+        {
+            key = arr[i];
+            j = i-1;
+            while (j >= 0 && arr[j] > key)
+            {
+                arr[j+1] = arr[j];
+                j = j-1;
+            }
+            arr[j+1] = key;
+        }
+        return arr;
     }
 
     private static void chooseAccount(String user) {
@@ -557,5 +579,9 @@ public class Main {
     }
     private static boolean bankAccExists(String user, int usersAcc) {
         return new File(dir + "/data/UserAccounts/" + user + "/BankAccounts/" + usersAcc + ".txt").exists();
+    }
+
+    private static void printAllAccounts() {
+
     }
 }
