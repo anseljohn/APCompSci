@@ -10,7 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0edbb042-f80f-4c53-8d1d-9a24ad330809" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/bank/seabank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bank/seabank/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,8 +37,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="219" column="17" lean-forward="true" selection-start-line="219" selection-start-column="17" selection-end-line="219" selection-end-column="17" />
+            <state relative-caret-position="408">
+              <caret line="219" column="51" lean-forward="true" selection-start-line="219" selection-start-column="51" selection-end-line="219" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#22679#22680#0" expanded="true" />
@@ -99,27 +99,27 @@
       <find>Username</find>
       <find>parseint</find>
       <find>accToWithdrawFrom</find>
-      <find />
+      <find>accounts owned</find>
       <find>display</find>
-      <find />
-      <find />
-      <find />
-      <find />
+      <find>user to send money</find>
+      <find>please select an account</find>
+      <find>please select an a</find>
+      <find>would you like to</find>
       <find>try</find>
-      <find />
+      <find>try {</find>
       <find>53119</find>
       <find>transfer</find>
       <find>catch</find>
       <find>public</find>
-      <find />
-      <find />
+      <find>password m</find>
+      <find>password must</find>
       <find>created</find>
       <find>promptfornewusername</find>
       <find>999</find>
       <find>sleep</find>
-      <find />
-      <find />
-      <find />
+      <find>does not exi</find>
+      <find>that user</find>
+      <find>doesn't seem</find>
       <find>recur</find>
       <find>looping</find>
       <find>strings</find>
@@ -278,7 +278,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527900398344" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527900877078" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -302,7 +302,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527900398349" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527900877079" />
       </method>
     </configuration>
     <configuration name="AppTest" type="Application" factoryName="Application">
@@ -440,7 +440,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="996" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -648,8 +647,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/bank/seabank/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="219" column="17" lean-forward="true" selection-start-line="219" selection-start-column="17" selection-end-line="219" selection-end-column="17" />
+        <state relative-caret-position="408">
+          <caret line="219" column="51" lean-forward="true" selection-start-line="219" selection-start-column="51" selection-end-line="219" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#22679#22680#0" expanded="true" />
